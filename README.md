@@ -5,6 +5,7 @@ C:\Program Files\Tempo Launcher - Beta\The Bazaar game_64\bazaarwinprodlatest
 1. Download BepInEx BepInEx_win_x64_5.4.23.2.zip from this link:
 - https://github.com/BepInEx/BepInEx/releases
 2. Extract the downloaded files into the game's root folder.
+  (typically C:\Program Files\Tempo Launcher - Beta\The Bazaar game_64\bazaarwinprodlatest)
 
 After extracting, the game folder should include these files and folders:
 
