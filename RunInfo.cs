@@ -16,6 +16,7 @@ public class RunInfo
     public List<CardInfo> OppStash;
     public int? OppHealth;
     public int? OppRegen;
+    public string OppName;
     public uint Wins;
     public int Day;
     public string Version = "0.0.1";
@@ -39,6 +40,7 @@ public class RunInfo
         public EContainerSocketId? Left;
         public InstanceId Instance;
         public Dictionary<ECardAttributeType, int> Attributes { get; set; } = new Dictionary<ECardAttributeType, int>();
+        public string Enchant;
     }
     
 }

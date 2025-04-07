@@ -13,7 +13,7 @@
       https://nuget.bepinex.dev/v3/index.json
     </RestoreAdditionalProjectSources>
     <RootNamespace>BazaarPlannerMod</RootNamespace>
-    <GamePath>D:\New folder\Tempo Launcher - Beta\The Bazaar game_64\bazaarwinprodlatest</GamePath>
+    <GamePath>C:\Program Files\Tempo Launcher - Beta\The Bazaar game_64\bazaarwinprodlatest</GamePath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -39,8 +39,8 @@ public class Plugin : BaseUnityPlugin
                     Left = card.LeftSocketId,
                     Instance = card.GetInstanceId(),
                     Attributes = card.Attributes,
-                    Name = card.Template?.InternalName
-                    
+                    Name = card.Template?.InternalName,
+                    Enchant = card.GetEnchantment().ToString()                    
                 });
         }
         return cardInfos;
@@ -49,11 +49,10 @@ public class Plugin : BaseUnityPlugin
     [HarmonyPatch(typeof(BoardManager), "Update")]
     class Update
     {
-
         [HarmonyPrefix]
         static void Prefix()
         {
-            if (!Input.GetKeyDown(KeyCode.P))
+            if (!Input.GetKeyDown(KeyCode.B))
             {
                 return;
             }
@@ -82,9 +81,10 @@ public class Plugin : BaseUnityPlugin
                 Name = Data.Profile?.Username,
                 OppHealth = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.HealthMax),
                 OppRegen = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.HealthRegen),
+                OppName = Data.Run.Opponent?.Hero.ToString()
             };
             
-            Task.Run(() => SendRunInfo(runInfo));
+            Task.Run(() => OpenInBazaarPlanner(runInfo));
         }
 
         private static List<Card> GetItemsAsCards(IPlayerInventory container)
@@ -111,17 +111,122 @@ public class Plugin : BaseUnityPlugin
             return skillInfos;
         }
 
-        static void SendRunInfo(RunInfo runInfo)
+        private static string CreateBazaarPlannerJson(RunInfo runInfo)
+        {
+            var result = new List<object>();
+
+            // Add player and opponent data objects (unchanged)
+            result.Add(new
+            {
+                name = "_b_b",
+                health = runInfo.Health,
+                regen = runInfo.Regen,
+                playerName = runInfo.Name ?? "Unknown",
+                skills = runInfo.Skills?.Select(s => new
+                {
+                    name = s.Name,
+                    tier = s.Tier
+                }).ToList(),
+            });
+
+            result.Add(new
+            {
+                name = "_b_t",
+                health = runInfo.OppHealth,
+                regen = runInfo.OppRegen,
+                playerName = runInfo.OppName ?? "Unknown",
+                skills = runInfo.OppSkills?.Select(s => new
+                {
+                    name = s.Name,
+                    tier = s.Tier
+                }).ToList()
+            });
+            result.Add(new 
+            {
+                name = "_b_backpack"
+            });
+
+            // Helper function to create card object with conditional attributes
+            object CreateCardObject(RunInfo.CardInfo card, string board)
+            {
+                var cardDict = new Dictionary<string, object>
+                {
+                    ["name"] = card.Enchant.Length > 0 ? card.Enchant + " " + card.Name  : card.Name,
+                    ["startIndex"] = card.Left,
+                    ["board"] = board,
+                    ["tier"] = card.Tier
+                };
+
+                if (card.Attributes?.ContainsKey(ECardAttributeType.SellPrice) == true)
+                    cardDict["valueFinal"] = card.Attributes[ECardAttributeType.SellPrice];
+                
+                if (card.Attributes?.ContainsKey(ECardAttributeType.HealAmount) == true)
+                    cardDict["healFinal"] = card.Attributes[ECardAttributeType.HealAmount];
+                
+                if (card.Attributes?.ContainsKey(ECardAttributeType.Cooldown) == true)
+                    cardDict["cooldown"] = card.Attributes[ECardAttributeType.CooldownMax]/1000;
+                
+                if (card.Attributes?.ContainsKey(ECardAttributeType.CritChance) == true)
+                    cardDict["critFinal"] = card.Attributes[ECardAttributeType.CritChance];
+                
+                if (card.Attributes?.ContainsKey(ECardAttributeType.BurnApplyAmount) == true)
+                    cardDict["burnFinal"] = card.Attributes[ECardAttributeType.BurnApplyAmount];
+                if (card.Attributes?.ContainsKey(ECardAttributeType.ShieldApplyAmount) == true)
+                    cardDict["shieldFinal"] = card.Attributes[ECardAttributeType.ShieldApplyAmount];
+                if (card.Attributes?.ContainsKey(ECardAttributeType.PoisonApplyAmount) == true)
+                    cardDict["poisonFinal"] = card.Attributes[ECardAttributeType.PoisonApplyAmount];
+                if (card.Attributes?.ContainsKey(ECardAttributeType.DamageAmount) == true)
+                    cardDict["damageFinal"] = card.Attributes[ECardAttributeType.DamageAmount];
+                if (card.Attributes?.ContainsKey(ECardAttributeType.Lifesteal) == true)
+                    cardDict["lifestealFinal"] = card.Attributes[ECardAttributeType.Lifesteal];
+                if (card.Attributes?.ContainsKey(ECardAttributeType.RegenApplyAmount) == true)
+                    cardDict["regenFinal"] = card.Attributes[ECardAttributeType.RegenApplyAmount];
+                if (card.Attributes?.ContainsKey(ECardAttributeType.AmmoMax) == true)
+                    cardDict["maxAmmoFinal"] = card.Attributes[ECardAttributeType.AmmoMax];
+                return cardDict;
+            }
+
+            // Add player cards
+            if (runInfo.Cards != null)
+            {
+                foreach (var card in runInfo.Cards)
+                {
+                    result.Add(CreateCardObject(card, "b"));
+                }
+            }
+
+            // Add opponent cards
+            if (runInfo.OppCards != null)
+            {
+                foreach (var card in runInfo.OppCards)
+                {
+                    result.Add(CreateCardObject(card, "t"));
+                }
+            }
+            if(runInfo.Stash != null)
+            {
+                foreach (var card in runInfo.Stash)
+                {
+                    result.Add(CreateCardObject(card, "backpack"));
+                }
+            }
+
+            return JsonConvert.SerializeObject(result);
+        }
+
+        static void OpenInBazaarPlanner(RunInfo runInfo)
         {
             try
             {
-                string json = JsonConvert.SerializeObject(runInfo);
-
-                Console.WriteLine(json);
+                string json = CreateBazaarPlannerJson(runInfo);
+                string compressed = LZString.CompressToEncodedURIComponent(json);
+                string url = $"https://www.bazaarplanner.com/#{compressed}";
+                
+                Application.OpenURL(url);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error sending RunInfo: {ex.Message}");
+                Console.WriteLine($"Error opening BazaarPlanner: {ex.Message}");
             }
         }
     }
