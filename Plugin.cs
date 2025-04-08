@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BazaarGameClient.Domain.Models.Cards;
 using BazaarGameShared.Domain.Core.Types;
 using BazaarGameShared.Domain.Players;
+using BazaarGameShared.Infra.Messages;
 using BepInEx;
 using HarmonyLib;
 using Newtonsoft.Json;
@@ -18,7 +19,8 @@ public class Plugin : BaseUnityPlugin
 {
     private readonly Harmony _harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
     private static DateTime _lastSentTime = DateTime.MinValue;
-    private static readonly TimeSpan SendInterval = TimeSpan.FromSeconds(2); 
+    private static readonly TimeSpan SendInterval = TimeSpan.FromSeconds(2);
+    private static string _runId;
 
 
     private void Awake()
@@ -82,6 +84,7 @@ public class Plugin : BaseUnityPlugin
                 Name = Data.Profile?.Username,
                 OppHealth = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.HealthMax),
                 OppRegen = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.HealthRegen),
+                RunId = _runId
             };
             
             Task.Run(() => SendRunInfo(runInfo));
@@ -123,6 +126,16 @@ public class Plugin : BaseUnityPlugin
             {
                 Console.WriteLine($"Error sending RunInfo: {ex.Message}");
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(AppState), "OnRunInitializedMessageReceived")]
+    public static class NetMessageRunInitializedCtorPatch
+    {
+        [HarmonyPrefix]
+        static void Prefix(NetMessageRunInitialized obj)
+        {
+            _runId = obj.RunId;
         }
     }
 }
