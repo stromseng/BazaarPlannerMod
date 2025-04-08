@@ -130,7 +130,7 @@ public class Plugin : BaseUnityPlugin
     }
 
     [HarmonyPatch(typeof(AppState), "OnRunInitializedMessageReceived")]
-    public static class NetMessageRunInitializedCtorPatch
+    public static class OnRunInitializedMessageReceived
     {
         [HarmonyPrefix]
         static void Prefix(NetMessageRunInitialized obj)
