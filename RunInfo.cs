@@ -24,6 +24,7 @@ public class RunInfo
     public int? Regen { get; set; }
     public int? Level { get; set; }
     public string Name;
+    public string RunId;
 
 
     public class SkillInfo
