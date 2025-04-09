@@ -10,12 +10,12 @@
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
       https://api.nuget.org/v3/index.json;
-      https://nuget.bepinex.dev/v3/index.json
+      https://nuget.bepinex.dev/v3/index.json;
     </RestoreAdditionalProjectSources>
     <RootNamespace>BazaarPlannerMod</RootNamespace>
     <GamePath>C:\Program Files\Tempo Launcher - Beta\The Bazaar game_64\bazaarwinprodlatest</GamePath>
+    <NoWarn>CS0436</NoWarn>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" />
