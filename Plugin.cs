@@ -68,18 +68,24 @@ public class Plugin : BaseUnityPlugin
             data = compressedData,
             t = ((DateTimeOffset)DateTime.Now).ToUnixTimeMilliseconds().ToString()
         };
-        
-        var httpRequest = new HttpRequestMessage(HttpMethod.Post, $"https://bazaarplanner-default-rtdb.firebaseio.com/users/{uid}/runs/{runId}/encounters.json?auth={token}");
-        httpRequest.Content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8,"application/json");
+        await SaveToFirebase($"users/{uid}/runs/{runId}/encounters", data);
+        await SaveToFirebase($"users/{uid}/currentRun",runId);       
+    }
+    private static async Task SaveToFirebase(string url, object data)
+    {
+        var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8,"application/json");
+        var token = await GetValidToken();
+        var httpRequest = new HttpRequestMessage(HttpMethod.Post, $"https://bazaarplanner-default-rtdb.firebaseio.com/{url}.json?auth={token}");
+        httpRequest.Content = content;
         var httpClient = new HttpClient();
         var httpResponse = await httpClient.SendAsync(httpRequest);
         if (httpResponse.IsSuccessStatusCode)
         {
-            Console.WriteLine($"Run {runId} saved to BazaarPlanner");
+            Console.WriteLine($"{url} saved");
         }
         else
         {
-            Console.WriteLine($"Failed to save run {runId} to BazaarPlanner: {httpResponse.ReasonPhrase}");
+            Console.WriteLine($"Failed to save {url}: {httpResponse.ReasonPhrase}");
         }
     }
      private static RunInfo getRunInfo() {
@@ -395,23 +401,21 @@ public class Plugin : BaseUnityPlugin
             return null;
         }
         return null;
-    }
-    /*
-
-    [HarmonyPatch(typeof(BoardManager), "PlayRevealAnimations")]
-    public static class BoardManagerPlayRevealAnimationsPatch
+    }    
+/*
+    [HarmonyPatch(typeof(Events), "OnCardMoved")]
+    public static class OnCardMovedPatch 
     {
         [HarmonyPostfix]
         static void Postfix()
         {
-                Console.WriteLine("Combat cards revealed!");
-                
-                RunInfo runInfo = getRunInfo();
-                string json = CreateBazaarPlannerJson(runInfo);
-                string compressed = LZString.CompressToEncodedURIComponent(json);
-                Task.Run(() => SaveToFirebase(runInfo.RunId, $"Day {Data.Run.Day} - {Data.Run.Opponent?.Hero.ToString()}", compressed));
+            RunInfo runInfo = getRunInfo();
+            string json = CreateBazaarPlannerJson(runInfo);
+            string compressed = LZString.CompressToEncodedURIComponent(json);
+            Task.Run(() => SaveToFirebase($"users/{UidConfig.Value}/currentrunboard", compressed));
         }
-    }*/
+    }
+    */
     [HarmonyPatch(typeof(CombatState), "OnExit")]
     class CombatStateOnExit
     {
@@ -421,8 +425,8 @@ public class Plugin : BaseUnityPlugin
             RunInfo runInfo = getRunInfo();
             string json = CreateBazaarPlannerJson(runInfo);
             string compressed = LZString.CompressToEncodedURIComponent(json);
-            //Task.Run(() => SaveToFirebase(runInfo.RunId, $"Day {Data.Run.Day} - {runInfo.OppName}", compressed));        
-            Task.Run(() => OpenInBazaarPlanner(compressed));
+            Task.Run(() => SaveToFirebase(runInfo.RunId, $"Day {Data.Run.Day} - {runInfo.OppName}", compressed));        
+            //Task.Run(() => OpenInBazaarPlanner(compressed));
         }
         
     }
