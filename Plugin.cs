@@ -33,11 +33,13 @@ public class Plugin : BaseUnityPlugin
     private static ConfigEntry<string> RefreshTokenConfig;
     private static ConfigEntry<string> TokenExpiryConfig;
     private static ConfigFile BPConfig;
+    private static string _lastBoardState = "";
+    private static int _encounterId = 0;
    // private static AuthHandler _authHandler;
    // private static CefBrowserHost _browserHost;
    // private static GameObject _browserGameObject;
 
-    private static async Task SaveToFirebase(string runId, string battleName, string compressedData)
+    private static async Task SaveCombat(string runId, string battleName, string compressedData)
     {
         Console.WriteLine("Saving to BazaarPlanner...");
         string uid = UidConfig.Value;
@@ -68,14 +70,15 @@ public class Plugin : BaseUnityPlugin
             data = compressedData,
             t = ((DateTimeOffset)DateTime.Now).ToUnixTimeMilliseconds().ToString()
         };
-        await SaveToFirebase($"users/{uid}/runs/{runId}/encounters", data);
+        await SaveToFirebase($"users/{uid}/runs/{runId}/encounters/{_encounterId}", data);
+        _encounterId++;
         await SaveToFirebase($"users/{uid}/currentRun",runId);       
     }
     private static async Task SaveToFirebase(string url, object data)
     {
         var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8,"application/json");
         var token = await GetValidToken();
-        var httpRequest = new HttpRequestMessage(HttpMethod.Post, $"https://bazaarplanner-default-rtdb.firebaseio.com/{url}.json?auth={token}");
+        var httpRequest = new HttpRequestMessage(HttpMethod.Put, $"https://bazaarplanner-default-rtdb.firebaseio.com/{url}.json?auth={token}");
         httpRequest.Content = content;
         var httpClient = new HttpClient();
         var httpResponse = await httpClient.SendAsync(httpRequest);
@@ -329,6 +332,7 @@ public class Plugin : BaseUnityPlugin
         static void Prefix(NetMessageRunInitialized obj)
         {
             _runId = obj.RunId;
+            _encounterId = 0;
         }
     }
 
@@ -402,20 +406,7 @@ public class Plugin : BaseUnityPlugin
         }
         return null;
     }    
-/*
-    [HarmonyPatch(typeof(Events), "OnCardMoved")]
-    public static class OnCardMovedPatch 
-    {
-        [HarmonyPostfix]
-        static void Postfix()
-        {
-            RunInfo runInfo = getRunInfo();
-            string json = CreateBazaarPlannerJson(runInfo);
-            string compressed = LZString.CompressToEncodedURIComponent(json);
-            Task.Run(() => SaveToFirebase($"users/{UidConfig.Value}/currentrunboard", compressed));
-        }
-    }
-    */
+
     [HarmonyPatch(typeof(CombatState), "OnExit")]
     class CombatStateOnExit
     {
@@ -425,9 +416,27 @@ public class Plugin : BaseUnityPlugin
             RunInfo runInfo = getRunInfo();
             string json = CreateBazaarPlannerJson(runInfo);
             string compressed = LZString.CompressToEncodedURIComponent(json);
-            Task.Run(() => SaveToFirebase(runInfo.RunId, $"Day {Data.Run.Day} - {runInfo.OppName}", compressed));        
+            Task.Run(() => SaveCombat(runInfo.RunId, $"Day {Data.Run.Day} - {runInfo.OppName}", compressed));        
             //Task.Run(() => OpenInBazaarPlanner(compressed));
         }
         
+    }
+
+    [HarmonyPatch(typeof(BoardManager), "UpdateBoard")]
+    public static class UpdateBoardPatch 
+    {
+        [HarmonyPostfix]
+        static void Postfix()
+        {
+            RunInfo runInfo = getRunInfo();
+            string json = CreateBazaarPlannerJson(runInfo);
+            
+            if (json != _lastBoardState)
+            {
+                _lastBoardState = json;
+                string compressed = LZString.CompressToEncodedURIComponent(json);
+                Task.Run(() => SaveToFirebase($"users/{UidConfig.Value}/currentrunboard", compressed));
+            }
+        }
     }
 }
