@@ -115,14 +115,31 @@ namespace BazaarPlannerModInstaller
 
         private void CheckForConfigFile()
         {
-            string configPath = Path.Combine(Application.StartupPath, "BazaarPlanner.config");
-            bool configExists = File.Exists(configPath);
+            string workingConfigPath = Path.Combine(Application.StartupPath, "BazaarPlanner.config");
+            string targetConfigPath = Path.Combine(installPathTextBox.Text, "BepInEx", "config", "BazaarPlanner.cfg");
+            
+            bool workingConfigExists = File.Exists(workingConfigPath);
+            bool targetConfigExists = File.Exists(targetConfigPath);
+
+            // If target config exists but working config doesn't, copy it
+            if (targetConfigExists && !workingConfigExists)
+            {
+                try
+                {
+                    File.Copy(targetConfigPath, workingConfigPath);
+                    workingConfigExists = true;
+                }
+                catch (Exception)
+                {
+                    // Silently fail if we can't copy the file
+                }
+            }
             
             // Only update UI if the state has changed
-            if (configExists != installButton.Visible)
+            if (workingConfigExists != installButton.Visible)
             {
-                instructionsLabel.Visible = !configExists;
-                installButton.Visible = configExists;
+                instructionsLabel.Visible = !workingConfigExists;
+                installButton.Visible = workingConfigExists;
             }
         }
 
