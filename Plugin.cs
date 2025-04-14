@@ -17,6 +17,8 @@ using System.Text;
 using BepInEx.Configuration;
 using System.IO;
 using System.Threading;
+using System.Reflection;
+using Newtonsoft.Json.Linq;
 
 namespace BazaarPlannerMod;
 
@@ -39,6 +41,8 @@ public class Plugin : BaseUnityPlugin
     private static CancellationTokenSource _updateCancellationToken;
     private static EVictoryCondition _lastVictoryCondition;
     private static string _firebaseUrl = "https://bazaarplanner-default-rtdb.firebaseio.com/";
+    private static Dictionary<string, List<string>> _baseItemTags;
+
     private static async Task SaveCombat()
     {        
         string uid = UidConfig.Value;
@@ -120,6 +124,7 @@ public class Plugin : BaseUnityPlugin
             Hero = Data.Run.Player.Hero.ToString(),
             Day = (int)Data.Run.Day,
             Gold = Data.Run.Player.GetAttributeValue(EPlayerAttributeType.Gold),
+            Income = Data.Run.Player.GetAttributeValue(EPlayerAttributeType.Income),
             Cards = GetCardInfo(GetItemsAsCards(Data.Run.Player.Hand)),
             Stash = GetCardInfo(GetItemsAsCards(Data.Run.Player.Stash)),
             Skills = GetSkillInfo(Data.Run.Player.Skills),
@@ -159,7 +164,7 @@ public class Plugin : BaseUnityPlugin
                 {
                     TemplateId = skill.TemplateId,
                     Tier = skill.Tier,
-                    Name = skill.Template.InternalName.Replace(" (Skill)", "")
+                    Name = skill.Template.Localization.Title.Text
                 });
         }
 
@@ -201,6 +206,7 @@ public class Plugin : BaseUnityPlugin
                 level = runInfo.OppLevel,
                 income = runInfo.OppIncome,
                 prestige = runInfo.OppPrestige,
+                day = runInfo.Day,
                 skills = runInfo.OppSkills?.Select(s => new
                 {
                     name = s.Name,
@@ -218,12 +224,18 @@ public class Plugin : BaseUnityPlugin
         {
             var cardDict = new Dictionary<string, object>
             {
-                ["name"] = card.Enchant.Length > 0 ? card.Enchant + " " + card.Name  : card.Name,
+                ["name"] = card.Enchant.Length > 0 ? card.Enchant + " " + card.Name : card.Name,
                 ["startIndex"] = card.Left,
                 ["board"] = board,
                 ["tier"] = card.Tier
             };
-
+           
+            // Only include tags if they differ from base item
+            if (card.Tags != null && card.Tags.Count > 0 && HasNewTags(card.Name, card.Tags.Select(t => t.ToString()).ToList()))
+            {
+                cardDict["tags"] = card.Tags.Select(t => t.ToString()).ToList();
+            }
+            
             if (card.Attributes?.ContainsKey(ECardAttributeType.SellPrice) == true)
                 cardDict["valueFinal"] = card.Attributes[ECardAttributeType.SellPrice];
             
@@ -317,7 +329,57 @@ public class Plugin : BaseUnityPlugin
         {
             Console.WriteLine($"Error initializing configurations: {ex.Message}");
         }
+
+        // Load base items data on startup
+        LoadBaseItems();
     }
+
+    private void LoadBaseItems()
+    {
+        try
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            using (var stream = assembly.GetManifestResourceStream("BazaarPlannerMod.items.js"))
+            using (var reader = new StreamReader(stream))
+            {
+                string content = reader.ReadToEnd();
+                
+                // Remove the "export const items = " part and any trailing semicolon
+                content = content.Replace("export const items =", "")
+                                .Trim()
+                                .TrimEnd(';');
+                
+                // Deserialize to dynamic to easily access the nested structure
+                var items = JObject.Parse(content);
+                
+                // Create a simplified dictionary with just the tags
+                _baseItemTags = items.Properties().ToDictionary(
+                    prop => prop.Name,
+                    prop => prop.Value["tags"].Select(t => t.ToString()).ToList()
+                );
+                
+                Logger.LogInfo($"Loaded tags for {_baseItemTags.Count} base items");
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError($"Failed to load base items: {ex.Message}");
+            _baseItemTags = new Dictionary<string, List<string>>();
+        }
+    }
+
+    private static bool HasNewTags(string itemName, List<string> currentTags)
+    {
+        if (!_baseItemTags.TryGetValue(itemName, out var baseTags))
+            return true; // If we don't have base data, include tags
+
+        if (currentTags == null || currentTags.Count == 0)
+            return false;
+
+        // Check if any current tag is not in base tags
+        return currentTags.Any(tag => !baseTags.Contains(tag));
+    }
+
     static List<RunInfo.CardInfo> GetCardInfo(List<Card> cards)
     {
         List<RunInfo.CardInfo> cardInfos = new List<RunInfo.CardInfo>();
@@ -330,6 +392,7 @@ public class Plugin : BaseUnityPlugin
                     Left = card.LeftSocketId,
                     Instance = card.GetInstanceId(),
                     Attributes = card.Attributes,
+                    Tags = card.Tags,
                     Name = card.Template?.InternalName,
                     Enchant = card.GetEnchantment().ToString()                    
                 });

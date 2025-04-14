@@ -48,6 +48,7 @@ public class RunInfo
         public Guid TemplateId;
         public EContainerSocketId? Left;
         public InstanceId Instance;
+        public HashSet<ECardTag> Tags;
         public Dictionary<ECardAttributeType, int> Attributes { get; set; } = new Dictionary<ECardAttributeType, int>();
         public string Enchant;
     }

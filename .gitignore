@@ -1,5 +1,8 @@
 bin/
 libs/
 obj/
+/**/bin/
+/**/obj/
+/**/libs/
 .idea/
 Folder.DotSettings.user
