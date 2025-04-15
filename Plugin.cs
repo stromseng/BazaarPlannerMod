@@ -243,7 +243,7 @@ public class Plugin : BaseUnityPlugin
                 cardDict["healFinal"] = card.Attributes[ECardAttributeType.HealAmount];
             
             if (card.Attributes?.ContainsKey(ECardAttributeType.CooldownMax) == true)
-                cardDict["finalCooldown"] = card.Attributes[ECardAttributeType.CooldownMax]/1000;
+                cardDict["cooldownFinal"] = card.Attributes[ECardAttributeType.CooldownMax];
             
             if (card.Attributes?.ContainsKey(ECardAttributeType.CritChance) == true && card.Attributes[ECardAttributeType.CritChance]>0)
                 cardDict["critFinal"] = card.Attributes[ECardAttributeType.CritChance];

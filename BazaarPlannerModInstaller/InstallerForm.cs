@@ -248,11 +248,12 @@ namespace BazaarPlannerModInstaller
                     File.Copy(sourceConfigFile, targetConfigFile, true);
                 }
 
-                MessageBox.Show("Installation completed successfully!");
+                MessageBox.Show("Installation completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit(); // Close the application after user clicks OK
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Installation failed: {ex.Message}");
+                MessageBox.Show($"Error during installation: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
