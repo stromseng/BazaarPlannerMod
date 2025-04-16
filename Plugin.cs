@@ -58,6 +58,7 @@ public class Plugin : BaseUnityPlugin
             { "losses", runInfo.Losses },
             { "day", runInfo.Day },
             { "t", timestamp },
+            { "hero", runInfo.Hero },
             { "lastEncounter", _encounterId.ToString() },
             { $"encounters/{_encounterId}", new
             {
