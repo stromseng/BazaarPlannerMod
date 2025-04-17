@@ -37,6 +37,7 @@ public class Plugin : BaseUnityPlugin
     private static ConfigFile BPConfig;
     private static string _lastBoardState = "";
     private static int _encounterId = 0;
+    private static ConfigEntry<string> DisplayNameConfig;
     private static DateTime _lastUpdateTime = DateTime.MinValue;
     private static CancellationTokenSource _updateCancellationToken;
     private static EVictoryCondition _lastVictoryCondition;
@@ -182,7 +183,7 @@ public class Plugin : BaseUnityPlugin
             name = "_b_b",
             health = runInfo.Health,
             regen = runInfo.Regen,
-            playerName = runInfo.Name ?? "Unknown",
+            playerName = DisplayNameConfig.Value ?? runInfo.Name ?? "Unknown",
             hero = runInfo.Hero,
             level = runInfo.Level,
             prestige = runInfo.Prestige,
@@ -323,6 +324,7 @@ public class Plugin : BaseUnityPlugin
             TokenExpiryConfig = BPConfig.Bind("Authentication", "TokenExpiry", DateTime.MinValue.ToString(), "Token Expiration Time");
             TokenConfig = BPConfig.Bind("Authentication", "Token", "", "Firebase ID Token");
             RefreshTokenConfig = BPConfig.Bind("Authentication", "RefreshToken", "", "Firebase Refresh Token");
+            DisplayNameConfig = BPConfig.Bind("Authentication", "DisplayName", "", "Display Name");
             
             Console.WriteLine("Configurations initialized successfully");
         }
