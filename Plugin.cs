@@ -709,23 +709,33 @@ public class Plugin : BaseUnityPlugin
                 string batchContent = @$"
 @echo off
 
-powershell -command ""Add-Type -AssemblyName System.Windows.Forms; $result = [System.Windows.Forms.MessageBox]::Show('New version {latestVersion} of BazaarPlanner available. Update now?', 'BazaarPlanner Update', 'YesNo', 'Question'); if ($result -eq 'No') {{ exit 1 }}""
+set /p result=<nul
+for /f %%i in ('powershell -command ""Add-Type -AssemblyName System.Windows.Forms; $result = [System.Windows.Forms.MessageBox]::Show('New version {latestVersion} of BazaarPlanner available. Update now?', 'BazaarPlanner Update', 'YesNo', 'Question'); $result""') do set result=%%i
+
+echo User clicked: %result% >> %temp%\bp_update.log
+
+if ""%result%""==""No"" (
+    echo Aborting update >> %temp%\bp_update.log
+    exit /b 1
+)
+
+echo Proceeding with update: Will copy from {tempDir}\BazaarPlannerMod.dll to {currentDllPath} >> %temp%\bp_update.log
 
 :wait
-echo Waiting for TheBazaar to close...
+echo Waiting for TheBazaar to close... >> %temp%\bp_update.log
 taskkill /F /IM TheBazaar.exe >nul 2>&1
 if not ERRORLEVEL 1 (
     timeout /t 2 /nobreak
     goto wait
 )
 
-echo Extracting update...
+echo Extracting update... >> %temp%\bp_update.log
 powershell -command ""Expand-Archive -Path '{zipPath}' -DestinationPath '{tempDir}' -Force""
 
-echo Installing update...
+echo Installing update... >> %temp%\bp_update.log
 copy /Y ""{tempDir}\BazaarPlannerMod.dll"" ""{currentDllPath}""
 
-echo Cleaning up...
+echo Cleaning up... >> %temp%\bp_update.log
 timeout /t 2 /nobreak
 rmdir /S /Q ""{tempDir}""
 
