@@ -19,8 +19,8 @@ using System.IO;
 using System.Threading;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
-using TMPro;
 using System.Collections;
+using System.Diagnostics;
 
 namespace BazaarPlannerMod;
 
@@ -45,6 +45,8 @@ public class Plugin : BaseUnityPlugin
     private static EVictoryCondition _lastVictoryCondition;
     private static string _firebaseUrl = "https://bazaarplanner-default-rtdb.firebaseio.com/";
     private static Dictionary<string, List<string>> _baseItemTags;
+    private const string GithubApiUrl = "https://api.github.com/repos/oceanseth/BazaarPlannerMod/releases/latest";
+    private static string InstallerPath => Path.Combine(Path.GetTempPath(), "BazaarPlannerModInstaller.zip");
 
     private static async Task SaveCombat()
     {        
@@ -316,6 +318,9 @@ public class Plugin : BaseUnityPlugin
     {
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
         _harmony.PatchAll();
+        
+        // Add version check on startup
+        CheckForUpdates();
         
         // Load config
         BPConfig = new ConfigFile(Path.Combine(Paths.ConfigPath, "BazaarPlanner.cfg"), true);
@@ -632,6 +637,120 @@ public class Plugin : BaseUnityPlugin
                         }, TaskContinuationOptions.OnlyOnRanToCompletion);
                 }
             }
+        }
+    }
+
+    private async void CheckForUpdates()
+    {
+        Logger.LogInfo("Checking for updates...");
+        try
+        {
+            using (var client = new HttpClient())
+            {
+                // Add required headers for GitHub API
+                client.DefaultRequestHeaders.Add("User-Agent", "BazaarPlannerMod");
+                
+                var response = await client.GetStringAsync(GithubApiUrl);
+                Logger.LogInfo("Got reponse from github: " + response);
+                var releaseInfo = JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
+                
+                string latestVersion = releaseInfo["tag_name"].ToString().TrimStart('v');
+                string currentVersion = MyPluginInfo.PLUGIN_VERSION;
+                
+                if (IsNewerVersion(latestVersion, currentVersion))
+                {                    
+                    // Get the installer download URL
+                    var assets = ((JArray)releaseInfo["assets"]);
+                    var installerAsset = assets.FirstOrDefault(a => ((JObject)a)["name"].ToString().Contains("Installer"));
+                    
+                    if (installerAsset != null)
+                    {
+                        string downloadUrl = ((JObject)installerAsset)["browser_download_url"].ToString();
+                        await DownloadAndStartInstaller(downloadUrl, latestVersion);
+                    }
+                } else {
+                    Logger.LogInfo("No updates available, you are on version " + currentVersion + " and latest version is " + latestVersion);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.LogInfo($"Error checking for updates: {ex.Message}");
+        }
+    }
+
+    private bool IsNewerVersion(string latest, string current)
+    {
+        Version latestVersion = Version.Parse(latest);
+        Version currentVersion = Version.Parse(current);
+        return latestVersion > currentVersion;
+    }
+
+    private async Task DownloadAndStartInstaller(string downloadUrl, string latestVersion)
+    {
+        try
+        {
+            using (var client = new HttpClient())
+            {
+                // Create temp directory for installer
+                string tempDir = Path.Combine(Path.GetTempPath(), "BazaarPlannerUpdate");
+                Directory.CreateDirectory(tempDir);
+                
+                // Get the path to the current DLL
+                string currentDllPath = Assembly.GetExecutingAssembly().Location;
+                
+                // Download the installer zip
+                var installerData = await client.GetByteArrayAsync(downloadUrl);
+                string zipPath = Path.Combine(tempDir, "installer.zip");
+                File.WriteAllBytes(zipPath, installerData);
+
+                // Create batch file
+                string batchPath = Path.Combine(Path.GetTempPath(), "UpdateBazaarPlanner.bat");
+                string batchContent = @$"
+@echo off
+
+powershell -command ""Add-Type -AssemblyName System.Windows.Forms; $result = [System.Windows.Forms.MessageBox]::Show('New version {latestVersion} of BazaarPlanner available. Update now?', 'BazaarPlanner Update', 'YesNo', 'Question'); if ($result -eq 'No') {{ exit 1 }}""
+if errorlevel 1 exit
+
+echo Waiting for The Bazaar to close...
+:wait
+timeout /t 1 /nobreak
+tasklist /FI ""IMAGENAME eq TheBazaar.exe"" 2>NUL | find /I /N ""TheBazaar.exe"">NUL
+if ""%ERRORLEVEL%""==""0"" goto wait
+
+echo Extracting update...
+powershell -command ""Expand-Archive -Path '{zipPath}' -DestinationPath '{tempDir}' -Force""
+
+echo Installing update...
+copy /Y ""{tempDir}\BazaarPlannerMod.dll"" ""{currentDllPath}""
+
+echo Cleaning up...
+timeout /t 2 /nobreak
+rmdir /S /Q ""{tempDir}""
+
+powershell -command ""Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('BazaarPlanner auto-update successful, you are now on version {latestVersion}, please relaunch game', 'BazaarPlanner Update')""
+
+del ""%~f0""
+";
+                File.WriteAllText(batchPath, batchContent);
+
+                // Start the batch file and wait for it to complete
+                var process = Process.Start(batchPath);
+                await Task.Run(() => {
+                    process.WaitForExit();
+                    return process.ExitCode;
+                });
+
+                // If process exit code is 0 (user clicked Yes), close the game
+                if (process.ExitCode == 0)
+                {
+                    Application.Quit();
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError($"Error downloading/starting installer: {ex.Message}");
         }
     }
 }
