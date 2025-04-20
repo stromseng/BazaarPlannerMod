@@ -710,13 +710,14 @@ public class Plugin : BaseUnityPlugin
 @echo off
 
 powershell -command ""Add-Type -AssemblyName System.Windows.Forms; $result = [System.Windows.Forms.MessageBox]::Show('New version {latestVersion} of BazaarPlanner available. Update now?', 'BazaarPlanner Update', 'YesNo', 'Question'); if ($result -eq 'No') {{ exit 1 }}""
-if errorlevel 1 exit
 
-echo Waiting for The Bazaar to close...
 :wait
-timeout /t 1 /nobreak
-tasklist /FI ""IMAGENAME eq TheBazaar.exe"" 2>NUL | find /I /N ""TheBazaar.exe"">NUL
-if ""%ERRORLEVEL%""==""0"" goto wait
+echo Waiting for TheBazaar to close...
+taskkill /F /IM TheBazaar.exe >nul 2>&1
+if not ERRORLEVEL 1 (
+    timeout /t 2 /nobreak
+    goto wait
+)
 
 echo Extracting update...
 powershell -command ""Expand-Archive -Path '{zipPath}' -DestinationPath '{tempDir}' -Force""
@@ -744,6 +745,7 @@ del ""%~f0""
                 // If process exit code is 0 (user clicked Yes), close the game
                 if (process.ExitCode == 0)
                 {
+                    Logger.LogInfo("User accepted update, closing game...");
                     Application.Quit();
                 }
             }
