@@ -19,6 +19,8 @@ using System.IO;
 using System.Threading;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
+using TMPro;
+using System.Collections;
 
 namespace BazaarPlannerMod;
 
@@ -539,24 +541,64 @@ public class Plugin : BaseUnityPlugin
         return null;
     }    
 
+    private static string _lastMessageId = "";
+
     [HarmonyPatch(typeof(CombatSimHandler), "Simulate")]
     class CombatSimHandlerSimulate
     {
         [HarmonyPrefix]
         static void Prefix(NetMessageCombatSim message, CancellationTokenSource cancellationToken)
         {
+            if(_lastMessageId == message.MessageId) return;
+            _lastMessageId = message.MessageId;
             if(UidConfig.Value == null || UidConfig.Value == "") return;
             _lastVictoryCondition = message.Data.Winner == ECombatantId.Player ? EVictoryCondition.Win : EVictoryCondition.Lose;
             Task.Run(() => SaveCombat());
         }
     }
+    
+    [HarmonyPatch(typeof(HeroBannerController), "UpdatePlayer")]
+    public static class UpdatePlayerPatch
+    {
+        [HarmonyPostfix]
+        static void Postfix(HeroBannerController __instance, string userName, int nameId, string titlePrefix, string titleSuffix, TheBazaar.ProfileData.ISeasonRank currentSeasonRank, int? leaderboardPosition) {
+            if(UidConfig.Value == null || UidConfig.Value == "") return;
+            if(userName != Data.Profile?.Username) return;
+            
+            // Queue the UI update to happen on the next frame
+            __instance.StartCoroutine(UpdateNameNextFrame(__instance, nameId));
+            
+        //    var getter = typeof(TheBazaar.ProfileData.ProfileContainer).GetProperty("Username");
+        //    getter.SetValue(Data.Profile, DisplayNameConfig.Value);
+        }
+        
+        private static IEnumerator UpdateNameNextFrame(HeroBannerController instance, int nameId)
+        {
+            yield return null; // Wait for next frame
+            instance.SetHeroName(DisplayNameConfig.Value, nameId);
+        }
+    }
+/*
+    [HarmonyPatch(typeof(HeroBannerController), "SetHeroName")]
+    public static class SetHeroNamePatch
+    {
+        [HarmonyPostfix]
+        static void Postfix(HeroBannerController __instance, string newName, int usernameId) {
+            if(newName != Data.Profile?.Username) return;
+            if(UidConfig.Value == null || UidConfig.Value == "") return;
+            __instance._heroName.text = DisplayNameConfig.Value;
+        }
+        
+    }
+    */
 
     [HarmonyPatch(typeof(BoardManager), "UpdateBoard")]
     public static class UpdateBoardPatch 
     {
         [HarmonyPostfix]
         static void Postfix()
-        {
+        {            
+            //Data.Profile.Username = DisplayNameConfig.Value;
             if(UidConfig.Value == null || UidConfig.Value == "") return;
             RunInfo runInfo = getRunInfo();
             string json = CreateBazaarPlannerJson(runInfo);
