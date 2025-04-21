@@ -772,17 +772,11 @@ del ""%~f0""
                 process.WaitForExit();
                 return process.ExitCode;
             });
-
-            // If process exit code is 0 (user clicked Yes and update completed), close the game
-            if (process.ExitCode == 0)
-            {
-                Logger.LogInfo("Update completed successfully, closing game...");
-                Application.Quit();
-            }
+          
         }
         catch (Exception ex)
         {
-            Logger.LogError($"Error creating installer: {ex.Message}");
+            Logger.LogError($"Error installing update: {ex.Message}");
         }
     }
 }
