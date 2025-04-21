@@ -18,6 +18,7 @@ public class RunInfo
     public int? OppRegen;
     public int? OppGold;
     public int? OppIncome;
+    public int? OppShield;
     public int? OppLevel;
     public string OppName;
     public uint Wins;
@@ -25,6 +26,7 @@ public class RunInfo
     public int Day;
     public string Version = "0.0.1";
     public int? Health;
+    public int? Shield;
     public int? Regen { get; set; }
     public int? Level { get; set; }
     public int? Gold { get; set; }
