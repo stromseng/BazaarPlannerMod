@@ -19,9 +19,7 @@ using System.IO;
 using System.Threading;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
-using System.Collections;
 using System.Diagnostics;
-using TMPro;
 namespace BazaarPlannerMod;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
