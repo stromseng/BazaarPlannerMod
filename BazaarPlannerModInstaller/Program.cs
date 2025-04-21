@@ -9,6 +9,8 @@ namespace BazaarPlannerModInstaller
     static class Program
     {
         private const string DOTNET_DOWNLOAD_URL = "https://download.visualstudio.microsoft.com/download/pr/f18288f6-1732-415b-b577-7fb46510479a/a98239f751a7aed31bc4aa12f348a9bf/windowsdesktop-runtime-8.0.2-win-x64.exe";
+        private const string GITHUB_API_URL = "https://api.github.com/repos/oceanseth/BazaarPlannerMod/releases/latest";
+        private const string CURRENT_VERSION = "1.0.2"; // Update this with your current version
 
         [STAThread]
         static void Main()
@@ -17,6 +19,12 @@ namespace BazaarPlannerModInstaller
             try
             {
                 File.WriteAllText(logPath, $"Application starting at {DateTime.Now}\n");
+
+                // Check for latest version
+                if (!CheckLatestVersion())
+                {
+                    return;
+                }
 
                 // Check if .NET runtime is installed
                 if (!IsDotNetRuntimeInstalled())
@@ -63,6 +71,51 @@ namespace BazaarPlannerModInstaller
                     "Startup Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+            }
+        }
+
+        private static bool CheckLatestVersion()
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    // Add user agent as required by GitHub API
+                    client.DefaultRequestHeaders.Add("User-Agent", "BazaarPlannerModInstaller");
+                    
+                    var response = client.GetStringAsync(GITHUB_API_URL).Result;
+                    // Parse version from tag_name in the JSON response
+                    var versionStart = response.IndexOf("\"tag_name\":\"") + 12;
+                    var versionEnd = response.IndexOf("\"", versionStart);
+                    var latestVersion = response.Substring(versionStart, versionEnd - versionStart);
+
+                    if (latestVersion != CURRENT_VERSION)
+                    {
+                        DialogResult result = MessageBox.Show(
+                            $"A newer version ({latestVersion}) is available. Please download the latest version from GitHub.\n\nWould you like to open the releases page?",
+                            "Update Available",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = "https://github.com/oceanseth/BazaarPlannerMod/releases",
+                                UseShellExecute = true
+                            });
+                        }
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // If we can't check the version (e.g., no internet), log it but continue
+                File.AppendAllText(Path.Combine(Path.GetTempPath(), "BazaarPlannerInstaller.log"), 
+                    $"Failed to check version: {ex.Message}\n");
+                return true;
             }
         }
 
