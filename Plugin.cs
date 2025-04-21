@@ -21,7 +21,7 @@ using System.Reflection;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Diagnostics;
-
+using TMPro;
 namespace BazaarPlannerMod;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
@@ -561,6 +561,8 @@ public class Plugin : BaseUnityPlugin
             Task.Run(() => SaveCombat());
         }
     }
+
+    /*
     
     [HarmonyPatch(typeof(HeroBannerController), "UpdatePlayer")]
     public static class UpdatePlayerPatch
@@ -583,19 +585,43 @@ public class Plugin : BaseUnityPlugin
             instance.SetHeroName(DisplayNameConfig.Value, nameId);
         }
     }
-/*
+    */
+    [HarmonyPatch(typeof(HeroBannerController), "UpdatePlayer")]
+    public static class UpdatePlayerInterceptPatch
+    {
+        [HarmonyPrefix]
+        static bool Prefix(HeroBannerController __instance, ref string userName, ref int nameId, 
+            ref string titlePrefix, ref string titleSuffix, TheBazaar.ProfileData.ISeasonRank currentSeasonRank, int? leaderboardPosition)
+        {
+            // Check if this is for our player
+            if(userName != Data.Profile?.Username) return true; // Let original method run unmodified
+            if(UidConfig.Value == null || UidConfig.Value == "") return true;
+
+            // Modify the parameters
+            userName = DisplayNameConfig.Value;
+            nameId = 0;
+            // You can modify other parameters here as needed
+            
+            // Return true to let the original method run with our modified parameters
+            // Return false if you want to skip the original method entirely
+            return true;
+        }
+    }
+
     [HarmonyPatch(typeof(HeroBannerController), "SetHeroName")]
     public static class SetHeroNamePatch
     {
-        [HarmonyPostfix]
-        static void Postfix(HeroBannerController __instance, string newName, int usernameId) {
-            if(newName != Data.Profile?.Username) return;
-            if(UidConfig.Value == null || UidConfig.Value == "") return;
-            __instance._heroName.text = DisplayNameConfig.Value;
+        [HarmonyPrefix]
+        static bool Prefix(ref string newName, ref int usernameId) {
+            if(newName != Data.Profile?.Username) return true;
+            if(UidConfig.Value == null || UidConfig.Value == "") return true;
+            
+            newName = DisplayNameConfig.Value;
+            usernameId = 0;
+            return true;
         }
-        
     }
-    */
+    
 
     [HarmonyPatch(typeof(BoardManager), "UpdateBoard")]
     public static class UpdateBoardPatch 
@@ -690,27 +716,16 @@ public class Plugin : BaseUnityPlugin
     {
         try
         {
-            using (var client = new HttpClient())
-            {
-                // Create temp directory for installer
-                string tempDir = Path.Combine(Path.GetTempPath(), "BazaarPlannerUpdate");
-                Directory.CreateDirectory(tempDir);
-                
-                // Get the path to the current DLL
-                string currentDllPath = Assembly.GetExecutingAssembly().Location;
-                
-                // Download the installer zip
-                var installerData = await client.GetByteArrayAsync(downloadUrl);
-                string zipPath = Path.Combine(tempDir, "installer.zip");
-                File.WriteAllBytes(zipPath, installerData);
-
-                // Create batch file
-                string batchPath = Path.Combine(Path.GetTempPath(), "UpdateBazaarPlanner.bat");
-                string batchContent = @$"
+            // Create batch file first, which will handle download and installation if user agrees
+            string batchPath = Path.Combine(Path.GetTempPath(), "UpdateBazaarPlanner.bat");
+            string currentDllPath = Assembly.GetExecutingAssembly().Location;
+            string tempDir = Path.Combine(Path.GetTempPath(), "BazaarPlannerUpdate");
+            
+            string batchContent = @$"
 @echo off
 
 set /p result=<nul
-for /f %%i in ('powershell -command ""Add-Type -AssemblyName System.Windows.Forms; $result = [System.Windows.Forms.MessageBox]::Show('New version {latestVersion} of BazaarPlanner available. Update now?', 'BazaarPlanner Update', 'YesNo', 'Question'); $result""') do set result=%%i
+for /f %%i in ('powershell -command ""Add-Type -AssemblyName System.Windows.Forms; $result = [System.Windows.Forms.MessageBox]::Show('New version {latestVersion} of BazaarPlanner available. You are on version {MyPluginInfo.PLUGIN_VERSION}. Update now?', 'BazaarPlanner Update', 'YesNo', 'Question'); $result""') do set result=%%i
 
 echo User clicked: %result% >> %temp%\bp_update.log
 
@@ -719,7 +734,11 @@ if ""%result%""==""No"" (
     exit /b 1
 )
 
-echo Proceeding with update: Will copy from {tempDir}\BazaarPlannerMod.dll to {currentDllPath} >> %temp%\bp_update.log
+echo Creating temp directory... >> %temp%\bp_update.log
+mkdir ""{tempDir}"" 2>nul
+
+echo Downloading update... >> %temp%\bp_update.log
+powershell -command ""(New-Object System.Net.WebClient).DownloadFile('{downloadUrl}', '{tempDir}\installer.zip')""
 
 :wait
 echo Waiting for TheBazaar to close... >> %temp%\bp_update.log
@@ -730,7 +749,7 @@ if not ERRORLEVEL 1 (
 )
 
 echo Extracting update... >> %temp%\bp_update.log
-powershell -command ""Expand-Archive -Path '{zipPath}' -DestinationPath '{tempDir}' -Force""
+powershell -command ""Expand-Archive -Path '{tempDir}\installer.zip' -DestinationPath '{tempDir}' -Force""
 
 echo Installing update... >> %temp%\bp_update.log
 copy /Y ""{tempDir}\BazaarPlannerMod.dll"" ""{currentDllPath}""
@@ -743,26 +762,25 @@ powershell -command ""Add-Type -AssemblyName System.Windows.Forms; [System.Windo
 
 del ""%~f0""
 ";
-                File.WriteAllText(batchPath, batchContent);
+            File.WriteAllText(batchPath, batchContent);
 
-                // Start the batch file and wait for it to complete
-                var process = Process.Start(batchPath);
-                await Task.Run(() => {
-                    process.WaitForExit();
-                    return process.ExitCode;
-                });
+            // Start the batch file and wait for it to complete
+            var process = Process.Start(batchPath);
+            await Task.Run(() => {
+                process.WaitForExit();
+                return process.ExitCode;
+            });
 
-                // If process exit code is 0 (user clicked Yes), close the game
-                if (process.ExitCode == 0)
-                {
-                    Logger.LogInfo("User accepted update, closing game...");
-                    Application.Quit();
-                }
+            // If process exit code is 0 (user clicked Yes and update completed), close the game
+            if (process.ExitCode == 0)
+            {
+                Logger.LogInfo("Update completed successfully, closing game...");
+                Application.Quit();
             }
         }
         catch (Exception ex)
         {
-            Logger.LogError($"Error downloading/starting installer: {ex.Message}");
+            Logger.LogError($"Error creating installer: {ex.Message}");
         }
     }
 }
