@@ -153,6 +153,20 @@ public class Plugin : BaseUnityPlugin
             RunId = _runId
         };
     }
+    private static string GetHashedRunId(string runId, string displayName)
+{
+    using (var hmac = new System.Security.Cryptography.HMACSHA256(System.Text.Encoding.UTF8.GetBytes(displayName)))
+    {
+        byte[] hashBytes = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(runId));
+        // Convert to base64 and make URL-safe
+        return Convert.ToBase64String(hashBytes)
+            .Replace('+', '-')
+            .Replace('/', '_')
+            .Replace("=", "")
+            .Substring(0, 20); // Truncate to reasonable length
+    }
+}
+
     private static List<Card> GetItemsAsCards(IPlayerInventory container)
     {
         return container.Container.GetSocketables()
@@ -473,8 +487,8 @@ public class Plugin : BaseUnityPlugin
         [HarmonyPrefix]
         static async void Prefix(NetMessageRunInitialized obj)
         {
-            _runId = obj.RunId;
-            var encounters = await ReadFromFirebase<Dictionary<string, object>>($"users/{UidConfig.Value}/runs/{obj.RunId}/encounters", shallow: true);
+            _runId = GetHashedRunId(obj.RunId, DisplayNameConfig.Value);
+            var encounters = await ReadFromFirebase<Dictionary<string, object>>($"users/{UidConfig.Value}/runs/{_runId}/encounters", shallow: true);
             _encounterId = encounters?.Count ?? 0;
         }
     }
