@@ -284,6 +284,13 @@ public class Plugin : BaseUnityPlugin
                 cardDict["regenFinal"] = card.Attributes[ECardAttributeType.RegenApplyAmount];
             if (card.Attributes?.ContainsKey(ECardAttributeType.AmmoMax) == true && card.Attributes[ECardAttributeType.AmmoMax]>0)
                 cardDict["ammoFinal"] = card.Attributes[ECardAttributeType.AmmoMax];
+            if(card.Attributes?.ContainsKey(ECardAttributeType.SlowAmount) == true)
+                cardDict["slowFinal"] = card.Attributes[ECardAttributeType.SlowAmount];
+            if(card.Attributes?.ContainsKey(ECardAttributeType.HasteAmount) == true)
+                cardDict["hasteFinal"] = card.Attributes[ECardAttributeType.HasteAmount];
+            if(card.Attributes?.ContainsKey(ECardAttributeType.FreezeAmount) == true)
+                cardDict["freezeFinal"] = card.Attributes[ECardAttributeType.FreezeAmount];
+                
             return cardDict;
         }
 
