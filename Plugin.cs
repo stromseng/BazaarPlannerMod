@@ -61,6 +61,7 @@ public class Plugin : BaseUnityPlugin
             { "losses", runInfo.Losses },
             { "day", runInfo.Day },
             { "t", timestamp },
+            {runInfo.PlayMode ?"ranked":"",runInfo.PlayMode?"1":null},
             { "hero", runInfo.Hero },
             { "lastEncounter", _encounterId.ToString() },
             { $"encounters/{_encounterId}", new
@@ -150,7 +151,8 @@ public class Plugin : BaseUnityPlugin
             OppIncome = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.Income),
             OppLevel = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.Level),
             OppPrestige = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.Prestige),
-            RunId = _runId
+            RunId = _runId,
+            PlayMode = Data.SelectedPlayMode==EPlayMode.Ranked
         };
     }
     private static string GetHashedRunId(string runId, string displayName)
@@ -656,36 +658,34 @@ public class Plugin : BaseUnityPlugin
             if(UidConfig.Value == null || UidConfig.Value == "") return;
             RunInfo runInfo = getRunInfo();
             string json = CreateBazaarPlannerJson(runInfo);
+            if(json == _lastBoardState) return;
 
-            if (json != _lastBoardState)
+            _lastBoardState = json;
+            string compressed = LZString.CompressToEncodedURIComponent(json);
+            var saveData = new {
+                id = runInfo.RunId,
+                d = compressed
+            };
+
+            if (_updateCancellationToken == null)
             {
-                _lastBoardState = json;
-                string compressed = LZString.CompressToEncodedURIComponent(json);
-                var saveData = new {
-                    id = runInfo.RunId,
-                    d = compressed
-                };
-
-                if (_updateCancellationToken == null)
-                {
-                    // No pending update, do it immediately
-                    Task.Run(() => SaveToFirebase($"users/{UidConfig.Value}/currentrun", saveData));
-                }
-                else
-                {
-                    // Cancel pending update and schedule new one
-                    _updateCancellationToken.Cancel();
-                    _updateCancellationToken = new CancellationTokenSource();
-                    
-                    Task.Delay(1000, _updateCancellationToken.Token)
-                        .ContinueWith(t => {
-                            if (!t.IsCanceled) {
-                                Task.Run(() => SaveToFirebase($"users/{UidConfig.Value}/currentrun", compressed));
-                                _updateCancellationToken = null;
-                            }
-                        }, TaskContinuationOptions.OnlyOnRanToCompletion);
-                }
+                // No pending update, do it immediately
+                Task.Run(() => SaveToFirebase($"users/{UidConfig.Value}/currentrun", saveData));
             }
+            else
+            {
+                // Cancel pending update and schedule new one
+                _updateCancellationToken.Cancel();
+                _updateCancellationToken = new CancellationTokenSource();
+                
+                Task.Delay(1000, _updateCancellationToken.Token)
+                    .ContinueWith(t => {
+                        if (!t.IsCanceled) {
+                            Task.Run(() => SaveToFirebase($"users/{UidConfig.Value}/currentrun", compressed));
+                            _updateCancellationToken = null;
+                        }
+                    }, TaskContinuationOptions.OnlyOnRanToCompletion);
+            }            
         }
     }
 
@@ -774,8 +774,13 @@ if not ERRORLEVEL 1 (
 echo Extracting update... >> %temp%\bp_update.log
 powershell -command ""Expand-Archive -Path '{tempDir}\installer.zip' -DestinationPath '{tempDir}' -Force""
 
+echo Cleaning up old files... >> %temp%\bp_update.log
+del /F ""{currentDllPath}\BazaarPlannerMod*.dll"" 2>nul
+
+
 echo Installing update... >> %temp%\bp_update.log
-copy /Y ""{tempDir}\BazaarPlannerMod.dll"" ""{currentDllPath}""
+set ""random_name=%random%%random%.dll""
+copy /Y ""{tempDir}\BazaarPlannerMod.dll"" ""{currentDllPath}\%random_name%""
 
 echo Cleaning up... >> %temp%\bp_update.log
 timeout /t 2 /nobreak

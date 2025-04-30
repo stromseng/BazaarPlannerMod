@@ -36,6 +36,7 @@ public class RunInfo
     public string OppHero;
     public int? Prestige;
     public int? OppPrestige;
+    public bool PlayMode;
 
     public class SkillInfo
     {
