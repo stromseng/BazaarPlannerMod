@@ -1,7 +1,35 @@
 export const items = {
+  "28 Hour Fitness": {
+    "name": "28 Hour Fitness",
+    "tier": 1,
+    "tags": [
+      "Pygmalien",
+      "Large",
+      "Property",
+      "ShieldReference",
+      "DamageReference"
+    ],
+    "cooldown": null,
+    "ammo": null,
+    "text": [
+      "When you use a Weapon, your items with Shield gain (+10/+20/+30) Shield for the fight.",
+      "When you use a Shield item, your Weapons gain (+10/+20/+30) Damage for the fight."
+    ],
+    "enchants": {
+      "Heavy": "When you use a Weapon or Shield item, slow 1 item for 1 second(s).",
+      "Icy": "When you use a Weapon or Shield item, Freeze 1 small item for 1 second(s).",
+      "Turbo": "When you use a Weapon or Shield item, Haste 1 for 1 second(s).",
+      "Shielded": "When you use a Weapon or Shield item, shield 30.",
+      "Restorative": "When you use a Weapon or Shield item, heal 45.",
+      "Toxic": "When you use a Weapon or Shield item, poison 3.",
+      "Fiery": "When you use a Weapon or Shield item, burn 3.",
+      "Shiny": "This has double damage and shield bonus.",
+      "Deadly": "Your Weapons and Shield items have +50% Crit Chance.",
+      "Obsidian": "When you use a Weapon or Shield item, Deal 30 Damage."
+    }
+  },
   "3D Printer": {
     "name": "3D Printer",
-    "icon": "images/items/3DPrinter.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -12,7 +40,7 @@ export const items = {
     "cooldown": "(5/4)",
     "ammo": null,
     "text": [
-      "Transform into 3 copies of the small item to the left of this for the fight."
+      "Transform into 3 (Gold/Diamond) copies of the small, non-legendary item to the left of this for the fight."
     ],
     "enchants": {
       "Heavy": "...and Enchant the transformations with Heavy if able.",
@@ -33,7 +61,6 @@ export const items = {
   },
   "Abacus": {
     "name": "Abacus",
-    "icon": "images/items/Abacus.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -65,9 +92,39 @@ export const items = {
       1
     ]
   },
+  "Adrenal Converter": {
+    "name": "Adrenal Converter",
+    "tier": 1,
+    "tags": [
+      "Mak",
+      "Medium",
+      "Apparel",
+      "Poison",
+      "Regen",
+      "Haste"
+    ],
+    "cooldown": 6,
+    "ammo": null,
+    "text": [
+      "Poison both players (5/10/15).",
+      "When you Poison yourself, gain (10/15/20) Regen for the fight and Haste 1 item for 2 second(s)."
+    ],
+    "enchants": {
+      "Heavy": "When you Poison yourself, Slow 1 items for 2 second(s).",
+      "Icy": "When you Poison yourself, Freeze 1 medium or small item for 1 second(s).",
+      "Turbo": "This has double Haste duration.",
+      "Shielded": "When you Poison yourself, Shield equal to 10 times this item's Poison.",
+      "Restorative": "When you Poison yourself, Heal equal to 10 times this item's Poison.",
+      "Toxic": "This has double Poison.",
+      "Fiery": "When you Poison yourself, Burn equal to this item's Poison.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "When you Poison yourself, deal damage equal to 10 times this item's Poison."
+    }
+  },
   "Agility Boots": {
     "name": "Agility Boots",
-    "icon": "images/items/AgilityBoots.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -82,8 +139,7 @@ export const items = {
       "When you sell this, your items gain (+1%/+2%/+3%/+4%) Crit Chance."
     ],
     "enchants": {
-      "Shiny": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Shiny": "This has double Crit Chance bonus."
     },
     "priorities": [
       0,
@@ -92,7 +148,6 @@ export const items = {
   },
   "Alembic": {
     "name": "Alembic",
-    "icon": "images/items/Alembic.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -102,7 +157,7 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "At the start of each day, transform the small item to the left of this into a random Potion.",
+      "At the start of each day, get a Catalyst and transform the small item to the left of this into a random Potion.",
       "When you buy this, get a Small Reagent."
     ],
     "enchants": {
@@ -125,7 +180,6 @@ export const items = {
   },
   "Alpha Ray": {
     "name": "Alpha Ray",
-    "icon": "images/items/AlphaRay.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -160,7 +214,6 @@ export const items = {
   },
   "Aludel": {
     "name": "Aludel",
-    "icon": "images/items/Aludel.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -172,7 +225,8 @@ export const items = {
     "ammo": null,
     "text": [
       "Poison (4/8/12/16).",
-      "This has +1 Multicast for each adjacent Potion or Reagent."
+      "This has +1 Multicast for each adjacent Potion or Reagent.",
+      "At the start of each day, get a Catalyst."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -194,7 +248,6 @@ export const items = {
   },
   "Amber": {
     "name": "Amber",
-    "icon": "images/items/Amber.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -226,7 +279,6 @@ export const items = {
   },
   "Ambergris": {
     "name": "Ambergris",
-    "icon": "images/items/Ambergris.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -263,7 +315,6 @@ export const items = {
   },
   "Anchor": {
     "name": "Anchor",
-    "icon": "images/items/Anchor.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -299,7 +350,6 @@ export const items = {
   },
   "Angry Balloon Bot": {
     "name": "Angry Balloon Bot",
-    "icon": "images/items/AngryBalloonBot.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -335,17 +385,18 @@ export const items = {
   },
   "Antimatter Chamber": {
     "name": "Antimatter Chamber",
-    "icon": "images/items/AntimatterChamber.avif",
-    "tier": 3,
+    "tier": 2,
     "tags": [
       "Dooley",
       "Large",
       "Tech"
     ],
-    "cooldown": 11,
+    "cooldown": "(30/24)",
     "ammo": null,
     "text": [
-      "Destroy this and 3 small enemy items for the fight."
+      "Destroy this.",
+      "When this is Destroyed, destroy 3 enemy items for the fight.",
+      "When you use another Tech, charge this 2 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 3 items for 3 second(s).",
@@ -365,7 +416,6 @@ export const items = {
   },
   "Apothecary": {
     "name": "Apothecary",
-    "icon": "images/items/Apothecary.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -376,7 +426,7 @@ export const items = {
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Gain (5/10/15) Regeneration for the fight.",
+      "Gain (5/10/15) Regen for the fight.",
       "When you Haste, Slow, Poison, or Burn, charge this 1 second(s).",
       "At the start of each day, get a Reagent."
     ],
@@ -384,14 +434,14 @@ export const items = {
       "Heavy": "Slow 3 items for 1 second(s).",
       "Icy": "Freeze 1 item for 2 second(s).",
       "Turbo": "Haste 3 items for 1 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "+50% Crit Chance",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1,
@@ -401,7 +451,6 @@ export const items = {
   },
   "Apropos Chapeau": {
     "name": "Apropos Chapeau",
-    "icon": "images/items/AproposChapeau.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -441,7 +490,6 @@ export const items = {
   },
   "Arbalest": {
     "name": "Arbalest",
-    "icon": "images/items/Arbalest.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -477,7 +525,6 @@ export const items = {
   },
   "Arc Blaster": {
     "name": "Arc Blaster",
-    "icon": "images/items/ArcBlaster.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -486,7 +533,7 @@ export const items = {
       "Tech",
       "Damage"
     ],
-    "cooldown": 7,
+    "cooldown": 6,
     "ammo": null,
     "text": [
       "Deal (20/40/60/80) damage.",
@@ -512,7 +559,6 @@ export const items = {
   },
   "Arken's Ring": {
     "name": "Arken's Ring",
-    "icon": "images/items/ArkensRing.avif",
     "tier": 3,
     "tags": [
       "Common",
@@ -524,29 +570,37 @@ export const items = {
     "text": [
       "When you sell this, recover 5 Prestige."
     ],
-    "enchants": {},
+    "enchants": {
+      "Heavy": "When you sell this, your leftmost Slow item gains +0.2 Slow duration.",
+      "Icy": "When you sell this, your leftmost Freeze item gains +0.1 Freeze duration.",
+      "Turbo": "When you sell this, your leftmost Haste item gains +0.2 Haste duration.",
+      "Shielded": "When you sell this, your leftmost Shield item gains +10 Shield.",
+      "Restorative": "When you sell this, your leftmost Heal item gains +15 Heal.",
+      "Toxic": "When you sell this, your leftmost Poison item gains +1 Poison.",
+      "Fiery": "When you sell this, your leftmost Burn item gains +1 Burn.",
+      "Deadly": "When you sell this, your leftmost item gains 2% Crit Chance.",
+      "Obsidian": "When you sell this, your leftmost Weapon gains +10 damage."
+    },
     "priorities": [
       0
     ]
   },
   "Armored Core": {
     "name": "Armored Core",
-    "icon": "images/items/ArmoredCore.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Medium",
       "Core",
       "Tech",
       "Shield",
-      "Charge",
-      "Unsellable"
+      "Charge"
     ],
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Shield (20/30/40/50).",
-      "Shield items to the right of this gain (+10/+15/+20/+25) Shield for the fight.",
+      "Shield 20.",
+      "This and shield items to the right of this gain (+20/+30/+40) Shield for the fight.",
       "When you use any item to the left of this, Charge this 1 second(s)."
     ],
     "enchants": {
@@ -570,7 +624,6 @@ export const items = {
   },
   "Astrolabe": {
     "name": "Astrolabe",
-    "icon": "images/items/Astrolabe.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -604,7 +657,6 @@ export const items = {
   },
   "Athanor": {
     "name": "Athanor",
-    "icon": "images/items/Athanor.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -616,8 +668,9 @@ export const items = {
     "cooldown": 5,
     "ammo": null,
     "text": [
-      "Reload adjacent Potions.",
-      "When you use a Potion, Burn (8/12/16)."
+      "Reload adjacent items.",
+      "When you use a Potion, Burn (8/12/16).",
+      "At the start of each day, get a Catalyst."
     ],
     "enchants": {
       "Heavy": "When you use a Potion, Slow 1 item for 2 second(s).",
@@ -639,7 +692,6 @@ export const items = {
   },
   "Atlas Stone": {
     "name": "Atlas Stone",
-    "icon": "images/items/AtlasStone.avif",
     "tier": 3,
     "tags": [
       "Pygmalien",
@@ -673,7 +725,6 @@ export const items = {
   },
   "Atlatl": {
     "name": "Atlatl",
-    "icon": "images/items/Atlatl.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -708,7 +759,6 @@ export const items = {
   },
   "ATM": {
     "name": "ATM",
-    "icon": "images/items/ATM.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -746,7 +796,6 @@ export const items = {
   },
   "Atomic Clock": {
     "name": "Atomic Clock",
-    "icon": "images/items/AtomicClock.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -777,7 +826,6 @@ export const items = {
   },
   "Aurora Dome": {
     "name": "Aurora Dome",
-    "icon": "images/items/AuroraDome.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -789,8 +837,8 @@ export const items = {
     "cooldown": 5,
     "ammo": null,
     "text": [
-      "Shield (5/10/15).",
-      "When you Freeze, your Shield items get (+5/+10/+15) Shield for the fight."
+      "Shield 20.",
+      "When you Freeze, your Shield items get (+10/+20/+30) Shield for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 1 second(s).",
@@ -810,14 +858,42 @@ export const items = {
       0
     ]
   },
+  "Badblocker": {
+    "name": "Badblocker",
+    "tier": 1,
+    "tags": [
+      "Pygmalien",
+      "Small",
+      "Tech",
+      "Apparel",
+      "Shield"
+    ],
+    "cooldown": 8,
+    "ammo": null,
+    "text": [
+      "Shield (20/40/60).",
+      "This has +1 Multicast for each item you have in play with value over 10."
+    ],
+    "enchants": {
+      "Heavy": "Slow 1 item for 2 second(s).",
+      "Icy": "Freeze 1 small item for 1 second(s).",
+      "Turbo": "Haste 1 item for 2 second(s).",
+      "Shielded": "This has double Shield.",
+      "Restorative": "Heal equal to this item's Shield.",
+      "Toxic": "Poison equal to 10% of this item's Shield.",
+      "Fiery": "Burn equal to 10% of this item's Shield.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal damage equal to this item's Shield."
+    }
+  },
   "Bag of Jewels": {
     "name": "Bag of Jewels",
-    "icon": "images/items/BagofJewels.avif",
     "tier": 0,
     "tags": [
       "Common",
-      "Small",
-      "Loot"
+      "Small"
     ],
     "cooldown": null,
     "ammo": null,
@@ -831,7 +907,6 @@ export const items = {
   },
   "Balcony": {
     "name": "Balcony",
-    "icon": "images/items/Balcony.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -856,7 +931,6 @@ export const items = {
       "Fiery": "When you use the property to the left of this, burn 3.",
       "Shiny": "The Property to the left of this has +1 Multicast.",
       "Deadly": "The Property to the left of this has +50% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use the property to the left of this, Deal 20 damage."
     },
     "priorities": [
@@ -865,7 +939,6 @@ export const items = {
   },
   "Ballista": {
     "name": "Ballista",
-    "icon": "images/items/Ballista.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -900,7 +973,6 @@ export const items = {
   },
   "Balloon Bot": {
     "name": "Balloon Bot",
-    "icon": "images/items/BalloonBot.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -934,7 +1006,6 @@ export const items = {
   },
   "Bandages": {
     "name": "Bandages",
-    "icon": "images/items/Bandages.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -949,9 +1020,9 @@ export const items = {
       "Shield (5/10/20/40)."
     ],
     "enchants": {
-      "Heavy": "Slow 1 item for 1 second(s).",
+      "Heavy": "Slow 1 item for 2 second(s).",
       "Icy": "Freeze 1 small item for 1 second(s).",
-      "Turbo": "Haste 1 item for 1 second(s).",
+      "Turbo": "Haste 1 item for 2 second(s).",
       "Shielded": "This has double Shield.",
       "Restorative": "This has double Heal.",
       "Toxic": "Poison equal to 10% of this item's Heal.",
@@ -968,13 +1039,10 @@ export const items = {
   },
   "Bar of Gold": {
     "name": "Bar of Gold",
-    "icon": "images/items/BarofGold.avif",
     "tier": 0,
     "tags": [
       "Common",
-      "Small",
-      "Passive",
-      "NonWeapon"
+      "Small"
     ],
     "cooldown": null,
     "ammo": null,
@@ -986,9 +1054,38 @@ export const items = {
       0
     ]
   },
+  "Barbed Claws": {
+    "name": "Barbed Claws",
+    "tier": 0,
+    "tags": [
+      "Mak",
+      "Small",
+      "Weapon",
+      "Damage",
+      "PoisonReference"
+    ],
+    "cooldown": 5,
+    "ammo": null,
+    "text": [
+      "Deal (5/10/20/40) damage.",
+      "This has +1 Multicast for each player with Poison."
+    ],
+    "enchants": {
+      "Heavy": "Slow 1 item for 2 second(s).",
+      "Icy": "Freeze 1 small item for 1 second(s).",
+      "Turbo": "Haste 1 item for 2 second(s).",
+      "Shielded": "Shield equal to this item's damage.",
+      "Restorative": "Heal equal to this item's Damage.",
+      "Toxic": "Poison equal to 10% of this item's damage.",
+      "Fiery": "Burn equal to 10% of this item's damage.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "This has double Damage."
+    }
+  },
   "Barbed Wire": {
     "name": "Barbed Wire",
-    "icon": "images/items/BarbedWire.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -1023,7 +1120,6 @@ export const items = {
   },
   "Barrel": {
     "name": "Barrel",
-    "icon": "images/items/Barrel.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -1056,7 +1152,6 @@ export const items = {
   },
   "Basilisk Fang": {
     "name": "Basilisk Fang",
-    "icon": "images/items/BasiliskFang.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -1093,7 +1188,6 @@ export const items = {
   },
   "Battery": {
     "name": "Battery",
-    "icon": "images/items/Battery.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -1126,7 +1220,6 @@ export const items = {
   },
   "Bayonet": {
     "name": "Bayonet",
-    "icon": "images/items/Bayonet.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -1149,8 +1242,7 @@ export const items = {
       "Fiery": "When you use the weapon to the left of this, burn equal to 10% of this item's Damage.",
       "Shiny": "This has double Damage.",
       "Obsidian": "This has double Damage.",
-      "Deadly": "The weapon to the left of this has +50% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Deadly": "The weapon to the left of this has +50% Crit Chance."
     },
     "priorities": [
       0
@@ -1158,7 +1250,6 @@ export const items = {
   },
   "Beach Ball": {
     "name": "Beach Ball",
-    "icon": "images/items/BeachBall.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -1170,7 +1261,7 @@ export const items = {
     "cooldown": 5,
     "ammo": null,
     "text": [
-      "Haste (1/2/3/4) Aquatic or Toy item(s) for 2 second(s)."
+      "Haste (2/3/4/5) Aquatic or Toy item(s) for 2 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 1 second(s).",
@@ -1191,7 +1282,6 @@ export const items = {
   },
   "Beast of Burden": {
     "name": "Beast of Burden",
-    "icon": "images/items/BeastofBurden.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -1230,7 +1320,6 @@ export const items = {
   },
   "Beehive": {
     "name": "Beehive",
-    "icon": "images/items/Beehive.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -1243,20 +1332,20 @@ export const items = {
     "ammo": null,
     "text": [
       "When your enemy uses a weapon, charge your Busy Bees 2 second(s).",
-      "When you buy a Property, get a Busy Bee and your Busy Bees gain (+10/+20/+30) damage."
+      "When you buy this, get 2 Busy Bees.",
+      "When you buy a Property, your Busy Bees gain (+10/+15/+20) damage."
     ],
     "enchants": {
-      "Heavy": "...and Enchant the item with Heavy if able.",
-      "Icy": "...and Enchant the item with Icy if able.",
-      "Turbo": "...and Enchant the item with Turbo if able.",
-      "Shielded": "...and Enchant the item with Shielded if able.",
-      "Restorative": "...and Enchant the item with Restorative if able.",
-      "Toxic": "...and Enchant the item with Toxic if able.",
-      "Fiery": "...and Enchant the item with Fiery if able.",
-      "Shiny": "...and Enchant the item with Shiny if able.",
-      "Deadly": "...and Enchant the item with Deadly if able.",
-      "Radiant": "...and Enchant the item with Radiant if able.",
-      "Obsidian": "...and Enchant the item with Obsidian if able."
+      "Heavy": "When you use a Busy Bee, Slow 1 item for 1 second(s).",
+      "Icy": "When you use a Busy Bee, Freeze 1 item for 0.5 second(s).",
+      "Turbo": "When you use a Busy Bee, Haste 1 item for 1 second(s).",
+      "Shielded": "When you use a Busy Bee, Shield equal to the Damage of your strongest Busy Bee.",
+      "Restorative": "When you use a Busy Bee, Heal equal to the Damage of your strongest Busy Bee.",
+      "Toxic": "When you use a Busy Bee, Poison equal to 10% of the Damage of your strongest Busy Bee.",
+      "Fiery": "When you use a Busy Bee, Burn equal to 10% of the Damage of your strongest Busy Bee.",
+      "Shiny": "Your Busy Bees have +1 Multicast.",
+      "Deadly": "Your Busy Bees have +50% Crit Chance.",
+      "Obsidian": "Your Busy Bees deal double Damage."
     },
     "priorities": [
       0,
@@ -1265,7 +1354,6 @@ export const items = {
   },
   "Bellelista": {
     "name": "Bellelista",
-    "icon": "images/items/Bellelista.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -1280,7 +1368,7 @@ export const items = {
     "text": [
       "Deal 40 damage.",
       "When you Haste, this gains (10/20/30) damage for the fight.",
-      "When this gains Haste, charge it 2 second(s)."
+      "When this gains Haste, charge this 2 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 1 items for 2 second(s).",
@@ -1303,7 +1391,6 @@ export const items = {
   },
   "Belt": {
     "name": "Belt",
-    "icon": "images/items/Belt.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -1323,7 +1410,6 @@ export const items = {
   },
   "Beta Ray": {
     "name": "Beta Ray",
-    "icon": "images/items/BetaRay.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -1356,7 +1442,6 @@ export const items = {
   },
   "Bill Dozer": {
     "name": "Bill Dozer",
-    "icon": "images/items/BillDozer.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -1395,7 +1480,6 @@ export const items = {
   },
   "Billboard": {
     "name": "Billboard",
-    "icon": "images/items/Billboard.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -1435,7 +1519,6 @@ export const items = {
   },
   "Black Ice": {
     "name": "Black Ice",
-    "icon": "images/items/BlackIce.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -1469,7 +1552,6 @@ export const items = {
   },
   "Black Pepper": {
     "name": "Black Pepper",
-    "icon": "images/items/BlackPepper.avif",
     "tier": 1,
     "tags": [
       "Jules",
@@ -1506,7 +1588,6 @@ export const items = {
   },
   "Black Rose": {
     "name": "Black Rose",
-    "icon": "images/items/BlackRose.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -1517,21 +1598,21 @@ export const items = {
     "cooldown": 8,
     "ammo": null,
     "text": [
-      "Gain 4 Regeneration for the fight.",
-      "When you Poison, this gains (+1/+2/+3) Regeneration for the fight."
+      "Gain 4 Regen for the fight.",
+      "When you Poison, this gains (+1/+2/+3) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 3 second(s).",
       "Icy": "Freeze 1 small item for 1 second(s).",
       "Turbo": "Haste 1 item for 3 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "+50% Crit Chance",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1,
@@ -1540,7 +1621,6 @@ export const items = {
   },
   "Blast Doors": {
     "name": "Blast Doors",
-    "icon": "images/items/BlastDoors.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -1575,8 +1655,7 @@ export const items = {
   },
   "BLK-SP1D3R": {
     "name": "BLK-SP1D3R",
-    "icon": "images/items/BLKSP1D3R.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Small",
@@ -1588,7 +1667,7 @@ export const items = {
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Slow (1/2/3/4) item(s) for 1 second(s).",
+      "Slow (1/2/3) item(s) for 1 second(s).",
       "When an adjacent item Poisons or Burns, charge this 1 second(s)."
     ],
     "enchants": {
@@ -1611,7 +1690,6 @@ export const items = {
   },
   "Blow Torch": {
     "name": "Blow Torch",
-    "icon": "images/items/BlowTorch.avif",
     "tier": 0,
     "tags": [
       "Stelle",
@@ -1643,7 +1721,6 @@ export const items = {
   },
   "Blowgun": {
     "name": "Blowgun",
-    "icon": "images/items/Blowgun.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -1678,8 +1755,7 @@ export const items = {
   },
   "BLU-B33TL3": {
     "name": "BLU-B33TL3",
-    "icon": "images/items/BLUB33TL3.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Small",
@@ -1690,7 +1766,7 @@ export const items = {
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Freeze (1/2/3/4) item(s) for 0.5 second(s).",
+      "Freeze (1/2/3) item(s) for 0.5 second(s).",
       "When an adjacent item Poisons, charge this 1 second(s)."
     ],
     "enchants": {
@@ -1713,7 +1789,6 @@ export const items = {
   },
   "Blue Gumball": {
     "name": "Blue Gumball",
-    "icon": "images/items/BlueGumball.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -1742,7 +1817,6 @@ export const items = {
   },
   "Blue Piggles A": {
     "name": "Blue Piggles A",
-    "icon": "images/items/BluePigglesA.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -1774,7 +1848,6 @@ export const items = {
   },
   "Blue Piggles L": {
     "name": "Blue Piggles L",
-    "icon": "images/items/BluePigglesL.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -1806,7 +1879,6 @@ export const items = {
   },
   "Blue Piggles R": {
     "name": "Blue Piggles R",
-    "icon": "images/items/BluePigglesR.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -1838,7 +1910,6 @@ export const items = {
   },
   "Blue Piggles X": {
     "name": "Blue Piggles X",
-    "icon": "images/items/BluePigglesX.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -1870,7 +1941,6 @@ export const items = {
   },
   "Bluenanas": {
     "name": "Bluenanas",
-    "icon": "images/items/Bluenanas.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -1905,7 +1975,6 @@ export const items = {
   },
   "Blunderbuss": {
     "name": "Blunderbuss",
-    "icon": "images/items/Blunderbuss.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -1941,15 +2010,14 @@ export const items = {
   },
   "Boiling Flask": {
     "name": "Boiling Flask",
-    "icon": "images/items/BoilingFlask.avif",
-    "tier": 1,
+    "tier": 2,
     "tags": [
       "Mak",
       "Medium",
       "Tool",
       "AmmoReference"
     ],
-    "cooldown": "(11/10/9)",
+    "cooldown": "(10/9)",
     "ammo": null,
     "text": [
       "Reload adjacent Potions.",
@@ -1975,7 +2043,6 @@ export const items = {
   },
   "Bolas": {
     "name": "Bolas",
-    "icon": "images/items/Bolas.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -2011,7 +2078,6 @@ export const items = {
   },
   "Bomb Squad": {
     "name": "Bomb Squad",
-    "icon": "images/items/BombSquad.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -2020,11 +2086,11 @@ export const items = {
       "Burn",
       "Haste"
     ],
-    "cooldown": 9,
+    "cooldown": "(10/8/6/4)",
     "ammo": null,
     "text": [
-      "Burn (4/5/6/7).",
-      "When you use an adjacent friend, Haste this (1/2/3/4) second(s)."
+      "Burn 6.",
+      "When you use an adjacent friend, Haste this 2 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 1 second(s).",
@@ -2046,7 +2112,6 @@ export const items = {
   },
   "Booby Trap": {
     "name": "Booby Trap",
-    "icon": "images/items/BoobyTrap.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -2080,7 +2145,6 @@ export const items = {
   },
   "Boomerang": {
     "name": "Boomerang",
-    "icon": "images/items/Boomerang.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -2114,7 +2178,6 @@ export const items = {
   },
   "Bootstraps": {
     "name": "Bootstraps",
-    "icon": "images/items/Bootstraps.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -2146,7 +2209,6 @@ export const items = {
   },
   "Bottled Explosion": {
     "name": "Bottled Explosion",
-    "icon": "images/items/BottledExplosion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -2182,7 +2244,6 @@ export const items = {
   },
   "Bottled Lightning": {
     "name": "Bottled Lightning",
-    "icon": "images/items/BottledLightning.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -2221,7 +2282,6 @@ export const items = {
   },
   "Bottled Tornado": {
     "name": "Bottled Tornado",
-    "icon": "images/items/BottledTornado.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -2254,7 +2314,6 @@ export const items = {
   },
   "Brass Knuckles": {
     "name": "Brass Knuckles",
-    "icon": "images/items/BrassKnuckles.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -2288,7 +2347,6 @@ export const items = {
   },
   "Brick Buddy": {
     "name": "Brick Buddy",
-    "icon": "images/items/BrickBuddy.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -2323,7 +2381,6 @@ export const items = {
   },
   "Briefcase": {
     "name": "Briefcase",
-    "icon": "images/items/Briefcase.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -2359,7 +2416,6 @@ export const items = {
   },
   "Broken Shackles": {
     "name": "Broken Shackles",
-    "icon": "images/items/BrokenShackles.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -2367,11 +2423,11 @@ export const items = {
       "DamageReference",
       "Cooldown"
     ],
-    "cooldown": 7,
+    "cooldown": 8,
     "ammo": null,
     "text": [
-      "Your weapons gain (2/4/8) damage for the fight.",
-      "When you use a Weapon, charge this 1 second(s)."
+      "Your weapons gain (4/8/12) damage for the fight.",
+      "When you use a Weapon, charge this 2 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 1 second(s).",
@@ -2393,7 +2449,6 @@ export const items = {
   },
   "Bunker": {
     "name": "Bunker",
-    "icon": "images/items/Bunker.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -2417,7 +2472,6 @@ export const items = {
       "Fiery": "The first time you fall below half health each fight, Burn 30.",
       "Shiny": "This has double Multicast bonus.",
       "Deadly": "Your items have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "The first time you fall below half health each fight, Deal 300 damage."
     },
     "priorities": [
@@ -2427,19 +2481,20 @@ export const items = {
   },
   "Bushel": {
     "name": "Bushel",
-    "icon": "images/items/Bushel.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
       "Medium",
       "Food",
+      "Regen",
       "Heal",
       "ShieldReference"
     ],
-    "cooldown": 4,
+    "cooldown": 5,
     "ammo": null,
     "text": [
-      "Heal (60/90/120/150).",
+      "Heal (20/40/60/80).",
+      "Gain Regen equal to 10% of this item's Heal for the fight.",
       "When you Shield, charge this 1 second(s)."
     ],
     "enchants": {
@@ -2462,7 +2517,6 @@ export const items = {
   },
   "Business Card": {
     "name": "Business Card",
-    "icon": "images/items/BusinessCard.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -2476,7 +2530,7 @@ export const items = {
       "For every 5 Merchants you visit, upgrade this."
     ],
     "enchants": {
-      "Golden": "This has double income bonus.",
+      "Golden": "This has double value.",
       "Shiny": "This has +2 value gain."
     },
     "priorities": [
@@ -2486,7 +2540,6 @@ export const items = {
   },
   "Busy Bee": {
     "name": "Busy Bee",
-    "icon": "images/items/BusyBee.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -2519,7 +2572,6 @@ export const items = {
   },
   "Butter": {
     "name": "Butter",
-    "icon": "images/items/Butter.avif",
     "tier": 0,
     "tags": [
       "Jules",
@@ -2553,7 +2605,6 @@ export const items = {
   },
   "Butterfly Swords": {
     "name": "Butterfly Swords",
-    "icon": "images/items/ButterflySwords.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -2587,7 +2638,6 @@ export const items = {
   },
   "Calcinator": {
     "name": "Calcinator",
-    "icon": "images/items/Calcinator.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -2595,12 +2645,12 @@ export const items = {
       "Tool",
       "Burn"
     ],
-    "cooldown": 6,
+    "cooldown": 7,
     "ammo": null,
     "text": [
       "Burn 6.",
-      "When you transform a Reagent, this permanently gains (+4/+6/+8/+10) Burn.",
-      "At the start of each day, get a Chunk of Lead."
+      "When you transform a Reagent, this permanently gains (+3/+5/+7/+9) Burn.",
+      "At the start of each day, spend 3 Gold to get a Chunk of Lead."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 3 second(s).",
@@ -2623,7 +2673,6 @@ export const items = {
   },
   "Calico": {
     "name": "Calico",
-    "icon": "images/items/Calico.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -2661,7 +2710,6 @@ export const items = {
   },
   "Caltrops": {
     "name": "Caltrops",
-    "icon": "images/items/Caltrops.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -2682,8 +2730,8 @@ export const items = {
       "Restorative": "When your enemy uses an item, Heal equal to this item's Damage.",
       "Toxic": "When your enemy uses an item, Poison equal to 10% of this item's damage.",
       "Fiery": "When your enemy uses an item, Burn equal to 10% of this item's damage.",
+      "Shiny": "This has double Damage.",
       "Deadly": "When your enemy uses an item, your items gain 5% Crit Chance for the fight.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "This has double Damage."
     },
     "priorities": [
@@ -2692,7 +2740,6 @@ export const items = {
   },
   "Candles": {
     "name": "Candles",
-    "icon": "images/items/Candles.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -2725,7 +2772,6 @@ export const items = {
   },
   "Candy Mail": {
     "name": "Candy Mail",
-    "icon": "images/items/CandyMail.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -2748,7 +2794,6 @@ export const items = {
   },
   "Cannon": {
     "name": "Cannon",
-    "icon": "images/items/Cannon.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -2784,7 +2829,6 @@ export const items = {
   },
   "Cannonade": {
     "name": "Cannonade",
-    "icon": "images/items/Cannonade.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -2818,7 +2862,6 @@ export const items = {
   },
   "Cannonball": {
     "name": "Cannonball",
-    "icon": "images/items/Cannonball.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -2840,7 +2883,6 @@ export const items = {
       "Fiery": "Adjacent Burn items have +2 Burn.",
       "Shiny": "This has double Max Ammo bonus.",
       "Deadly": "Adjacent Ammo items have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Ajacent Weapons have +20 damage."
     },
     "priorities": [
@@ -2849,7 +2891,6 @@ export const items = {
   },
   "Capacitor": {
     "name": "Capacitor",
-    "icon": "images/items/Capacitor.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -2881,7 +2922,6 @@ export const items = {
   },
   "Captain's Quarters": {
     "name": "Captain's Quarters",
-    "icon": "images/items/CaptainsQuarters.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -2921,7 +2961,6 @@ export const items = {
   },
   "Captain's Wheel": {
     "name": "Captain's Wheel",
-    "icon": "images/items/CaptainsWheel.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -2937,16 +2976,17 @@ export const items = {
       "If you have a Vehicle or Large item, reduce this item's cooldown by 50%."
     ],
     "enchants": {
-      "Heavy": "Slow 1 item for 2 second(s).",
-      "Icy": "Freeze 1 medium or small item for 1 second(s).",
+      "Heavy": "When you use an adjacent item, Slow 1 item for 1 second(s).",
+      "Icy": "When you use an adjacent item, Freeze 1 medium or small item for 1 second(s).",
       "Turbo": "This has double Haste duration.",
-      "Shielded": "Shield 20.",
-      "Restorative": "Heal 40.",
-      "Toxic": "Poison 2.",
-      "Fiery": "Burn 4.",
+      "Shielded": "When you use an adjacent item, Shield 10.",
+      "Restorative": "When you use an adjacent item, Heal 15.",
+      "Toxic": "When you use an adjacent item, Poison 1.",
+      "Fiery": "When you use an adjacent item, Burn 1.",
       "Shiny": "This has +1 Multicast.",
+      "Deadly": "Adjacent items have +50% Crit Chance.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal 20 Damage."
+      "Obsidian": "When you use an adjacent item, Deal 10 Damage."
     },
     "priorities": [
       0,
@@ -2955,7 +2995,6 @@ export const items = {
   },
   "Card Table": {
     "name": "Card Table",
-    "icon": "images/items/CardTable.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -2987,7 +3026,6 @@ export const items = {
   },
   "Cargo Shorts": {
     "name": "Cargo Shorts",
-    "icon": "images/items/CargoShorts.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -3024,7 +3062,6 @@ export const items = {
   },
   "Cash Cannon": {
     "name": "Cash Cannon",
-    "icon": "images/items/CashCannon.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -3060,7 +3097,6 @@ export const items = {
   },
   "Cash Register": {
     "name": "Cash Register",
-    "icon": "images/items/CashRegister.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -3075,8 +3111,7 @@ export const items = {
     ],
     "enchants": {
       "Golden": "You have +3 Income.",
-      "Shiny": "At the start of each hour, get an additional 2 Spare Change.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Shiny": "At the start of each hour, get an additional 2 Spare Change."
     },
     "priorities": [
       1
@@ -3084,17 +3119,15 @@ export const items = {
   },
   "Catalyst": {
     "name": "Catalyst",
-    "icon": "images/items/Catalyst.avif",
-    "tier": 1,
+    "tier": 0,
     "tags": [
-      "Mak",
-      "Small",
-      "Reagent"
+      "Common",
+      "Small"
     ],
     "cooldown": null,
     "ammo": null,
     "text": [
-      "After you buy or sell 3 Reagents, transform this and enchant it."
+      "When you sell this, transform your leftmost Small item."
     ],
     "enchants": {},
     "priorities": [
@@ -3103,7 +3136,6 @@ export const items = {
   },
   "Catfish": {
     "name": "Catfish",
-    "icon": "images/items/Catfish.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -3139,7 +3171,6 @@ export const items = {
   },
   "Cauldron": {
     "name": "Cauldron",
-    "icon": "images/items/Cauldron.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -3176,7 +3207,6 @@ export const items = {
   },
   "Cellar": {
     "name": "Cellar",
-    "icon": "images/items/Cellar.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -3189,20 +3219,20 @@ export const items = {
     "ammo": null,
     "text": [
       "Reload an item.",
-      "Gain (2/4/6) Regeneration for the fight."
+      "Gain (2/4/6) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
       "Icy": "Freeze 1 medium or small item for 2 second(s).",
       "Turbo": "Haste 1 item for 2 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "+50% Crit Chance",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1,
@@ -3211,7 +3241,6 @@ export const items = {
   },
   "Char Cole": {
     "name": "Char Cole",
-    "icon": "images/items/CharCole.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -3245,7 +3274,6 @@ export const items = {
   },
   "Charging Station": {
     "name": "Charging Station",
-    "icon": "images/items/ChargingStation.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -3269,7 +3297,6 @@ export const items = {
       "Toxic": "When you use the core, poison 4.",
       "Fiery": "When you use the core, burn 6.",
       "Shiny": "This has double damage bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use the Core, Deal 40 Damage."
     },
     "priorities": [
@@ -3279,7 +3306,6 @@ export const items = {
   },
   "Chemsnail": {
     "name": "Chemsnail",
-    "icon": "images/items/Chemsnail.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -3288,11 +3314,11 @@ export const items = {
       "Poison",
       "Slow"
     ],
-    "cooldown": 5,
+    "cooldown": 6,
     "ammo": null,
     "text": [
-      "Poison (3/6/9/12).",
-      "Slow 1 item for (1/2/3/4) second(s)."
+      "Poison (4/8/12/16).",
+      "Slow (1/2/3/4) item for 1 second(s)."
     ],
     "enchants": {
       "Heavy": "This has double Slow duration.",
@@ -3314,7 +3340,6 @@ export const items = {
   },
   "Chocolate Bar": {
     "name": "Chocolate Bar",
-    "icon": "images/items/ChocolateBar.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -3344,7 +3369,6 @@ export const items = {
   },
   "Chris Army Knife": {
     "name": "Chris Army Knife",
-    "icon": "images/items/ChrisArmyKnife.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -3355,11 +3379,11 @@ export const items = {
       "Damage",
       "Shield"
     ],
-    "cooldown": 6,
+    "cooldown": "(7/6/5/4)",
     "ammo": null,
     "text": [
-      "Deal (6/12/18/24) damage.",
-      "Shield (6/12/18/24)."
+      "Deal 15 damage.",
+      "Shield 15."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -3381,7 +3405,6 @@ export const items = {
   },
   "Chronobarrier": {
     "name": "Chronobarrier",
-    "icon": "images/items/Chronobarrier.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -3416,7 +3439,6 @@ export const items = {
   },
   "Chum": {
     "name": "Chum",
-    "icon": "images/items/Chum.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -3450,7 +3472,6 @@ export const items = {
   },
   "Chunk of Gold": {
     "name": "Chunk of Gold",
-    "icon": "images/items/ChunkofGold.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -3479,7 +3500,6 @@ export const items = {
   },
   "Chunk of Lead": {
     "name": "Chunk of Lead",
-    "icon": "images/items/ChunkofLead.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -3510,12 +3530,10 @@ export const items = {
   },
   "Cinders": {
     "name": "Cinders",
-    "icon": "images/items/Cinders.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "BurnReference"
     ],
     "cooldown": null,
@@ -3540,7 +3558,6 @@ export const items = {
   },
   "Citrus": {
     "name": "Citrus",
-    "icon": "images/items/Citrus.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -3551,7 +3568,7 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you sell this, permanently gain (1/2/3/4) Regeneration."
+      "When you sell this, permanently gain (1/2/3/4) Regen."
     ],
     "enchants": {
       "Heavy": "When you sell this, your leftmost Slow item gains +0.2 Slow duration.",
@@ -3570,7 +3587,6 @@ export const items = {
   },
   "Clamera": {
     "name": "Clamera",
-    "icon": "images/items/Clamera.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -3593,6 +3609,7 @@ export const items = {
       "Toxic": "Poison 3.",
       "Fiery": "Burn 4.",
       "Shiny": "This has +1 Multicast.",
+      "Deadly": "Your items have +10% Crit Chance.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal 30 Damage."
     },
@@ -3603,7 +3620,6 @@ export const items = {
   },
   "Claw Arm": {
     "name": "Claw Arm",
-    "icon": "images/items/ClawArm.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -3639,7 +3655,6 @@ export const items = {
   },
   "Clawrence": {
     "name": "Clawrence",
-    "icon": "images/items/Clawrence.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -3652,7 +3667,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Deal 20 damage.",
-      "When you use a Friend, this gains (15/20/25) damage for the fight."
+      "When you use a Friend, this gains (20/40/60) damage for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -3674,7 +3689,6 @@ export const items = {
   },
   "Claws": {
     "name": "Claws",
-    "icon": "images/items/Claws.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -3708,7 +3722,6 @@ export const items = {
   },
   "Clockwork Blades": {
     "name": "Clockwork Blades",
-    "icon": "images/items/ClockworkBlades.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -3743,7 +3756,6 @@ export const items = {
   },
   "Closed Sign": {
     "name": "Closed Sign",
-    "icon": "images/items/ClosedSign.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -3754,12 +3766,12 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "You have Regeneration equal to (50%/100%) of the value of adjacent properties."
+      "You have Regen equal to (50%/100%) of the value of adjacent properties."
     ],
     "enchants": {
       "Golden": "Adjacent properties have double value.",
-      "Restorative": "This has double Regeneration.",
-      "Shiny": "This has double Regeneration.",
+      "Restorative": "This has double Regen.",
+      "Shiny": "This has double Regen.",
       "Deadly": "Adjacent properties have +50% Crit Chance.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed."
     },
@@ -3769,7 +3781,6 @@ export const items = {
   },
   "Coconut": {
     "name": "Coconut",
-    "icon": "images/items/Coconut.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -3799,7 +3810,6 @@ export const items = {
   },
   "Cog": {
     "name": "Cog",
-    "icon": "images/items/Cog.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -3828,9 +3838,39 @@ export const items = {
       2
     ]
   },
+  "Coincure": {
+    "name": "Coincure",
+    "tier": 1,
+    "tags": [
+      "Pygmalien",
+      "Medium",
+      "Tool",
+      "Regen",
+      "Value"
+    ],
+    "cooldown": 7,
+    "ammo": null,
+    "text": [
+      "Gain Regen for the fight equal to (1/2/3) times this item's value.",
+      "When you win a fight with this in play, increase its value by (+3/+6/+9).",
+      "When you lose a fight with this in play, permanently destroy this and gain Gold equal to its Value."
+    ],
+    "enchants": {
+      "Heavy": "Slow 2 items for 3 second(s).",
+      "Icy": "Freeze 1 medium or small item for 3 second(s).",
+      "Turbo": "Haste 2 items for 3 second(s).",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
+    }
+  },
   "Cold Room": {
     "name": "Cold Room",
-    "icon": "images/items/ColdRoom.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -3839,25 +3879,25 @@ export const items = {
       "Freeze",
       "Regen"
     ],
-    "cooldown": 10,
+    "cooldown": 12,
     "ammo": null,
     "text": [
       "Freeze (1/2/3) item(s) for 1 second(s).",
-      "When you Freeze, gain (3/6/9) Regeneration for the fight.",
+      "When you Freeze, gain (3/6/9) Regen for the fight.",
       "When your enemy uses an item, charge this 1 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 3 second(s).",
       "Icy": "This has double Freeze duration.",
       "Turbo": "Haste 2 items for 3 second(s).",
-      "Shielded": "When you Freeze, Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "This has double Regeneration.",
-      "Toxic": "When you Freeze, Poison equal to this item's Regeneration.",
-      "Fiery": "When you Freeze, Burn equal to this item's Regeneration.",
+      "Shielded": "When you Freeze, Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "When you Freeze, Poison equal to this item's Regen.",
+      "Fiery": "When you Freeze, Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Deadly": "When you Freeze, your items gain +10% Crit Chance for the fight.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "When you Freeze, Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "When you Freeze, Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1,
@@ -3867,7 +3907,6 @@ export const items = {
   },
   "Colossal Popsicle": {
     "name": "Colossal Popsicle",
-    "icon": "images/items/ColossalPopsicle.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -3905,7 +3944,6 @@ export const items = {
   },
   "Combat Core": {
     "name": "Combat Core",
-    "icon": "images/items/CombatCore.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -3947,8 +3985,7 @@ export const items = {
   },
   "Companion Core": {
     "name": "Companion Core",
-    "icon": "images/items/CompanionCore.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Medium",
@@ -3956,13 +3993,12 @@ export const items = {
       "Tech",
       "Friend",
       "Haste",
-      "Charge",
-      "Unsellable"
+      "Charge"
     ],
-    "cooldown": 6,
+    "cooldown": "(6/5/4)",
     "ammo": null,
     "text": [
-      "Haste adjacent items (2/3/4/5) second(s).",
+      "Haste adjacent items (2/3/4) second(s).",
       "When you use another Friend, Charge this 1 second(s)."
     ],
     "enchants": {
@@ -3985,7 +4021,6 @@ export const items = {
   },
   "Concealed Dagger": {
     "name": "Concealed Dagger",
-    "icon": "images/items/ConcealedDagger.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -4019,33 +4054,8 @@ export const items = {
       1
     ]
   },
-  "Cookies": {
-    "name": "Cookies",
-    "icon": "images/items/Cookies.avif",
-    "tier": 0,
-    "tags": [
-      "Jules",
-      "Small",
-      "Food",
-      "Regen"
-    ],
-    "cooldown": 6,
-    "ammo": null,
-    "text": [
-      "When you sell this, you lose (10/20/30/40) Max Health.",
-      "When you sell this, permanently gain (1/2/3/4) Regeneration."
-    ],
-    "enchants": {
-      "Shiny": "This takes double Max Health and has double Regeneration bonus."
-    },
-    "priorities": [
-      1,
-      0
-    ]
-  },
   "Cool LEDs": {
     "name": "Cool LEDs",
-    "icon": "images/items/CoolLEDs.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -4078,7 +4088,6 @@ export const items = {
   },
   "Coolant": {
     "name": "Coolant",
-    "icon": "images/items/Coolant.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -4110,7 +4119,6 @@ export const items = {
   },
   "Cooling Fan": {
     "name": "Cooling Fan",
-    "icon": "images/items/CoolingFan.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -4145,7 +4153,6 @@ export const items = {
   },
   "Copper Ed": {
     "name": "Copper Ed",
-    "icon": "images/items/CopperEd.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -4154,11 +4161,11 @@ export const items = {
       "Poison",
       "Shield"
     ],
-    "cooldown": 7,
+    "cooldown": "(7/6/5/4)",
     "ammo": null,
     "text": [
-      "Poison (1/2/3/4).",
-      "Shield (5/10/15/20)."
+      "Poison 3.",
+      "Shield 15."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -4180,7 +4187,6 @@ export const items = {
   },
   "Coral": {
     "name": "Coral",
-    "icon": "images/items/Coral.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -4214,7 +4220,6 @@ export const items = {
   },
   "Coral Armor": {
     "name": "Coral Armor",
-    "icon": "images/items/CoralArmor.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -4249,7 +4254,6 @@ export const items = {
   },
   "Cosmic Amulet": {
     "name": "Cosmic Amulet",
-    "icon": "images/items/CosmicAmulet.avif",
     "tier": 2,
     "tags": [
       "Common",
@@ -4284,7 +4288,6 @@ export const items = {
   },
   "Cosmic Plumage": {
     "name": "Cosmic Plumage",
-    "icon": "images/items/CosmicPlumage.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -4296,8 +4299,8 @@ export const items = {
     "cooldown": 7,
     "ammo": null,
     "text": [
-      "Your Shield items gain (+4/+8/+12) Shield and your Weapons (+4/+8/+12) damage for the fight.",
-      "When you crit, charge this 1 second(s)."
+      "Your Shield items gain (+10/+20/+30) Shield and your Weapons (+10/+20/+30) damage for the fight.",
+      "When you crit, charge this 3 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -4319,7 +4322,6 @@ export const items = {
   },
   "Cove": {
     "name": "Cove",
-    "icon": "images/items/Cove.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -4357,7 +4359,6 @@ export const items = {
   },
   "Covetous Raven": {
     "name": "Covetous Raven",
-    "icon": "images/items/CovetousRaven.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -4392,7 +4393,6 @@ export const items = {
   },
   "Crane": {
     "name": "Crane",
-    "icon": "images/items/Crane.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -4430,8 +4430,7 @@ export const items = {
   },
   "Critical Core": {
     "name": "Critical Core",
-    "icon": "images/items/CriticalCore.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Medium",
@@ -4439,14 +4438,13 @@ export const items = {
       "Tech",
       "Weapon",
       "Damage",
-      "Crit",
-      "Unsellable"
+      "Crit"
     ],
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Deal (20/30/40/50) damage.",
-      "This and items to the right of this have (+15%/+20%/+25%/+30%) Crit Chance.",
+      "Deal 50 damage.",
+      "This and items to the right of this have (+30%/+45%/+60%) Crit Chance.",
       "When you use any item to the left of this, Charge this 1 second(s).",
       "When you Crit with any item, Charge this 1 second(s)."
     ],
@@ -4472,7 +4470,6 @@ export const items = {
   },
   "Crocodile Tears": {
     "name": "Crocodile Tears",
-    "icon": "images/items/CrocodileTears.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -4508,7 +4505,6 @@ export const items = {
   },
   "Crook": {
     "name": "Crook",
-    "icon": "images/items/Crook.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -4544,7 +4540,6 @@ export const items = {
   },
   "Crow's Nest": {
     "name": "Crow's Nest",
-    "icon": "images/items/CrowsNest.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -4569,7 +4564,6 @@ export const items = {
       "Fiery": "When you crit with a weapon, burn 6",
       "Deadly": "Your Weapons have double Crit damage.",
       "Shiny": "If you have two or fewer weapons, they have Lifesteal.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Your Weapons have +30 damage."
     },
     "priorities": [
@@ -4579,7 +4573,6 @@ export const items = {
   },
   "Crusher Claw": {
     "name": "Crusher Claw",
-    "icon": "images/items/CrusherClaw.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -4615,7 +4608,6 @@ export const items = {
   },
   "Cryosleeve": {
     "name": "Cryosleeve",
-    "icon": "images/items/Cryosleeve.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -4651,7 +4643,6 @@ export const items = {
   },
   "Cryosphere": {
     "name": "Cryosphere",
-    "icon": "images/items/Cryosphere.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -4682,7 +4673,6 @@ export const items = {
   },
   "Crypto": {
     "name": "Crypto",
-    "icon": "images/items/Crypto.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -4697,8 +4687,7 @@ export const items = {
     ],
     "enchants": {
       "Golden": "This has double value.",
-      "Shiny": "This has double value.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Shiny": "This has double value."
     },
     "priorities": [
       2
@@ -4706,7 +4695,6 @@ export const items = {
   },
   "Crystal Bonsai": {
     "name": "Crystal Bonsai",
-    "icon": "images/items/CrystalBonsai.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -4744,7 +4732,6 @@ export const items = {
   },
   "Curry": {
     "name": "Curry",
-    "icon": "images/items/Curry.avif",
     "tier": 1,
     "tags": [
       "Jules",
@@ -4777,9 +4764,35 @@ export const items = {
       2
     ]
   },
+  "Custom Scope": {
+    "name": "Custom Scope",
+    "tier": 1,
+    "tags": [
+      "Vanessa",
+      "Small",
+      "Crit"
+    ],
+    "cooldown": null,
+    "ammo": null,
+    "text": [
+      "The weapon to the right of this has (+15%/+20%/+25%) Crit Chance.",
+      "If you have exactly one weapon, when you Crit with it charge a non-weapon item (1/1.5/2) second(s)."
+    ],
+    "enchants": {
+      "Heavy": "When you use the weapon to the right of this, Slow 1 item for 1 second(s).",
+      "Icy": "When you use the weapon to the right of this, Freeze 1 small item for 1 second(s).",
+      "Turbo": "When you use the weapon to the right of this, haste it for 1 second(s).",
+      "Shielded": "When you use the weapon to the right of this, shield 10.",
+      "Restorative": "When you use the weapon to the right of this, heal 15.",
+      "Toxic": "When you use the weapon to the right of this, poison 1.",
+      "Fiery": "When you use the weapon to the right of this, burn 1.",
+      "Shiny": "This has double Charge amount.",
+      "Deadly": "This has double Crit bonus.",
+      "Obsidian": "The weapon to the right of this has + Damage equal to its Crit Chance."
+    }
+  },
   "Cutlass": {
     "name": "Cutlass",
-    "icon": "images/items/Cutlass.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -4816,7 +4829,6 @@ export const items = {
   },
   "Cybersecurity": {
     "name": "Cybersecurity",
-    "icon": "images/items/Cybersecurity.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -4828,7 +4840,7 @@ export const items = {
     "cooldown": 10,
     "ammo": null,
     "text": [
-      "Deal (15/30/60) damage for each Weapon or Tech item you have.",
+      "Deal (30/40/50) damage for each Weapon or Tech item you have.",
       "This deals (2/3/4) times damage if it is your only friend."
     ],
     "enchants": {
@@ -4851,7 +4863,6 @@ export const items = {
   },
   "Dam": {
     "name": "Dam",
-    "icon": "images/items/Dam.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -4885,7 +4896,6 @@ export const items = {
   },
   "Darkwater Anglerfish": {
     "name": "Darkwater Anglerfish",
-    "icon": "images/items/DarkwaterAnglerfish.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -4895,10 +4905,10 @@ export const items = {
       "Burn",
       "SlowReference"
     ],
-    "cooldown": "(10/9/8)",
+    "cooldown": 8,
     "ammo": null,
     "text": [
-      "Burn 10.",
+      "Burn (10/20/30).",
       "When you Slow, charge this 2 seconds."
     ],
     "enchants": {
@@ -4921,7 +4931,6 @@ export const items = {
   },
   "Death Caps": {
     "name": "Death Caps",
-    "icon": "images/items/DeathCaps.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -4957,7 +4966,6 @@ export const items = {
   },
   "Defense Matrix": {
     "name": "Defense Matrix",
-    "icon": "images/items/DefenseMatrix.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -4992,7 +5000,6 @@ export const items = {
   },
   "Diana-Saur": {
     "name": "Diana-Saur",
-    "icon": "images/items/DianaSaur.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -5030,7 +5037,6 @@ export const items = {
   },
   "Disguise": {
     "name": "Disguise",
-    "icon": "images/items/Disguise.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -5053,7 +5059,6 @@ export const items = {
       "Toxic": "When you use an item from another hero, poison 2.",
       "Fiery": "When you use an item from another hero, burn 3.",
       "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use an item from another hero, Deal 20 Damage."
     },
     "priorities": [
@@ -5063,7 +5068,6 @@ export const items = {
   },
   "Dishwasher": {
     "name": "Dishwasher",
-    "icon": "images/items/Dishwasher.avif",
     "tier": 0,
     "tags": [
       "Jules",
@@ -5098,7 +5102,6 @@ export const items = {
   },
   "Dive Weights": {
     "name": "Dive Weights",
-    "icon": "images/items/DiveWeights.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -5111,7 +5114,7 @@ export const items = {
       "Ammo"
     ],
     "cooldown": 8,
-    "ammo": 3,
+    "ammo": 4,
     "text": [
       "Haste 1 item(s) for (1/2/3) second(s).",
       "For each adjacent Aquatic item, reduce this item's cooldown by 1 second.",
@@ -5138,7 +5141,6 @@ export const items = {
   },
   "Diving Helmet": {
     "name": "Diving Helmet",
-    "icon": "images/items/DivingHelmet.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -5152,7 +5154,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Shield 25.",
-      "When you use an Aquatic item, this gains (+5/+10/+15) Shield for the fight.",
+      "When you use an Aquatic item, this gains (+10/+20/+30) Shield for the fight.",
       "Adjacent items are Aquatic."
     ],
     "enchants": {
@@ -5176,7 +5178,6 @@ export const items = {
   },
   "DJ Rob0t": {
     "name": "DJ Rob0t",
-    "icon": "images/items/DJRob0t.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -5212,7 +5213,6 @@ export const items = {
   },
   "Dock Lines": {
     "name": "Dock Lines",
-    "icon": "images/items/DockLines.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -5234,6 +5234,7 @@ export const items = {
       "Restorative": "Heal 60.",
       "Toxic": "Poison 4.",
       "Fiery": "Burn 6.",
+      "Deadly": "Your items have +20% Crit Chance.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal 40 Damage."
@@ -5244,7 +5245,6 @@ export const items = {
   },
   "Dog": {
     "name": "Dog",
-    "icon": "images/items/Dog.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -5280,7 +5280,6 @@ export const items = {
   },
   "Dooley's Scarf": {
     "name": "Dooley's Scarf",
-    "icon": "images/items/DooleysScarf.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -5315,7 +5314,6 @@ export const items = {
   },
   "Dooltron": {
     "name": "Dooltron",
-    "icon": "images/items/Dooltron.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -5359,7 +5357,6 @@ export const items = {
   },
   "Dooltron Mainframe": {
     "name": "Dooltron Mainframe",
-    "icon": "images/items/DooltronMainframe.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -5385,7 +5382,6 @@ export const items = {
       "Fiery": "When you use a Friend, burn 2.",
       "Shiny": "This has double Charge amount.",
       "Deadly": "Your Friends have +20% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use a Friend, Deal 20 Damage."
     },
     "priorities": [
@@ -5395,7 +5391,6 @@ export const items = {
   },
   "Double Barrel": {
     "name": "Double Barrel",
-    "icon": "images/items/DoubleBarrel.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -5430,7 +5425,6 @@ export const items = {
   },
   "Double Whammy": {
     "name": "Double Whammy",
-    "icon": "images/items/DoubleWhammy.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -5465,7 +5459,6 @@ export const items = {
   },
   "Dragon Heart": {
     "name": "Dragon Heart",
-    "icon": "images/items/DragonHeart.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -5499,7 +5492,6 @@ export const items = {
   },
   "Dragon Tooth": {
     "name": "Dragon Tooth",
-    "icon": "images/items/DragonTooth.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -5537,7 +5529,6 @@ export const items = {
   },
   "Dragon Whelp": {
     "name": "Dragon Whelp",
-    "icon": "images/items/DragonWhelp.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -5574,7 +5565,6 @@ export const items = {
   },
   "Dragon Wing": {
     "name": "Dragon Wing",
-    "icon": "images/items/DragonWing.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -5610,7 +5600,6 @@ export const items = {
   },
   "Dragon's Breath": {
     "name": "Dragon's Breath",
-    "icon": "images/items/DragonsBreath.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -5646,10 +5635,9 @@ export const items = {
   },
   "Duct Tape": {
     "name": "Duct Tape",
-    "icon": "images/items/DuctTape.avif",
     "tier": 1,
     "tags": [
-      "Common",
+      "Dooley",
       "Small",
       "Tool",
       "Shield",
@@ -5663,15 +5651,15 @@ export const items = {
     ],
     "enchants": {
       "Heavy": "This has double Slow duration.",
-      "Icy": "Freeze 1 small item for 1 second(s).",
-      "Turbo": "Haste 1 item for 2 second(s).",
+      "Icy": "When you use the item to the left of this, Freeze 1 small item for 1 second(s).",
+      "Turbo": "When you use the item to the left of this, Haste 1 item for 1 second(s).",
       "Shielded": "This has double Shield.",
-      "Restorative": "Heal equal to this item's Shield.",
-      "Toxic": "Poison 3.",
-      "Fiery": "Burn 4.",
+      "Restorative": "When you use the item to the left of this, Heal equal to this item's Shield.",
+      "Toxic": "When you use the item to the left of this, Poison equal to 10% of this item's Shield.",
+      "Fiery": "When you use the item to the left of this, Burn equal to 10% of this item's Shield.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal damage equal to this item's Shield."
+      "Obsidian": "When you use the item to the left of this, Deal damage equal to this item's Shield."
     },
     "priorities": [
       1,
@@ -5680,12 +5668,10 @@ export const items = {
   },
   "Eagle Talisman": {
     "name": "Eagle Talisman",
-    "icon": "images/items/EagleTalisman.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "Crit"
     ],
     "cooldown": null,
@@ -5710,7 +5696,6 @@ export const items = {
   },
   "Earrings": {
     "name": "Earrings",
-    "icon": "images/items/Earrings.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -5746,7 +5731,6 @@ export const items = {
   },
   "Ectoplasm": {
     "name": "Ectoplasm",
-    "icon": "images/items/Ectoplasm.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -5780,7 +5764,6 @@ export const items = {
   },
   "Electric Eels": {
     "name": "Electric Eels",
-    "icon": "images/items/ElectricEels.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -5819,7 +5802,6 @@ export const items = {
   },
   "Elemental Depth Charge": {
     "name": "Elemental Depth Charge",
-    "icon": "images/items/ElementalDepthCharge.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -5831,10 +5813,10 @@ export const items = {
       "Freeze",
       "Ammo"
     ],
-    "cooldown": "(12/11/10)",
+    "cooldown": "(12/10/8)",
     "ammo": 1,
     "text": [
-      "Poison 4, Burn 4, and Freeze 1 medium or small item for 1 second(s).",
+      "Poison 4, Burn 4, and Freeze 1 medium or small item for 0.5 second(s).",
       "This has +1 Multicast for each other Aquatic item you have."
     ],
     "enchants": {
@@ -5857,7 +5839,6 @@ export const items = {
   },
   "Emerald": {
     "name": "Emerald",
-    "icon": "images/items/Emerald.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -5890,7 +5871,6 @@ export const items = {
   },
   "Energy Potion": {
     "name": "Energy Potion",
-    "icon": "images/items/EnergyPotion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -5922,7 +5902,6 @@ export const items = {
   },
   "Epicurean Chocolate": {
     "name": "Epicurean Chocolate",
-    "icon": "images/items/EpicureanChocolate.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -5945,7 +5924,6 @@ export const items = {
   },
   "Exoskeleton": {
     "name": "Exoskeleton",
-    "icon": "images/items/Exoskeleton.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -5961,8 +5939,7 @@ export const items = {
     ],
     "enchants": {
       "Shiny": "This has double damage bonus.",
-      "Deadly": "Adjacent Weapons have +20% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Deadly": "Adjacent Weapons have +20% Crit Chance."
     },
     "priorities": [
       0,
@@ -5971,18 +5948,16 @@ export const items = {
   },
   "Extract": {
     "name": "Extract",
-    "icon": "images/items/Extract.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "PoisonReference"
     ],
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you sell this, your leftmost Poison item gains (+2/+2/+3/+4) Poison."
+      "When you sell this, your leftmost Poison item gains (+1/+2/+3/+4) Poison."
     ],
     "enchants": {
       "Heavy": "When you sell this, your leftmost Slow item gains +0.2 Slow duration.",
@@ -6001,7 +5976,6 @@ export const items = {
   },
   "Eye of the Colossus": {
     "name": "Eye of the Colossus",
-    "icon": "images/items/EyeoftheColossus.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -6034,7 +6008,6 @@ export const items = {
   },
   "Fang": {
     "name": "Fang",
-    "icon": "images/items/Fang.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -6066,12 +6039,10 @@ export const items = {
   },
   "Feather": {
     "name": "Feather",
-    "icon": "images/items/Feather.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "Cooldown"
     ],
     "cooldown": null,
@@ -6096,7 +6067,6 @@ export const items = {
   },
   "Fiber Optics": {
     "name": "Fiber Optics",
-    "icon": "images/items/FiberOptics.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -6119,7 +6089,6 @@ export const items = {
       "Fiery": "When you use your leftmost item, Burn 2.",
       "Shiny": "This has double Charge amount.",
       "Deadly": "When you use the leftmost item, the rightmost item gains +25% Crit Chance for the fight.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use your leftmost item, Deal 15 Damage."
     },
     "priorities": [
@@ -6128,7 +6097,6 @@ export const items = {
   },
   "Figurehead": {
     "name": "Figurehead",
-    "icon": "images/items/Figurehead.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -6152,8 +6120,7 @@ export const items = {
       "Toxic": "When you use an adjacent item, poison 2.",
       "Fiery": "When you use an adjacent item, burn 3.",
       "Shiny": "This has double Damage bonus and double Cooldown Reduction.",
-      "Deadly": "Your items have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Deadly": "Your items have +20% Crit Chance.",
       "Obsidian": "When you use an Adjacent item, Deal 20 Damage."
     },
     "priorities": [
@@ -6163,7 +6130,6 @@ export const items = {
   },
   "Fire Claw": {
     "name": "Fire Claw",
-    "icon": "images/items/FireClaw.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -6174,7 +6140,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Burn (6/9/12).",
-      "This has + Burn equal to (50%/75%/100%) of the Burn of your non-Fire Claw items."
+      "This has + Burn equal to (50%/75%/100%) of the Burn of your other items."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -6196,7 +6162,6 @@ export const items = {
   },
   "Fire Potion": {
     "name": "Fire Potion",
-    "icon": "images/items/FirePotion.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -6229,7 +6194,6 @@ export const items = {
   },
   "Fireflies": {
     "name": "Fireflies",
-    "icon": "images/items/Fireflies.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -6264,7 +6228,6 @@ export const items = {
   },
   "First Aiden": {
     "name": "First Aiden",
-    "icon": "images/items/FirstAiden.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -6299,7 +6262,6 @@ export const items = {
   },
   "Fishing Net": {
     "name": "Fishing Net",
-    "icon": "images/items/FishingNet.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -6334,7 +6296,6 @@ export const items = {
   },
   "Fishing Rod": {
     "name": "Fishing Rod",
-    "icon": "images/items/FishingRod.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -6369,7 +6330,6 @@ export const items = {
   },
   "Fixer Upper": {
     "name": "Fixer Upper",
-    "icon": "images/items/FixerUpper.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -6405,7 +6365,6 @@ export const items = {
   },
   "Flagship": {
     "name": "Flagship",
-    "icon": "images/items/Flagship.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -6442,7 +6401,6 @@ export const items = {
   },
   "Flail": {
     "name": "Flail",
-    "icon": "images/items/Flail.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -6476,7 +6434,6 @@ export const items = {
   },
   "Flamberge": {
     "name": "Flamberge",
-    "icon": "images/items/Flamberge.avif",
     "tier": 3,
     "tags": [
       "Common",
@@ -6510,7 +6467,6 @@ export const items = {
   },
   "Flamethrower": {
     "name": "Flamethrower",
-    "icon": "images/items/Flamethrower.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -6546,7 +6502,6 @@ export const items = {
   },
   "Flashbang": {
     "name": "Flashbang",
-    "icon": "images/items/Flashbang.avif",
     "tier": 1,
     "tags": [
       "Stelle",
@@ -6577,7 +6532,6 @@ export const items = {
   },
   "Floor Spike": {
     "name": "Floor Spike",
-    "icon": "images/items/FloorSpike.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -6614,7 +6568,6 @@ export const items = {
   },
   "Force Field": {
     "name": "Force Field",
-    "icon": "images/items/ForceField.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -6650,31 +6603,30 @@ export const items = {
   },
   "Forklift": {
     "name": "Forklift",
-    "icon": "images/items/Forklift.avif",
-    "tier": 2,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Large",
       "Vehicle",
       "Tool",
       "Weapon",
-      "Damage",
-      "Haste"
+      "Damage"
     ],
-    "cooldown": 11,
+    "cooldown": 10,
     "ammo": null,
     "text": [
-      "Deal (50/100) damage for each item to the left of this.",
-      "Haste this and the items to the right of this for (2/4) second(s)."
+      "Deal 100 damage.",
+      "When you use an Adjacent item, Charge this (1/1.5/2) second(s).",
+      "If you have another Tool, Apparel, Tech, Weapon, or Friend, this has (+50/+100/+150) Damage for each."
     ],
     "enchants": {
       "Heavy": "Slow 3 items for 3 second(s).",
       "Icy": "Freeze 1 item for 4 second(s).",
       "Turbo": "This has double Haste duration.",
-      "Shielded": "Shield 50 for each item to the left of this.",
-      "Restorative": "Heal 75 for each item to the left of this.",
-      "Toxic": "Poison 5 for each item to the left of this.",
-      "Fiery": "Burn 7 for each item to the left of this.",
+      "Shielded": "Shield 1 for each item to the left of this.",
+      "Restorative": "Heal 1 for each item to the left of this.",
+      "Toxic": "Poison 0.1 for each item to the left of this.",
+      "Fiery": "Burn 0.1 for each item to the left of this.",
       "Shiny": "This has +1 Multicast.",
       "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
@@ -6687,7 +6639,6 @@ export const items = {
   },
   "Fort": {
     "name": "Fort",
-    "icon": "images/items/Fort.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -6711,7 +6662,7 @@ export const items = {
       "Toxic": "Poison equal to 10% of this item's Shield.",
       "Fiery": "Burn equal to 10% of this item's Shield.",
       "Shiny": "This has +1 Multicast.",
-      "Deadly": "Enemy items have -100% Crit Chance.",
+      "Deadly": "Enemy items have -50% Crit Chance.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal damage equal to this item's Shield."
     },
@@ -6723,7 +6674,6 @@ export const items = {
   },
   "Frost Potion": {
     "name": "Frost Potion",
-    "icon": "images/items/FrostPotion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -6755,7 +6705,6 @@ export const items = {
   },
   "Frozen Bludgeon": {
     "name": "Frozen Bludgeon",
-    "icon": "images/items/FrozenBludgeon.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -6792,7 +6741,6 @@ export const items = {
   },
   "Frozen Flame": {
     "name": "Frozen Flame",
-    "icon": "images/items/FrozenFlame.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -6827,9 +6775,35 @@ export const items = {
       0
     ]
   },
+  "Fungal Spores": {
+    "name": "Fungal Spores",
+    "tier": 0,
+    "tags": [
+      "Mak",
+      "Small",
+      "PoisonReference"
+    ],
+    "cooldown": 5,
+    "ammo": null,
+    "text": [
+      "Your Poison items gain (+2/+3/+4/+5) Poison for the fight."
+    ],
+    "enchants": {
+      "Heavy": "Slow 1 item for 1 second(s).",
+      "Icy": "Freeze 1 small item for 1 second(s).",
+      "Turbo": "Haste 1 item for 1 second(s).",
+      "Shielded": "Shield 20.",
+      "Restorative": "Heal 30.",
+      "Toxic": "Poison 2.",
+      "Fiery": "Burn 2.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "Your Poison items have +25% Crit Chance.",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal 20 Damage."
+    }
+  },
   "Gamma Ray": {
     "name": "Gamma Ray",
-    "icon": "images/items/GammaRay.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -6863,7 +6837,6 @@ export const items = {
   },
   "Ganjo": {
     "name": "Ganjo",
-    "icon": "images/items/Ganjo.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -6900,7 +6873,6 @@ export const items = {
   },
   "Gatling Gun": {
     "name": "Gatling Gun",
-    "icon": "images/items/GatlingGun.avif",
     "tier": 2,
     "tags": [
       "Stelle",
@@ -6934,7 +6906,6 @@ export const items = {
   },
   "Gavel": {
     "name": "Gavel",
-    "icon": "images/items/Gavel.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -6967,7 +6938,6 @@ export const items = {
   },
   "Gearnola Bar": {
     "name": "Gearnola Bar",
-    "icon": "images/items/GearnolaBar.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -7001,13 +6971,10 @@ export const items = {
   },
   "Genie Lamp": {
     "name": "Genie Lamp",
-    "icon": "images/items/GenieLamp.avif",
     "tier": 3,
     "tags": [
       "Common",
-      "Small",
-      "Passive",
-      "NonWeapon"
+      "Small"
     ],
     "cooldown": null,
     "ammo": null,
@@ -7021,7 +6988,6 @@ export const items = {
   },
   "Giant Ice Club": {
     "name": "Giant Ice Club",
-    "icon": "images/items/GiantIceClub.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -7058,18 +7024,16 @@ export const items = {
   },
   "Gland": {
     "name": "Gland",
-    "icon": "images/items/Gland.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "Regen"
     ],
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you sell this, you gain (1/2/3/4) Regeneration."
+      "When you sell this, you gain (1/2/3/4) Regen."
     ],
     "enchants": {
       "Heavy": "When you sell this, your leftmost Slow item gains +0.2 Slow duration.",
@@ -7088,7 +7052,6 @@ export const items = {
   },
   "Globe": {
     "name": "Globe",
-    "icon": "images/items/Globe.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -7106,12 +7069,11 @@ export const items = {
       "Icy": "At the start of each fight, Freeze 2 medium or small items for 4 second(s).",
       "Turbo": "At the start of each fight, Haste 3 items for 5 second(s).",
       "Shielded": "At the start of each fight, Shield 120.",
-      "Restorative": "You have +12 Regeneration.",
+      "Restorative": "You have +12 Regen.",
       "Toxic": "At the start of each fight, poison 12.",
       "Fiery": "At the start of each fight, burn 16.",
       "Shiny": "This has double Max Health gain.",
       "Deadly": "Your Tools have +20% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "At the start of each fight, Deal 120 Damage."
     },
     "priorities": [
@@ -7120,7 +7082,6 @@ export const items = {
   },
   "Goggles": {
     "name": "Goggles",
-    "icon": "images/items/Goggles.avif",
     "tier": 0,
     "tags": [
       "Stelle",
@@ -7157,20 +7118,20 @@ export const items = {
   },
   "Golf Clubs": {
     "name": "Golf Clubs",
-    "icon": "images/items/GolfClubs.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
       "Medium",
       "Weapon",
       "Damage",
-      "HealReference"
+      "HealReference",
+      "RegenReference"
     ],
     "cooldown": 7,
     "ammo": null,
     "text": [
-      "Deal (20/40/80/160) damage.",
-      "When you Heal, this gains (10/20/30/40) damage for the fight."
+      "Deal 50 damage.",
+      "When you Heal or gain Regen, this gains (10/20/30/40) damage for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -7192,7 +7153,6 @@ export const items = {
   },
   "Goop Flail": {
     "name": "Goop Flail",
-    "icon": "images/items/GoopFlail.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -7229,7 +7189,6 @@ export const items = {
   },
   "GPU": {
     "name": "GPU",
-    "icon": "images/items/GPU.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -7260,7 +7219,6 @@ export const items = {
   },
   "Grapeshot": {
     "name": "Grapeshot",
-    "icon": "images/items/Grapeshot.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -7295,7 +7253,6 @@ export const items = {
   },
   "Grappling Hook": {
     "name": "Grappling Hook",
-    "icon": "images/items/GrapplingHook.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -7331,7 +7288,6 @@ export const items = {
   },
   "Green Gumball": {
     "name": "Green Gumball",
-    "icon": "images/items/GreenGumball.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -7360,7 +7316,6 @@ export const items = {
   },
   "Grenade": {
     "name": "Grenade",
-    "icon": "images/items/Grenade.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -7395,7 +7350,6 @@ export const items = {
   },
   "Grindstone": {
     "name": "Grindstone",
-    "icon": "images/items/Grindstone.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -7427,7 +7381,6 @@ export const items = {
   },
   "GRN-W4SP": {
     "name": "GRN-W4SP",
-    "icon": "images/items/GRNW4SP.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -7463,7 +7416,6 @@ export const items = {
   },
   "Gumball Machine": {
     "name": "Gumball Machine",
-    "icon": "images/items/GumballMachine.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -7499,12 +7451,10 @@ export const items = {
   },
   "Gunpowder": {
     "name": "Gunpowder",
-    "icon": "images/items/Gunpowder.avif",
     "tier": 1,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "AmmoReference"
     ],
     "cooldown": null,
@@ -7529,7 +7479,6 @@ export const items = {
   },
   "Hacksaw": {
     "name": "Hacksaw",
-    "icon": "images/items/Hacksaw.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -7562,45 +7511,8 @@ export const items = {
       1
     ]
   },
-  "Hakurvian Launcher": {
-    "name": "Hakurvian Launcher",
-    "icon": "images/items/HakurvianLauncher.avif",
-    "tier": 0,
-    "tags": [
-      "Common",
-      "Large",
-      "Weapon",
-      "HasteReference",
-      "Damage",
-      "Crit"
-    ],
-    "cooldown": 9,
-    "ammo": 2,
-    "text": [
-      "Deal (75/150/300/600) damage.",
-      "When this gains Haste, it also gains (5%/10%/15%/20%) Crit Chance for the fight."
-    ],
-    "enchants": {
-      "Heavy": "Slow 3 items for 4 second(s).",
-      "Icy": "Freeze 1 item for 6 second(s).",
-      "Turbo": "Haste 3 items for 4 second(s).",
-      "Shielded": "Shield equal to this item's damage.",
-      "Restorative": "Heal equal to this item's Damage.",
-      "Toxic": "Poison equal to 10% of this item's damage.",
-      "Fiery": "Burn equal to 10% of this item's damage.",
-      "Shiny": "This has +1 Multicast.",
-      "Deadly": "+50% Crit Chance",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "This has double Damage."
-    },
-    "priorities": [
-      1,
-      0
-    ]
-  },
   "Haladie": {
     "name": "Haladie",
-    "icon": "images/items/Haladie.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -7634,7 +7546,6 @@ export const items = {
   },
   "Hammer": {
     "name": "Hammer",
-    "icon": "images/items/Hammer.avif",
     "tier": 1,
     "tags": [
       "Stelle",
@@ -7670,7 +7581,6 @@ export const items = {
   },
   "Hammlet": {
     "name": "Hammlet",
-    "icon": "images/items/Hammlet.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -7707,7 +7617,6 @@ export const items = {
   },
   "Hammock": {
     "name": "Hammock",
-    "icon": "images/items/Hammock.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -7741,7 +7650,6 @@ export const items = {
   },
   "Handaxe": {
     "name": "Handaxe",
-    "icon": "images/items/Handaxe.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -7760,10 +7668,10 @@ export const items = {
       "Heavy": "Slow 1 item for 2 second(s).",
       "Icy": "Freeze 1 small item for 1 second(s).",
       "Turbo": "Haste 1 item for 2 second(s).",
-      "Shielded": "Shield equal to this item's damage. Your other Shield items gain +9 Shield for the fight.",
-      "Restorative": "Heal equal to this item's damage. Your other Heal items gain +9 Heal for the fight.",
+      "Shielded": "Shield equal to this item's damage.",
+      "Restorative": "Heal equal to this item's damage.",
       "Toxic": "Poison equal to 10% of this item's damage.",
-      "Fiery": "Burn equal to 10% of this item's damage.",
+      "Fiery": "Burn to 10% of this item's damage.",
       "Shiny": "This has +1 Multicast.",
       "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
@@ -7774,9 +7682,39 @@ export const items = {
       0
     ]
   },
+  "Harkuvian Launcher": {
+    "name": "Harkuvian Launcher",
+    "tier": 0,
+    "tags": [
+      "Common",
+      "Large",
+      "Weapon",
+      "HasteReference",
+      "Damage",
+      "Crit"
+    ],
+    "cooldown": 9,
+    "ammo": 2,
+    "text": [
+      "Deal (75/150/300/600) damage.",
+      "When this gains Haste, it also gains (5%/10%/15%/20%) Crit Chance for the fight."
+    ],
+    "enchants": {
+      "Heavy": "Slow 3 items for 4 second(s).",
+      "Icy": "Freeze 1 item for 6 second(s).",
+      "Turbo": "Haste 3 items for 4 second(s).",
+      "Shielded": "Shield equal to this item's damage.",
+      "Restorative": "Heal equal to this item's Damage.",
+      "Toxic": "Poison equal to 10% of this item's damage.",
+      "Fiery": "Burn equal to 10% of this item's damage.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "This has double Damage."
+    }
+  },
   "Harmadillo": {
     "name": "Harmadillo",
-    "icon": "images/items/Harmadillo.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -7812,7 +7750,6 @@ export const items = {
   },
   "Harpoon": {
     "name": "Harpoon",
-    "icon": "images/items/Harpoon.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -7843,7 +7780,6 @@ export const items = {
   },
   "Hatchet": {
     "name": "Hatchet",
-    "icon": "images/items/Hatchet.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -7879,7 +7815,6 @@ export const items = {
   },
   "Hemlock": {
     "name": "Hemlock",
-    "icon": "images/items/Hemlock.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -7913,31 +7848,31 @@ export const items = {
   },
   "Hogwash": {
     "name": "Hogwash",
-    "icon": "images/items/Hogwash.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
       "Large",
       "Property",
       "Heal",
-      "Health"
+      "Health",
+      "RegenReference"
     ],
-    "cooldown": 5,
+    "cooldown": "(7/6/5)",
     "ammo": null,
     "text": [
-      "Heal equal to (4%/8%/12%) of your Max Health.",
-      "When you Heal, gain (50/100/150) Max Health for the fight."
+      "Heal equal to 10% of your Max Health.",
+      "When you Heal or gain Regen, gain (50/75/100) Max Health for the fight."
     ],
     "enchants": {
-      "Heavy": "When you Heal, Slow 1 items for 3 second(s).",
-      "Icy": "When you Heal, Freeze 1 item for 1 second(s).",
-      "Turbo": "When you Heal, Haste 1 items for 3 second(s).",
+      "Heavy": "Slow 3 items for 1 second(s).",
+      "Icy": "Freeze 2 item for 1 second(s).",
+      "Turbo": "Haste 3 items for 1 second(s).",
       "Shielded": "Shield equal to this item's Heal.",
       "Restorative": "This has double Heal.",
       "Toxic": "Poison equal to 10% of this item's Heal.",
       "Fiery": "Burn equal to 10% of this item's Heal.",
       "Shiny": "This has +1 Multicast.",
-      "Deadly": "When you Heal, your items gain +10% Crit Chance for the fight.",
+      "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal damage equal to this item's Heal."
     },
@@ -7946,9 +7881,35 @@ export const items = {
       0
     ]
   },
+  "Hologram Projector": {
+    "name": "Hologram Projector",
+    "tier": 2,
+    "tags": [
+      "Dooley",
+      "Small",
+      "Tech"
+    ],
+    "cooldown": null,
+    "ammo": null,
+    "text": [
+      "At the start of each fight, transform into a (Gold/Diamond) copy of another small, non-legendary item you have for the fight."
+    ],
+    "enchants": {
+      "Heavy": "...and Enchant the transformation with Heavy if able.",
+      "Icy": "...and Enchant the transformation with Icy if able.",
+      "Turbo": "...and Enchant the transformation with Turbo if able.",
+      "Shielded": "...and Enchant the transformation with Shielded if able.",
+      "Restorative": "...and Enchant the transformation with Restorative if able.",
+      "Toxic": "...and Enchant the transformation with Toxic if able.",
+      "Fiery": "...and Enchant the transformation with Fiery if able.",
+      "Shiny": "...and Enchant the transformation with Shiny if able.",
+      "Deadly": "...and Enchant the transformation with Deadly if able.",
+      "Radiant": "...and Enchant the transformation with Radiant if able.",
+      "Obsidian": "...and Enchant the transformation with Obsidian if able."
+    }
+  },
   "Holsters": {
     "name": "Holsters",
-    "icon": "images/items/Holsters.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -7966,11 +7927,10 @@ export const items = {
       "Icy": "At the start of each fight, Freeze 1 small item for 4 second(s).",
       "Turbo": "This has double Haste duration.",
       "Shielded": "At the start of each fight, Shield 60.",
-      "Restorative": "You have +8 Regeneration.",
-      "Toxic": "At the start of each fight, poison 4.",
-      "Fiery": "At the start of each fight, burn 8.",
-      "Deadly": "Your Small items have +20% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Restorative": "You have +8 Regen.",
+      "Toxic": "At the start of each fight, poison 6.",
+      "Fiery": "At the start of each fight, burn 6.",
+      "Deadly": "Your Small items have +25% Crit Chance.",
       "Obsidian": "At the start of each fight, Deal 60 Damage."
     },
     "priorities": [
@@ -7979,7 +7939,6 @@ export const items = {
   },
   "Honing Steel": {
     "name": "Honing Steel",
-    "icon": "images/items/HoningSteel.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -8011,7 +7970,6 @@ export const items = {
   },
   "Hot Sauce": {
     "name": "Hot Sauce",
-    "icon": "images/items/HotSauce.avif",
     "tier": 2,
     "tags": [
       "Jules",
@@ -8045,7 +8003,6 @@ export const items = {
   },
   "Hot Springs": {
     "name": "Hot Springs",
-    "icon": "images/items/HotSprings.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -8078,7 +8035,6 @@ export const items = {
   },
   "Hot Stones": {
     "name": "Hot Stones",
-    "icon": "images/items/HotStones.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -8090,7 +8046,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Burn (3/5/7/9).",
-      "Gain (1/4/7/10) Regeneration for the fight."
+      "Gain (1/4/7/10) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 1 second(s).",
@@ -8112,7 +8068,6 @@ export const items = {
   },
   "Hourglass": {
     "name": "Hourglass",
-    "icon": "images/items/Hourglass.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -8135,7 +8090,6 @@ export const items = {
       "Fiery": "The first time you fall below half health each fight, burn 6.",
       "Shiny": "This has double cooldown reduction.",
       "Deadly": "Your Tools have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "The first time you fall below half health each fight, Deal 60 damage."
     },
     "priorities": [
@@ -8144,7 +8098,6 @@ export const items = {
   },
   "Hydraulic Squeezer": {
     "name": "Hydraulic Squeezer",
-    "icon": "images/items/HydraulicSqueezer.avif",
     "tier": 1,
     "tags": [
       "Stelle",
@@ -8179,9 +8132,39 @@ export const items = {
       0
     ]
   },
+  "Hypergreens": {
+    "name": "Hypergreens",
+    "tier": 1,
+    "tags": [
+      "Pygmalien",
+      "Medium",
+      "Tool",
+      "Value",
+      "EconomyReference",
+      "Heal"
+    ],
+    "cooldown": 4,
+    "ammo": null,
+    "text": [
+      "Adjacent items gain (+3/+6/+9) value for the fight.",
+      "When you use an adjacent item, Heal equal to the value of adjacent items."
+    ],
+    "enchants": {
+      "Heavy": "When you use an adjacent item, Slow 1 item for 2 second(s).",
+      "Icy": "When you use an adjacent item, Freeze 1 medium or small items for 1 second(s).",
+      "Turbo": "When you use an adjacent item, Haste 1 item for 2 second(s).",
+      "Shielded": "When you use an adjacent item, Shield equal to this item's Heal.",
+      "Restorative": "This has double Heal.",
+      "Toxic": "When you use an adjacent item, Poison equal to 10% of this item's Heal.",
+      "Fiery": "When you use an adjacent item, Burn equal to 10% of this item's Heal.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "Adjacent items have +25% Crit Chance.",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "When you use an adjacent item, Deal damage equal to this item's Heal."
+    }
+  },
   "Ice 9000": {
     "name": "Ice 9000",
-    "icon": "images/items/Ice9000.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -8218,7 +8201,6 @@ export const items = {
   },
   "Ice Claw": {
     "name": "Ice Claw",
-    "icon": "images/items/IceClaw.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -8255,7 +8237,6 @@ export const items = {
   },
   "Ice Cream Truck": {
     "name": "Ice Cream Truck",
-    "icon": "images/items/IceCreamTruck.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -8291,7 +8272,6 @@ export const items = {
   },
   "Ice Cubes": {
     "name": "Ice Cubes",
-    "icon": "images/items/IceCubes.avif",
     "tier": 2,
     "tags": [
       "Jules",
@@ -8322,7 +8302,6 @@ export const items = {
   },
   "Ice Luge": {
     "name": "Ice Luge",
-    "icon": "images/items/IceLuge.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -8357,7 +8336,6 @@ export const items = {
   },
   "Ice Pick": {
     "name": "Ice Pick",
-    "icon": "images/items/IcePick.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -8395,7 +8373,6 @@ export const items = {
   },
   "Iceberg": {
     "name": "Iceberg",
-    "icon": "images/items/Iceberg.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -8418,8 +8395,7 @@ export const items = {
       "Toxic": "When your enemy uses an item, poison 3.",
       "Fiery": "When your enemy uses an item, burn 4.",
       "Shiny": "This has double Freeze duration.",
-      "Deadly": "Enemy items have -100% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Deadly": "Enemy items have -50% Crit Chance.",
       "Obsidian": "When your enemy uses an item, Deal 2 Damage."
     },
     "priorities": [
@@ -8428,7 +8404,6 @@ export const items = {
   },
   "Icebreaker": {
     "name": "Icebreaker",
-    "icon": "images/items/Icebreaker.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -8467,7 +8442,6 @@ export const items = {
   },
   "Icicle": {
     "name": "Icicle",
-    "icon": "images/items/Icicle.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -8484,7 +8458,7 @@ export const items = {
       "Icy": "This has double Freeze duration.",
       "Turbo": "At the start of each fight, haste 2 items for 4 second(s).",
       "Shielded": "At the start of each fight, shield 60.",
-      "Restorative": "At the start of each fight, gain 6 Regeneration for the fight.",
+      "Restorative": "At the start of each fight, gain 6 Regen for the fight.",
       "Toxic": "At the start of each fight, poison 6",
       "Fiery": "At the start of each fight, Burn 8.",
       "Shiny": "This has double Freeze duration.",
@@ -8496,7 +8470,6 @@ export const items = {
   },
   "Igloo": {
     "name": "Igloo",
-    "icon": "images/items/Igloo.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -8513,17 +8486,17 @@ export const items = {
       "The first time you fall below half health each fight, use this."
     ],
     "enchants": {
-      "Heavy": "Slow 1 item for 4 second(s).",
+      "Heavy": "When you Freeze, Slow 1 item for 2 second(s).",
       "Icy": "This has double Freeze duration.",
-      "Turbo": "Haste 1 item for 4 second(s).",
+      "Turbo": "When you Freeze, Haste 1 item for 2 second(s).",
       "Shielded": "This has double Shield.",
-      "Restorative": "Heal equal to this item's Shield.",
-      "Toxic": "Poison equal to 10% of this item's Shield.",
-      "Fiery": "Burn equal to 10% of this item's Shield.",
+      "Restorative": "When you Freeze, Heal equal to this item's Shield.",
+      "Toxic": "When you Freeze, Poison equal to 10% of this item's Shield.",
+      "Fiery": "When you Freeze, Burn equal to 10% of this item's Shield.",
       "Shiny": "This has +1 Multicast.",
       "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal damage equal to this item's Shield."
+      "Obsidian": "When you Freeze, Deal damage equal to this item's Shield."
     },
     "priorities": [
       1,
@@ -8533,22 +8506,20 @@ export const items = {
   },
   "Ignition Core": {
     "name": "Ignition Core",
-    "icon": "images/items/IgnitionCore.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Medium",
       "Core",
       "Tech",
       "Burn",
-      "Charge",
-      "Unsellable"
+      "Charge"
     ],
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Burn (4/7/10/13).",
-      "Burn items to the right of this gain (1/2/3/4) Burn for the fight.",
+      "Burn 4.",
+      "This and Burn items to the right of this gain (2/4/6) Burn for the fight.",
       "When you use any item to the left of this, Charge this 1 second(s)."
     ],
     "enchants": {
@@ -8572,7 +8543,6 @@ export const items = {
   },
   "IllusoRay": {
     "name": "IllusoRay",
-    "icon": "images/items/IllusoRay.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -8597,7 +8567,7 @@ export const items = {
       "Toxic": "Poison 3.",
       "Fiery": "Burn 5.",
       "Shiny": "This has +1 Multicast.",
-      "Deadly": "Adjacent Friends have +25% Crit Chance.",
+      "Deadly": "Adjacent Friends have +50% Crit Chance.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal 35 Damage."
     },
@@ -8608,7 +8578,6 @@ export const items = {
   },
   "Improvised Bludgeon": {
     "name": "Improvised Bludgeon",
-    "icon": "images/items/ImprovisedBludgeon.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -8645,7 +8614,6 @@ export const items = {
   },
   "Incendiary Rounds": {
     "name": "Incendiary Rounds",
-    "icon": "images/items/IncendiaryRounds.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -8663,13 +8631,12 @@ export const items = {
       "Heavy": "When you use an adjacent item, slow 1 item for 1 second(s).",
       "Icy": "When you use an adjacent item, freeze 1 small item for 1 second(s).",
       "Turbo": "When you use an adjacent item, haste it for 1 second(s).",
-      "Shielded": "When you use an adjacent item, shield 10.",
-      "Restorative": "When you use an adjacent item, heal 15.",
+      "Shielded": "When you use an adjacent item, shield equal to 10 times this item's Burn.",
+      "Restorative": "When you use an adjacent item, heal equal to 10 times this item's Burn.",
       "Toxic": "When you use an adjacent item, Poison equal to this item's Burn.",
       "Fiery": "This has double Burn.",
       "Shiny": "This has double Max Ammo bonus.",
       "Deadly": "Adjacent items have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use an adjacent item, deal Damage equal to 10 times this item's Burn."
     },
     "priorities": [
@@ -8679,7 +8646,6 @@ export const items = {
   },
   "Incense": {
     "name": "Incense",
-    "icon": "images/items/Incense.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -8691,20 +8657,20 @@ export const items = {
     "ammo": null,
     "text": [
       "Slow (1/2/3/4) item(s) for 1 second(s).",
-      "Gain (1/3/5/7) Regeneration for the fight."
+      "Gain (1/3/5/7) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "This has double Slow duration.",
       "Icy": "Freeze 1 small item for 1 second(s).",
       "Turbo": "Haste 1 item for 2 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1,
@@ -8713,7 +8679,6 @@ export const items = {
   },
   "Induction Aegis": {
     "name": "Induction Aegis",
-    "icon": "images/items/InductionAegis.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -8722,11 +8687,11 @@ export const items = {
       "Shield",
       "Burn"
     ],
-    "cooldown": 6,
+    "cooldown": "(7/6/5/4)",
     "ammo": null,
     "text": [
-      "Shield (10/15/20/25).",
-      "Burn (1/2/3/4)."
+      "Shield 20.",
+      "Burn 2."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -8748,7 +8713,6 @@ export const items = {
   },
   "Infernal Greatsword": {
     "name": "Infernal Greatsword",
-    "icon": "images/items/InfernalGreatsword.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -8785,7 +8749,6 @@ export const items = {
   },
   "Infinite Potion": {
     "name": "Infinite Potion",
-    "icon": "images/items/InfinitePotion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -8797,35 +8760,65 @@ export const items = {
     "cooldown": 4,
     "ammo": 1,
     "text": [
-      "Gain (1/2/3) Regeneration for the fight.",
+      "Gain (1/2/3) Regen for the fight.",
       "Reload this."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 1 second(s).",
       "Icy": "Freeze 1 small item for 1 second(s).",
       "Turbo": "Haste 1 item for 1 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "+50% Crit Chance",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1,
       0
     ]
   },
+  "Infused Bracers": {
+    "name": "Infused Bracers",
+    "tier": 2,
+    "tags": [
+      "Mak",
+      "Medium",
+      "Apparel",
+      "Tool",
+      "Poison",
+      "DamageReference"
+    ],
+    "cooldown": 5,
+    "ammo": null,
+    "text": [
+      "Poison both players 5.",
+      "When you Poison yourself, your weapons gain + damage for the fight equal to (1/2) times the amount Poisoned.",
+      "The Weapon to the left has Lifesteal."
+    ],
+    "enchants": {
+      "Heavy": "Slow 2 items for 1 second(s).",
+      "Icy": "Freeze 1 medium or small item for 1 second(s).",
+      "Turbo": "Haste 2 items for 1 second(s).",
+      "Shielded": "Shield equal to 10 times this item's Poison.",
+      "Restorative": "Heal equal to 10 times this item's Poison.",
+      "Toxic": "This has double Poison.",
+      "Fiery": "Burn equal to this item's Poison.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal damage equal to 10 times this item's Poison."
+    }
+  },
   "Insect Wing": {
     "name": "Insect Wing",
-    "icon": "images/items/InsectWing.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "Cooldown"
     ],
     "cooldown": null,
@@ -8850,7 +8843,6 @@ export const items = {
   },
   "Invulnerability Potion": {
     "name": "Invulnerability Potion",
-    "icon": "images/items/InvulnerabilityPotion.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -8883,7 +8875,6 @@ export const items = {
   },
   "Isochoric Freezer": {
     "name": "Isochoric Freezer",
-    "icon": "images/items/IsochoricFreezer.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -8914,7 +8905,6 @@ export const items = {
   },
   "Jabalian Drum": {
     "name": "Jabalian Drum",
-    "icon": "images/items/JabalianDrum.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -8937,7 +8927,6 @@ export const items = {
       "Toxic": "When you use a weapon, poison 3.",
       "Fiery": "When you use a weapon, burn 4.",
       "Shiny": "This has double Haste duration.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "When you use a Weapon, it gains +10% Crit Chance for the fight.",
       "Obsidian": "When you use a Weapon, Deal 30 Damage."
     },
@@ -8948,7 +8937,6 @@ export const items = {
   },
   "Jabalian Longbow": {
     "name": "Jabalian Longbow",
-    "icon": "images/items/JabalianLongbow.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -8985,7 +8973,6 @@ export const items = {
   },
   "Javelin": {
     "name": "Javelin",
-    "icon": "images/items/Javelin.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -9021,7 +9008,6 @@ export const items = {
   },
   "Jellyfish": {
     "name": "Jellyfish",
-    "icon": "images/items/Jellyfish.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -9034,7 +9020,7 @@ export const items = {
     "cooldown": 7,
     "ammo": null,
     "text": [
-      "Poison (3/4/5/6).",
+      "Poison (3/6/9/12).",
       "When you use an adjacent Aquatic item, this gains Haste for (1/2/3/4) second(s)."
     ],
     "enchants": {
@@ -9057,7 +9043,6 @@ export const items = {
   },
   "Jewelry": {
     "name": "Jewelry",
-    "icon": "images/items/Jewelry.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -9091,14 +9076,14 @@ export const items = {
   },
   "Jitte": {
     "name": "Jitte",
-    "icon": "images/items/Jitte.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
       "Small",
       "Weapon",
       "Damage",
-      "Slow"
+      "Slow",
+      "SlowReference"
     ],
     "cooldown": 6,
     "ammo": null,
@@ -9128,7 +9113,6 @@ export const items = {
   },
   "Junkyard Catapult": {
     "name": "Junkyard Catapult",
-    "icon": "images/items/JunkyardCatapult.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -9166,7 +9150,6 @@ export const items = {
   },
   "Junkyard Club": {
     "name": "Junkyard Club",
-    "icon": "images/items/JunkyardClub.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -9201,7 +9184,6 @@ export const items = {
   },
   "Junkyard Lance": {
     "name": "Junkyard Lance",
-    "icon": "images/items/JunkyardLance.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -9233,7 +9215,6 @@ export const items = {
   },
   "Junkyard Repairbot": {
     "name": "Junkyard Repairbot",
-    "icon": "images/items/JunkyardRepairbot.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -9268,7 +9249,6 @@ export const items = {
   },
   "Katana": {
     "name": "Katana",
-    "icon": "images/items/Katana.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -9282,9 +9262,9 @@ export const items = {
       "Deal (5/10/15/20) damage."
     ],
     "enchants": {
-      "Heavy": "Slow 2 items for 1 second(s).",
+      "Heavy": "Slow 1 item for 1 second(s).",
       "Icy": "Freeze 1 medium or small item for 1 second(s).",
-      "Turbo": "Haste 2 items for 1 second(s).",
+      "Turbo": "Haste 1 item for 1 second(s).",
       "Shielded": "Shield equal to this item's damage.",
       "Restorative": "Heal equal to this item's Damage.",
       "Toxic": "Poison equal to 10% of this item's damage.",
@@ -9300,7 +9280,6 @@ export const items = {
   },
   "Keychain": {
     "name": "Keychain",
-    "icon": "images/items/Keychain.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -9329,7 +9308,6 @@ export const items = {
   },
   "Kinetic Cannon": {
     "name": "Kinetic Cannon",
-    "icon": "images/items/KineticCannon.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -9364,7 +9342,6 @@ export const items = {
   },
   "Knee Brace": {
     "name": "Knee Brace",
-    "icon": "images/items/KneeBrace.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -9375,7 +9352,7 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "After you fight a player with this in play, permanently gain (100/200/300/400) Max Health."
+      "After you fight a Hero with this in play, permanently gain (100/200/300/400) Max Health."
     ],
     "enchants": {
       "Shiny": "This has double Max Health bonus."
@@ -9386,7 +9363,6 @@ export const items = {
   },
   "Knife Set": {
     "name": "Knife Set",
-    "icon": "images/items/KnifeSet.avif",
     "tier": 1,
     "tags": [
       "Jules",
@@ -9421,20 +9397,20 @@ export const items = {
   },
   "Kukri": {
     "name": "Kukri",
-    "icon": "images/items/Kukri.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
       "Small",
       "Weapon",
       "Damage",
-      "HealReference"
+      "HealReference",
+      "RegenReference"
     ],
     "cooldown": 8,
     "ammo": null,
     "text": [
-      "Deal (5/10/15/20) damage.",
-      "When you heal, this gains (5/10/15/20) damage for the fight."
+      "Deal 15 damage.",
+      "When you heal or gain Regen, this gains (+5/+10/+15/+20) damage for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -9456,7 +9432,6 @@ export const items = {
   },
   "Laboratory": {
     "name": "Laboratory",
-    "icon": "images/items/Laboratory.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -9468,7 +9443,8 @@ export const items = {
     "ammo": null,
     "text": [
       "Enchant another non-enchanted item for the fight.",
-      "Charge your other Relics and Enchanted items (1/2) second(s)."
+      "Charge your other Relics and Enchanted items (1/2) second(s).",
+      "At the start of each day, get a Catalyst."
     ],
     "enchants": {
       "Heavy": "When you use a Relic or Enchanted item, Slow 1 items for 3 second(s).",
@@ -9490,7 +9466,6 @@ export const items = {
   },
   "Landscraper": {
     "name": "Landscraper",
-    "icon": "images/items/Landscraper.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -9528,7 +9503,6 @@ export const items = {
   },
   "Langxian": {
     "name": "Langxian",
-    "icon": "images/items/Langxian.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -9562,7 +9536,6 @@ export const items = {
   },
   "Laser Pistol": {
     "name": "Laser Pistol",
-    "icon": "images/items/LaserPistol.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -9571,7 +9544,7 @@ export const items = {
       "Tech",
       "Damage"
     ],
-    "cooldown": 5,
+    "cooldown": 4,
     "ammo": null,
     "text": [
       "Deal (8/16/24/32) damage."
@@ -9595,7 +9568,6 @@ export const items = {
   },
   "Laser Security System": {
     "name": "Laser Security System",
-    "icon": "images/items/LaserSecuritySystem.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -9629,7 +9601,6 @@ export const items = {
   },
   "Ledger": {
     "name": "Ledger",
-    "icon": "images/items/Ledger.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -9639,12 +9610,20 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you sell 10 items, adjacent items gain (4/8/12) value."
+      "When you sell 10 items, adjacent items gain (3/5/7) value."
     ],
     "enchants": {
       "Golden": "The sell requirement is reduced by 5.",
+      "Heavy": "The first time you fall below half health each fight, Slow 3 items for 4 second(s).",
+      "Icy": "The first time you fall below half health each fight, Freeze 2 items for 4 second(s).",
+      "Turbo": "The first time you fall below half health each fight, Haste 3 items for 4 second(s).",
+      "Shielded": "The first time you fall below half health each fight, Shield equal to this item's value.",
+      "Restorative": "The first time you fall below half health each fight, Heal equal to this item's value.",
+      "Toxic": "The first time you fall below half health each fight, Poison equal to 10% of this item's value.",
+      "Fiery": "The first time you fall below half health each fight, Burn equal to 10% of this item's value.",
       "Shiny": "This has double value gain.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Deadly": "This has +10% Crit Chance.",
+      "Obsidian": "The first time you fall below half health each fight, deal damage equal to this item's value."
     },
     "priorities": [
       3
@@ -9652,7 +9631,6 @@ export const items = {
   },
   "Leeches": {
     "name": "Leeches",
-    "icon": "images/items/Leeches.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -9690,19 +9668,18 @@ export const items = {
   },
   "Lemonade Stand": {
     "name": "Lemonade Stand",
-    "icon": "images/items/LemonadeStand.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
       "Large",
       "Property",
-      "Heal",
+      "Regen",
       "Health"
     ],
-    "cooldown": 7,
+    "cooldown": "(12/11/10)",
     "ammo": null,
     "text": [
-      "Heal equal to (5%/10%/15%) of your Max Health.",
+      "Gain Regen equal to 5% of your Max Health for the fight.",
       "When you sell a Small item, permanently gain (+10/+20/+40) Max Health."
     ],
     "enchants": {
@@ -9710,14 +9687,14 @@ export const items = {
       "Heavy": "Slow 3 items for 2 second(s).",
       "Icy": "Freeze 1 item for 3 second(s).",
       "Turbo": "Haste 3 items for 2 second(s).",
-      "Shielded": "Shield equal to this item's Heal.",
-      "Restorative": "This has double Heal.",
-      "Toxic": "Poison equal to 10% of this item's Heal.",
-      "Fiery": "Burn equal to 10% of this item's Heal.",
+      "Shielded": "Shield equal to 5 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal damage equal to this item's Heal."
+      "Obsidian": "Deal damage equal to 5 times this item's Regen."
     },
     "priorities": [
       1,
@@ -9726,21 +9703,19 @@ export const items = {
   },
   "Lens": {
     "name": "Lens",
-    "icon": "images/items/Lens.avif",
     "tier": 2,
     "tags": [
       "Dooley",
       "Small",
       "Tech",
-      "DamageReference",
       "HasteReference",
       "Charge"
     ],
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Charge another Tech item (1/2) second(s).",
-      "When this gains haste, charge it (1/2) second(s)."
+      "Charge the Tech item to the right of this (1/2) second(s).",
+      "When this gains haste, charge this (1/2) second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -9748,10 +9723,10 @@ export const items = {
       "Turbo": "Haste 1 item for 2 second(s).",
       "Shielded": "Shield 30.",
       "Restorative": "Heal 45.",
-      "Toxic": "Poison 3.",
+      "Toxic": "Poison 4.",
       "Fiery": "Burn 4.",
       "Shiny": "This has +1 Multicast.",
-      "Deadly": "The Core gains +10% Crit Chance for the fight.",
+      "Deadly": "The item to the right of this gains +10% Crit Chance for the fight.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal 30 Damage."
     },
@@ -9762,7 +9737,6 @@ export const items = {
   },
   "Letter Opener": {
     "name": "Letter Opener",
-    "icon": "images/items/LetterOpener.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -9799,7 +9773,6 @@ export const items = {
   },
   "Library": {
     "name": "Library",
-    "icon": "images/items/Library.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -9823,7 +9796,6 @@ export const items = {
       "Fiery": "When you use a non-Weapon item, Burn 2.",
       "Shiny": "This has +1 second cooldown increase and decrease.",
       "Deadly": "Your non-Weapon items have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use a non-Weapon item, Deal 25 damage."
     },
     "priorities": [
@@ -9833,7 +9805,6 @@ export const items = {
   },
   "Life Preserver": {
     "name": "Life Preserver",
-    "icon": "images/items/LifePreserver.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -9868,7 +9839,6 @@ export const items = {
   },
   "Lifting Gloves": {
     "name": "Lifting Gloves",
-    "icon": "images/items/LiftingGloves.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -9902,31 +9872,31 @@ export const items = {
   },
   "Lightbulb": {
     "name": "Lightbulb",
-    "icon": "images/items/Lightbulb.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Small",
       "Tech",
-      "Crit"
+      "Charge"
     ],
-    "cooldown": 4,
+    "cooldown": "(5/4/3)",
     "ammo": null,
     "text": [
-      "Adjacent items gain (2%/4%/6%/8%) Crit chance for the fight."
+      "Charge the Tech item to the right of this 1 second(s).",
+      "When you buy this, get a small Tech item."
     ],
     "enchants": {
-      "Heavy": "Slow 1 item for 1 second(s).",
-      "Icy": "Freeze 1 small item for 1 second(s).",
-      "Turbo": "Haste 1 item for 1 second(s).",
-      "Shielded": "Shield 15.",
-      "Restorative": "Heal 20.",
-      "Toxic": "Poison 1.",
-      "Fiery": "Burn 2.",
+      "Heavy": "When you use the Tech item to the right of this, Slow 1 item for 1 second(s).",
+      "Icy": "When you use the Tech item to the right of this, Freeze 1 small item for 1 second(s).",
+      "Turbo": "When you use the Tech item to the right of this, Haste 1 item for 1 second(s).",
+      "Shielded": "When you use the Tech item to the right of this, Shield 15.",
+      "Restorative": "When you use the Tech item to the right of this, Heal 20.",
+      "Toxic": "When you use the Tech item to the right of this, Poison 1.",
+      "Fiery": "When you use the Tech item to the right of this, Burn 2.",
       "Shiny": "This has +1 Multicast.",
-      "Deadly": "This has double Crit Chance bonus.",
+      "Deadly": "The Tech item to the right of this has +50% Crit Chance.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal 15 Damage."
+      "Obsidian": "When you use the Tech item to the right of this, Deal 15 Damage."
     },
     "priorities": [
       2
@@ -9934,7 +9904,6 @@ export const items = {
   },
   "Lighter": {
     "name": "Lighter",
-    "icon": "images/items/Lighter.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -9945,7 +9914,7 @@ export const items = {
     "cooldown": 3,
     "ammo": null,
     "text": [
-      "Burn (1/2/3/5)."
+      "Burn (2/4/6/8)."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 1 second(s).",
@@ -9966,7 +9935,6 @@ export const items = {
   },
   "Lighthouse": {
     "name": "Lighthouse",
-    "icon": "images/items/Lighthouse.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -9976,10 +9944,10 @@ export const items = {
       "Burn",
       "SlowReference"
     ],
-    "cooldown": 7,
+    "cooldown": "(10/8/6)",
     "ammo": null,
     "text": [
-      "Burn (12/16/20).",
+      "Burn 20.",
       "When you Slow, charge this 2 second(s)."
     ],
     "enchants": {
@@ -10002,7 +9970,6 @@ export const items = {
   },
   "Lightning Rod": {
     "name": "Lightning Rod",
-    "icon": "images/items/LightningRod.avif",
     "tier": 2,
     "tags": [
       "Stelle",
@@ -10039,7 +10006,6 @@ export const items = {
   },
   "Lion Cane": {
     "name": "Lion Cane",
-    "icon": "images/items/LionCane.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -10074,7 +10040,6 @@ export const items = {
   },
   "Lockbox": {
     "name": "Lockbox",
-    "icon": "images/items/Lockbox.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -10086,7 +10051,7 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you win a fight, this gains 2 value.",
+      "When you win a fight, this gains (3/6/9) value.",
       "Your weapons have + damage equal to this item's value."
     ],
     "enchants": {
@@ -10100,7 +10065,6 @@ export const items = {
       "Fiery": "Your Burn items have + Burn equal to 10% of this item's value.",
       "Shiny": "This has double Value gain.",
       "Deadly": "Your weapons have + Crit Chance % equal to this item's value.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "This has double damage bonus."
     },
     "priorities": [
@@ -10110,7 +10074,6 @@ export const items = {
   },
   "Loupe": {
     "name": "Loupe",
-    "icon": "images/items/Loupe.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -10124,7 +10087,8 @@ export const items = {
       "Your Small items have (+1/+2) value."
     ],
     "enchants": {
-      "Golden": "Your small items have an additional +1 value."
+      "Golden": "Your small items have +1 value.",
+      "Shiny": "Your small items have +1 value."
     },
     "priorities": [
       0
@@ -10132,7 +10096,6 @@ export const items = {
   },
   "Lumboars": {
     "name": "Lumboars",
-    "icon": "images/items/Lumboars.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -10168,7 +10131,6 @@ export const items = {
   },
   "Luxury Kiuas": {
     "name": "Luxury Kiuas",
-    "icon": "images/items/LuxuryKiuas.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -10182,10 +10144,10 @@ export const items = {
     "ammo": null,
     "text": [
       "Burn equal to this item's value.",
-      "When you sell a Property, this item gains (1/2/3/4) value."
+      "When you sell a Property, this item gains (3/5/7/9) value."
     ],
     "enchants": {
-      "Golden": "When you buy a Property, this item gains 1 value.",
+      "Golden": "This has double value.",
       "Heavy": "Slow 2 items for 3 second(s).",
       "Icy": "Freeze 1 medium or small item for 3 second(s).",
       "Turbo": "Haste 2 items for 3 second(s).",
@@ -10205,7 +10167,6 @@ export const items = {
   },
   "Luxury Tents": {
     "name": "Luxury Tents",
-    "icon": "images/items/LuxuryTents.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -10218,7 +10179,7 @@ export const items = {
     "ammo": null,
     "text": [
       "The first time you would die each fight, Heal for (25%/50%) of your Max Health.",
-      "Your Heal items have +1 Multicast."
+      "Your Heal and Regen items have +1 Multicast."
     ],
     "enchants": {
       "Heavy": "The first time you would die each fight, slow all enemy items for 6 second(s).",
@@ -10230,7 +10191,6 @@ export const items = {
       "Fiery": "The first time you would die each fight, burn equal to 2% of your max health.",
       "Shiny": "This has double Multicast bonus.",
       "Deadly": "The first time you would die each fight, your items gain +50% Crit Chance for the fight.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "The first time you would die each fight, deal Damage equal to this item's Heal."
     },
     "priorities": [
@@ -10240,7 +10200,6 @@ export const items = {
   },
   "Magic Carpet": {
     "name": "Magic Carpet",
-    "icon": "images/items/MagicCarpet.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -10275,7 +10234,6 @@ export const items = {
   },
   "Magician's Top Hat": {
     "name": "Magician's Top Hat",
-    "icon": "images/items/MagiciansTopHat.avif",
     "tier": 3,
     "tags": [
       "Common",
@@ -10288,8 +10246,7 @@ export const items = {
       "When you sell this, upgrade your leftmost item."
     ],
     "enchants": {
-      "Deadly": "+50% Crit Chance",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Deadly": "+50% Crit Chance"
     },
     "priorities": [
       0
@@ -10297,7 +10254,6 @@ export const items = {
   },
   "Magma Core": {
     "name": "Magma Core",
-    "icon": "images/items/MagmaCore.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -10314,7 +10270,7 @@ export const items = {
       "Icy": "At the start of each fight, Freeze 2 small items for 2 second(s).",
       "Turbo": "At the start of each fight, haste 2 item for 4 second(s).",
       "Shielded": "At the start of each fight, Shield equal to 10 times this item's Burn.",
-      "Restorative": "At the start of each fight, gain 6 Regeneration for the fight.",
+      "Restorative": "At the start of each fight, gain 6 Regen for the fight.",
       "Toxic": "At the start of each fight, Poison equal to this item's Burn.",
       "Fiery": "This has double Burn.",
       "Obsidian": "At the start of each fight, deal Damage equal to 10 times this item's Burn."
@@ -10325,7 +10281,6 @@ export const items = {
   },
   "Magnifying Glass": {
     "name": "Magnifying Glass",
-    "icon": "images/items/MagnifyingGlass.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -10360,7 +10315,6 @@ export const items = {
   },
   "Magnus' Femur": {
     "name": "Magnus' Femur",
-    "icon": "images/items/MagnusFemur.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -10370,7 +10324,7 @@ export const items = {
       "Damage",
       "SlowReference"
     ],
-    "cooldown": 13,
+    "cooldown": "(17/15/13)",
     "ammo": null,
     "text": [
       "Deal 300 damage.",
@@ -10396,7 +10350,6 @@ export const items = {
   },
   "Makeshift Barricade": {
     "name": "Makeshift Barricade",
-    "icon": "images/items/MakeshiftBarricade.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -10428,7 +10381,6 @@ export const items = {
   },
   "Mantis Shrimp": {
     "name": "Mantis Shrimp",
-    "icon": "images/items/MantisShrimp.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -10438,14 +10390,15 @@ export const items = {
       "Friend",
       "Damage",
       "Burn",
-      "SlowReference"
+      "SlowReference",
+      "Ammo"
     ],
     "cooldown": 9,
     "ammo": 2,
     "text": [
       "Deal 20 damage.",
       "Burn 2.",
-      "When you slow, this gains (+10/+15/+20/+25) damage and (+1/+2/+3/+4) burn for the fight."
+      "When you slow, this gains (+10/+15/+20/+25) damage and (+2/+4/+6/+8) burn for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 6 second(s).",
@@ -10468,7 +10421,6 @@ export const items = {
   },
   "Marble Scalemail": {
     "name": "Marble Scalemail",
-    "icon": "images/items/MarbleScalemail.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -10502,7 +10454,6 @@ export const items = {
   },
   "Marbles": {
     "name": "Marbles",
-    "icon": "images/items/Marbles.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -10525,6 +10476,7 @@ export const items = {
       "Toxic": "Poison 1.",
       "Fiery": "Burn 2.",
       "Shiny": "This has +1 Multicast.",
+      "Deadly": "Adjacent items have +25% Crit Chance.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal 10 Damage."
     },
@@ -10535,7 +10487,6 @@ export const items = {
   },
   "Masterpiece": {
     "name": "Masterpiece",
-    "icon": "images/items/Masterpiece.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -10557,7 +10508,6 @@ export const items = {
   },
   "Matchbox": {
     "name": "Matchbox",
-    "icon": "images/items/Matchbox.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -10590,7 +10540,6 @@ export const items = {
   },
   "Mech-Moles": {
     "name": "Mech-Moles",
-    "icon": "images/items/MechMoles.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -10629,12 +10578,10 @@ export const items = {
   },
   "Med Kit": {
     "name": "Med Kit",
-    "icon": "images/items/MedKit.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "HealReference"
     ],
     "cooldown": null,
@@ -10659,7 +10606,6 @@ export const items = {
   },
   "Memento Mori": {
     "name": "Memento Mori",
-    "icon": "images/items/MementoMori.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -10680,7 +10626,6 @@ export const items = {
       "Toxic": "The first time you would die each fight, poison equal to 10 times this item's Heal.",
       "Fiery": "The first time you would die each fight, burn equal to 2% of your max health.",
       "Deadly": "The first time you would die each fight, your items gain +25% Crit Chance for the fight.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "The first time you would die each fight, deal Damage equal to this item's Heal."
     },
     "priorities": [
@@ -10689,7 +10634,6 @@ export const items = {
   },
   "Memory Card": {
     "name": "Memory Card",
-    "icon": "images/items/MemoryCard.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -10725,7 +10669,6 @@ export const items = {
   },
   "Metronome": {
     "name": "Metronome",
-    "icon": "images/items/Metronome.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -10747,7 +10690,6 @@ export const items = {
       "Fiery": "When you use an adjacent item, Burn 1.",
       "Shiny": "This has double Haste duration.",
       "Deadly": "When you use an adjacent item, the other adjacent item gains 25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use an adjacent item, Deal 10 Damage."
     },
     "priorities": [
@@ -10756,7 +10698,6 @@ export const items = {
   },
   "Micro Dave": {
     "name": "Micro Dave",
-    "icon": "images/items/MicroDave.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -10790,7 +10731,6 @@ export const items = {
   },
   "Mirror": {
     "name": "Mirror",
-    "icon": "images/items/Mirror.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -10799,7 +10739,7 @@ export const items = {
     "cooldown": 4,
     "ammo": null,
     "text": [
-      "Transform into the medium item to the left of this for the fight."
+      "Transform into a (Gold/Diamond) copy of the medium, non-legendary item to the left of this for the fight."
     ],
     "enchants": {
       "Heavy": "...and Enchant the transformation with Heavy if able.",
@@ -10820,7 +10760,6 @@ export const items = {
   },
   "Miss Isles": {
     "name": "Miss Isles",
-    "icon": "images/items/MissIsles.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -10858,7 +10797,6 @@ export const items = {
   },
   "Model Ship": {
     "name": "Model Ship",
-    "icon": "images/items/ModelShip.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -10894,7 +10832,6 @@ export const items = {
   },
   "Momma-Saur": {
     "name": "Momma-Saur",
-    "icon": "images/items/MommaSaur.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -10932,27 +10869,27 @@ export const items = {
   },
   "Money Tree": {
     "name": "Money Tree",
-    "icon": "images/items/MoneyTree.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
       "Large",
       "Property",
       "Heal",
+      "Value",
       "EconomyReference"
     ],
-    "cooldown": 6,
+    "cooldown": 3,
     "ammo": null,
     "text": [
-      "Heal 40.",
-      "When you Level Up, get a Spare Change.",
-      "When you sell a Spare Change, this gains (+10/+20/+30/+40) Heal."
+      "Heal equal to double this item's Value.",
+      "When you Level Up and at the start of each day, get a Spare Change.",
+      "When you sell a Spare Change, this gains (+2/+4/+6/+8) Value."
     ],
     "enchants": {
       "Golden": "Your Spare Change(s) have +1 value.",
-      "Heavy": "Slow 3 items for 2 second(s).",
-      "Icy": "Freeze 1 item for 3 second(s).",
-      "Turbo": "Haste 3 items for 2 second(s).",
+      "Heavy": "Slow 2 items for 1 second(s).",
+      "Icy": "Freeze 2 item for 0.5 second(s).",
+      "Turbo": "Haste 2 items for 1 second(s).",
       "Shielded": "Shield equal to this item's Heal.",
       "Restorative": "This has double Heal.",
       "Toxic": "Poison equal to 10% of this item's Heal.",
@@ -10970,8 +10907,7 @@ export const items = {
   },
   "Monitor Lizard": {
     "name": "Monitor Lizard",
-    "icon": "images/items/MonitorLizard.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Medium",
@@ -10979,15 +10915,15 @@ export const items = {
       "Poison",
       "HasteReference"
     ],
-    "cooldown": 9,
+    "cooldown": 5,
     "ammo": null,
     "text": [
-      "Poison (6/8/10/12).",
-      "When you Haste, this gains (+1/+2/+3/+4) Poison for the fight."
+      "Poison 5.",
+      "When this gains Haste, this gains (+5/+10/+15) Poison for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
-      "Icy": "Freeze 1 medium or small item for 1 second(s).",
+      "Icy": "Freeze 1 medium or small item for 2 second(s).",
       "Turbo": "Haste 2 item for 2 second(s).",
       "Shielded": "Shield equal to 10 times this item's Poison.",
       "Restorative": "Heal equal to 10 times this item's Poison.",
@@ -11005,7 +10941,6 @@ export const items = {
   },
   "Monocle": {
     "name": "Monocle",
-    "icon": "images/items/Monocle.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -11040,15 +10975,13 @@ export const items = {
   },
   "Mortal Coil": {
     "name": "Mortal Coil",
-    "icon": "images/items/MortalCoil.avif",
     "tier": 2,
     "tags": [
       "Common",
       "Medium",
       "Weapon",
       "Tool",
-      "Damage",
-      "Lifesteal"
+      "Damage"
     ],
     "cooldown": 9,
     "ammo": null,
@@ -11078,7 +11011,6 @@ export const items = {
   },
   "Mortar & Pestle": {
     "name": "Mortar & Pestle",
-    "icon": "images/items/MortarPestle.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -11090,7 +11022,8 @@ export const items = {
     "ammo": null,
     "text": [
       "Your Lifesteal Weapons gain (+10/+15/+20/+25) damage for the fight.",
-      "The weapon to the right of this has Lifesteal."
+      "The weapon to the right of this has Lifesteal.",
+      "At the start of each day, get a Catalyst."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 3 second(s).",
@@ -11112,7 +11045,6 @@ export const items = {
   },
   "Motherboard": {
     "name": "Motherboard",
-    "icon": "images/items/Motherboard.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -11147,7 +11079,6 @@ export const items = {
   },
   "Mothmeal": {
     "name": "Mothmeal",
-    "icon": "images/items/Mothmeal.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -11181,7 +11112,6 @@ export const items = {
   },
   "Mr. Richardson": {
     "name": "Mr. Richardson",
-    "icon": "images/items/MrRichardson.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -11217,7 +11147,6 @@ export const items = {
   },
   "Multitool": {
     "name": "Multitool",
-    "icon": "images/items/Multitool.avif",
     "tier": 0,
     "tags": [
       "Stelle",
@@ -11252,7 +11181,6 @@ export const items = {
   },
   "Musket": {
     "name": "Musket",
-    "icon": "images/items/Musket.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -11290,7 +11218,6 @@ export const items = {
   },
   "Myrrh": {
     "name": "Myrrh",
-    "icon": "images/items/Myrrh.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -11301,21 +11228,21 @@ export const items = {
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Gain (1/3/5/7) Regeneration for the fight.",
+      "Gain (1/3/5/7) Regen for the fight.",
       "When this is transformed, enchant it with Restorative if able."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 1 second(s).",
       "Icy": "Freeze 1 small item for 1 second(s).",
       "Turbo": "Haste 1 item for 1 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "+50% Crit Chance",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1,
@@ -11324,7 +11251,6 @@ export const items = {
   },
   "Nanobot": {
     "name": "Nanobot",
-    "icon": "images/items/Nanobot.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -11359,7 +11285,6 @@ export const items = {
   },
   "Nargile": {
     "name": "Nargile",
-    "icon": "images/items/Nargile.avif",
     "tier": 2,
     "tags": [
       "Common",
@@ -11383,7 +11308,7 @@ export const items = {
       "Toxic": "When you Crit, Poison 1.",
       "Fiery": "When you Crit, Burn 2.",
       "Shiny": "+1 Multicast",
-      "Deadly": "Adjacent items have an additional +25% Crit Chance",
+      "Deadly": "+25% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you Crit, Deal 40 Damage."
     },
@@ -11395,7 +11320,6 @@ export const items = {
   },
   "Narwhal": {
     "name": "Narwhal",
-    "icon": "images/items/Narwhal.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -11429,7 +11353,6 @@ export const items = {
   },
   "Necronomicon": {
     "name": "Necronomicon",
-    "icon": "images/items/Necronomicon.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -11441,7 +11364,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Poison 10.",
-      "Gain 10 Regeneration for the fight.",
+      "Gain 10 Regen for the fight.",
       "When any non-weapon is used, Charge this 1 second(s)."
     ],
     "enchants": {
@@ -11465,7 +11388,6 @@ export const items = {
   },
   "Nesting Doll": {
     "name": "Nesting Doll",
-    "icon": "images/items/NestingDoll.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -11500,7 +11422,6 @@ export const items = {
   },
   "Neural Toxin": {
     "name": "Neural Toxin",
-    "icon": "images/items/NeuralToxin.avif",
     "tier": 1,
     "tags": [
       "Common",
@@ -11521,7 +11442,6 @@ export const items = {
       "Toxic": "When you use an adjacent Weapon, poison 1.",
       "Fiery": "When you use an adjacent Weapon, Burn 1.",
       "Shiny": "This has double Slow duration.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use an adjacent Weapon, deal 10 damage."
     },
     "priorities": [
@@ -11530,7 +11450,6 @@ export const items = {
   },
   "Nightshade": {
     "name": "Nightshade",
-    "icon": "images/items/Nightshade.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -11544,7 +11463,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Poison 6.",
-      "When you Heal or gain Regeneration, this gains (+2/+4/+6/+8) Poison for the fight.",
+      "When you Heal or gain Regen, this gains (+2/+4/+6/+8) Poison for the fight.",
       "When this is transformed, enchant it with Toxic if able."
     ],
     "enchants": {
@@ -11568,7 +11487,6 @@ export const items = {
   },
   "Nitro": {
     "name": "Nitro",
-    "icon": "images/items/Nitro.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -11603,7 +11521,6 @@ export const items = {
   },
   "Nitrogen Hammer": {
     "name": "Nitrogen Hammer",
-    "icon": "images/items/NitrogenHammer.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -11617,7 +11534,7 @@ export const items = {
     "text": [
       "Deal 200 damage.",
       "Freeze 1 item for (1/2) second(s).",
-      "When you freeze, charge this 1 second this gains (100/200) damage for the fight."
+      "When you freeze, charge this 1 second and this gains (100/200) damage for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 3 second(s).",
@@ -11640,7 +11557,6 @@ export const items = {
   },
   "Noxious Potion": {
     "name": "Noxious Potion",
-    "icon": "images/items/NoxiousPotion.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -11673,7 +11589,6 @@ export const items = {
   },
   "Octopus": {
     "name": "Octopus",
-    "icon": "images/items/Octopus.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -11709,7 +11624,6 @@ export const items = {
   },
   "Oil Lantern": {
     "name": "Oil Lantern",
-    "icon": "images/items/OilLantern.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -11722,7 +11636,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Burn 10.",
-      "When you gain Regeneration, charge this 2 second(s)."
+      "When you gain Regen, charge this 2 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 4 second(s).",
@@ -11744,7 +11658,6 @@ export const items = {
   },
   "Oinkment": {
     "name": "Oinkment",
-    "icon": "images/items/Oinkment.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -11755,7 +11668,8 @@ export const items = {
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Heal equal to (1/2/3) times your gold."
+      "Heal equal to (1/2/3) times your gold.",
+      "Cleanse half your Burn and Poison."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -11776,7 +11690,6 @@ export const items = {
   },
   "Old Saltclaw": {
     "name": "Old Saltclaw",
-    "icon": "images/items/OldSaltclaw.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -11814,7 +11727,6 @@ export const items = {
   },
   "Old Sword": {
     "name": "Old Sword",
-    "icon": "images/items/OldSword.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -11849,7 +11761,6 @@ export const items = {
   },
   "Omega Ray": {
     "name": "Omega Ray",
-    "icon": "images/items/OmegaRay.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -11883,7 +11794,6 @@ export const items = {
   },
   "Open Sign": {
     "name": "Open Sign",
-    "icon": "images/items/OpenSign.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -11909,9 +11819,37 @@ export const items = {
       0
     ]
   },
+  "Optical Augment": {
+    "name": "Optical Augment",
+    "tier": 0,
+    "tags": [
+      "Mak",
+      "Small",
+      "Tool",
+      "Poison",
+      "Crit"
+    ],
+    "cooldown": null,
+    "ammo": null,
+    "text": [
+      "At the start of each fight, Poison yourself (4/8/12/16).",
+      "The item to the left of this has + Crit Chance equal to your Poison."
+    ],
+    "enchants": {
+      "Heavy": "When you Crit with the item to the left of this, slow 1 item for 2 second(s).",
+      "Icy": "When you Crit with the item to the left of this, Freeze 1 small item for 1 second(s).",
+      "Turbo": "When you Crit with the item to the left of this, haste 1 item for 2 second(s).",
+      "Shielded": "When you Crit with the item to the left of this, Shield equal to 10 times this item's Poison.",
+      "Restorative": "When you Crit with the item to the left of this, Heal equal to 10 times this item's Poison.",
+      "Toxic": "This has double Poison.",
+      "Fiery": "When you Crit with the item to the left of this, Burn equal to this item's Poison.",
+      "Shiny": "At the start of each fight, Poison yourself twice instead.",
+      "Deadly": "This has double Crit Chance bonus.",
+      "Obsidian": "When you Crit with the item to the left of this, Deal damage equal to 10 times this item's Poison."
+    }
+  },
   "Orange Julian": {
     "name": "Orange Julian",
-    "icon": "images/items/OrangeJulian.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -11946,7 +11884,6 @@ export const items = {
   },
   "Orbital Polisher": {
     "name": "Orbital Polisher",
-    "icon": "images/items/OrbitalPolisher.avif",
     "tier": 2,
     "tags": [
       "Stelle",
@@ -11969,6 +11906,7 @@ export const items = {
       "Restorative": "Heal 50.",
       "Toxic": "Poison 3.",
       "Fiery": "Burn 5.",
+      "Shiny": "This has +1 Multicast.",
       "Deadly": "Adjacent items gain 10% Crit Chance for the fight.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal 35 Damage."
@@ -11980,7 +11918,6 @@ export const items = {
   },
   "Ouroboros Statue": {
     "name": "Ouroboros Statue",
-    "icon": "images/items/OuroborosStatue.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -11993,7 +11930,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Poison (4/6/8).",
-      "When you Poison, gain (2/6/10) Regeneration for the fight."
+      "When you Poison, gain (2/6/10) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -12015,7 +11952,6 @@ export const items = {
   },
   "Oven Mitts": {
     "name": "Oven Mitts",
-    "icon": "images/items/OvenMitts.avif",
     "tier": 1,
     "tags": [
       "Jules",
@@ -12053,7 +11989,6 @@ export const items = {
   },
   "Palanquin": {
     "name": "Palanquin",
-    "icon": "images/items/Palanquin.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -12079,7 +12014,6 @@ export const items = {
       "Fiery": "When you Crit, Burn 4.",
       "Shiny": "This has double Cooldown Reduction.",
       "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Your Weapons have +25% Damage."
     },
     "priorities": [
@@ -12089,7 +12023,6 @@ export const items = {
   },
   "Pawn Shop": {
     "name": "Pawn Shop",
-    "icon": "images/items/PawnShop.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -12113,7 +12046,6 @@ export const items = {
       "Fiery": "Your Burn items have + Burn equal to 15% of this item's value.",
       "Shiny": "This has double Max Health bonus.",
       "Deadly": "Your items have Crit Chance equal to this item's value.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Your Weapons have + Damage equal to this item's value."
     },
     "priorities": [
@@ -12121,9 +12053,37 @@ export const items = {
       0
     ]
   },
+  "Peacewrought": {
+    "name": "Peacewrought",
+    "tier": 0,
+    "tags": [
+      "Mak",
+      "Medium",
+      "Property",
+      "Regen"
+    ],
+    "cooldown": "(7/6/5/4)",
+    "ammo": null,
+    "text": [
+      "Gain 2 Regen for the fight.",
+      "When you visit a Merchant, permanently destroy the item to the left of this to increase this item's Regen by its Value."
+    ],
+    "enchants": {
+      "Heavy": "Slow 2 items for 2 second(s).",
+      "Icy": "Freeze 1 medium or small item for 2 second(s).",
+      "Turbo": "Haste 2 items for 2 second(s).",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
+    }
+  },
   "Pearl": {
     "name": "Pearl",
-    "icon": "images/items/Pearl.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -12157,12 +12117,10 @@ export const items = {
   },
   "Pelt": {
     "name": "Pelt",
-    "icon": "images/items/Pelt.avif",
     "tier": 0,
     "tags": [
       "Common",
-      "Small",
-      "Loot"
+      "Small"
     ],
     "cooldown": null,
     "ammo": null,
@@ -12176,7 +12134,6 @@ export const items = {
   },
   "Pendulum": {
     "name": "Pendulum",
-    "icon": "images/items/Pendulum.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -12199,16 +12156,43 @@ export const items = {
       "Fiery": "When you use an adjacent item, Burn 1.",
       "Shiny": "This has double Charge.",
       "Deadly": "Adjacent items have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use an adjacent item, deal Damage 10."
     },
     "priorities": [
       0
     ]
   },
+  "PenFT": {
+    "name": "PenFT",
+    "tier": 1,
+    "tags": [
+      "Pygmalien",
+      "Small",
+      "Tech",
+      "Value",
+      "EconomyReference"
+    ],
+    "cooldown": 2,
+    "ammo": null,
+    "text": [
+      "Your items gain (+3/+4/+5) value for the fight."
+    ],
+    "enchants": {
+      "Heavy": "Slow 1 item for 1 second(s).",
+      "Icy": "Freeze 1 small item for 1 second(s).",
+      "Turbo": "Haste 1 item for 1 second(s).",
+      "Shielded": "Shield 5.",
+      "Restorative": "Heal 10.",
+      "Toxic": "Poison 1.",
+      "Fiery": "Burn 1.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "Your items with value over 10 have +10% Crit Chance.",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal 5 Damage."
+    }
+  },
   "Pepper Spray": {
     "name": "Pepper Spray",
-    "icon": "images/items/PepperSpray.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -12226,7 +12210,7 @@ export const items = {
     "enchants": {
       "Heavy": "This has double Slow duration.",
       "Icy": "The first time you fall below half health each fight, Freeze 1 small item for 4 second(s).",
-      "Turbo": "The first time you fall below half health each fight, Haste 2 items for 4 second(s).",
+      "Turbo": "The time you fall below half health each fight, Haste 2 items for 4 second(s).",
       "Shielded": "Shield equal to this item's damage.",
       "Restorative": "Heal equal to this item's Damage.",
       "Toxic": "Poison equal to 10% of this item's damage.",
@@ -12243,7 +12227,6 @@ export const items = {
   },
   "Pesky Pete": {
     "name": "Pesky Pete",
-    "icon": "images/items/PeskyPete.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -12277,7 +12260,6 @@ export const items = {
   },
   "Pet Rock": {
     "name": "Pet Rock",
-    "icon": "images/items/PetRock.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -12314,7 +12296,6 @@ export const items = {
   },
   "Philosopher's Stone": {
     "name": "Philosopher's Stone",
-    "icon": "images/items/PhilosophersStone.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -12325,22 +12306,22 @@ export const items = {
     "cooldown": 5,
     "ammo": null,
     "text": [
-      "Gain 1 Regeneration for the fight.",
-      "When you transform a Reagent, this permanently gains (+2/+4/+6/+8) Regeneration.",
-      "When you buy this, get a Chunk of Lead."
+      "Gain 1 Regen for the fight.",
+      "When you transform a Reagent, this permanently gains (+2/+3/+4/+5) Regen.",
+      "When you buy this, get a Catalyst."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
       "Icy": "Freeze 1 small item for 1 second(s).",
       "Turbo": "Haste 1 item for 2 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "+50% Crit Chance",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       0,
@@ -12350,7 +12331,6 @@ export const items = {
   },
   "Phonograph": {
     "name": "Phonograph",
-    "icon": "images/items/Phonograph.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -12372,7 +12352,6 @@ export const items = {
       "Fiery": "When you use the item to the left of this, burn 3",
       "Shiny": "The item to the Right of this has its cooldown reduced by 25%.",
       "Deadly": "The item to the left of this has +50% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use the item to the left of this, Deal 20 Damage."
     },
     "priorities": [
@@ -12381,12 +12360,10 @@ export const items = {
   },
   "Piano": {
     "name": "Piano",
-    "icon": "images/items/Piano.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
       "Medium",
-      "Tool",
       "Haste"
     ],
     "cooldown": null,
@@ -12405,7 +12382,6 @@ export const items = {
       "Fiery": "When you use a Friend, Burn 1.",
       "Shiny": "Adjacent items have +1 Multicast.",
       "Deadly": "Your Friends have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use a Friend, Deal 10 Damage."
     },
     "priorities": [
@@ -12415,7 +12391,6 @@ export const items = {
   },
   "Pickled Peppers": {
     "name": "Pickled Peppers",
-    "icon": "images/items/PickledPeppers.avif",
     "tier": 2,
     "tags": [
       "Jules",
@@ -12449,7 +12424,6 @@ export const items = {
   },
   "Pierre Conditioner": {
     "name": "Pierre Conditioner",
-    "icon": "images/items/PierreConditioner.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -12482,7 +12456,6 @@ export const items = {
   },
   "Piggles": {
     "name": "Piggles",
-    "icon": "images/items/Piggles.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -12494,7 +12467,8 @@ export const items = {
     "ammo": null,
     "text": [
       "Charge adjacent Small items (1/2/3/4) second(s).",
-      "When you win a fight, get a Piggle."
+      "When you win a fight, get a Piggle.",
+      "At the start of each day, upgrade a random Piggle."
     ],
     "enchants": {
       "Heavy": "...and Enchant the item with Heavy if able.",
@@ -12516,7 +12490,6 @@ export const items = {
   },
   "Piggy Bank": {
     "name": "Piggy Bank",
-    "icon": "images/items/PiggyBank.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -12533,8 +12506,7 @@ export const items = {
     ],
     "enchants": {
       "Golden": "The buff is now free!",
-      "Shiny": "This has double value gain.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Shiny": "This has double value gain."
     },
     "priorities": [
       0,
@@ -12543,7 +12515,6 @@ export const items = {
   },
   "Pinata": {
     "name": "Pinata",
-    "icon": "images/items/Pinata.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -12572,13 +12543,13 @@ export const items = {
   },
   "Piranha": {
     "name": "Piranha",
-    "icon": "images/items/Piranha.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
       "Small",
       "Aquatic",
       "Weapon",
+      "Friend",
       "Damage",
       "CritReference"
     ],
@@ -12610,7 +12581,6 @@ export const items = {
   },
   "Pistol Sword": {
     "name": "Pistol Sword",
-    "icon": "images/items/PistolSword.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -12645,7 +12615,6 @@ export const items = {
   },
   "Pitchfork": {
     "name": "Pitchfork",
-    "icon": "images/items/Pitchfork.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -12678,7 +12647,6 @@ export const items = {
   },
   "Plague Glaive": {
     "name": "Plague Glaive",
-    "icon": "images/items/PlagueGlaive.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -12718,7 +12686,6 @@ export const items = {
   },
   "Plasma Grenade": {
     "name": "Plasma Grenade",
-    "icon": "images/items/PlasmaGrenade.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -12753,7 +12720,6 @@ export const items = {
   },
   "Plasma Rifle": {
     "name": "Plasma Rifle",
-    "icon": "images/items/PlasmaRifle.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -12788,7 +12754,6 @@ export const items = {
   },
   "Pop Snappers": {
     "name": "Pop Snappers",
-    "icon": "images/items/PopSnappers.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -12821,7 +12786,6 @@ export const items = {
   },
   "Poppy Field": {
     "name": "Poppy Field",
-    "icon": "images/items/PoppyField.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -12846,7 +12810,6 @@ export const items = {
       "Fiery": "When you use a Weapon, Burn equal to this item's Poison.",
       "Shiny": "This has double Poison and double Damage bonus",
       "Deadly": "Your Weapons have + Crit Chance % equal to Poison on your enemy.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use a Weapon, Deal damage equal to 10 times this item's Poison."
     },
     "priorities": [
@@ -12856,7 +12819,6 @@ export const items = {
   },
   "Port": {
     "name": "Port",
-    "icon": "images/items/Port.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -12891,13 +12853,13 @@ export const items = {
   },
   "Potion Distillery": {
     "name": "Potion Distillery",
-    "icon": "images/items/PotionDistillery.avif",
     "tier": 1,
     "tags": [
       "Mak",
       "Large",
       "Tool",
-      "AmmoReference"
+      "AmmoReference",
+      "Cooldown"
     ],
     "cooldown": null,
     "ammo": null,
@@ -12927,7 +12889,6 @@ export const items = {
   },
   "Potion Potion": {
     "name": "Potion Potion",
-    "icon": "images/items/PotionPotion.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -12958,7 +12919,6 @@ export const items = {
   },
   "Powder Flask": {
     "name": "Powder Flask",
-    "icon": "images/items/PowderFlask.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -12990,7 +12950,6 @@ export const items = {
   },
   "Powder Keg": {
     "name": "Powder Keg",
-    "icon": "images/items/PowderKeg.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -13025,7 +12984,6 @@ export const items = {
   },
   "Power Drill": {
     "name": "Power Drill",
-    "icon": "images/items/PowerDrill.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -13039,10 +12997,10 @@ export const items = {
       "PoisonReference",
       "Damage"
     ],
-    "cooldown": 10,
+    "cooldown": "(15/14/13/12)",
     "ammo": null,
     "text": [
-      "Deal (50/75/100/125) damage.",
+      "Deal 100 damage.",
       "When you Haste, Slow, Freeze, Poison, or Burn, charge this 2 second(s)."
     ],
     "enchants": {
@@ -13065,31 +13023,30 @@ export const items = {
   },
   "Power Sander": {
     "name": "Power Sander",
-    "icon": "images/items/PowerSander.avif",
     "tier": 0,
     "tags": [
       "Dooley",
       "Small",
       "Tool",
-      "ShieldReference",
-      "DamageReference"
+      "Haste",
+      "Slow"
     ],
     "cooldown": 5,
     "ammo": null,
     "text": [
-      "Adjacent weapons gain (3/6/9/12) damage for the fight.",
-      "Adjacent Shield items gain (3/6/9/12) Shield for the fight."
+      "Haste the item to the right of this for (1/2/3/4) second(s).",
+      "Slow the item to the left of this for 1 second(s)."
     ],
     "enchants": {
-      "Heavy": "Slow 1 item for 1 second(s).",
+      "Heavy": "This has half Slow duration.",
       "Icy": "Freeze 1 small item for 1 second(s).",
-      "Turbo": "Haste 1 item for 1 second(s).",
+      "Turbo": "This has double Haste duration.",
       "Shielded": "Shield 20.",
       "Restorative": "Heal 30.",
       "Toxic": "Poison 2.",
       "Fiery": "Burn 3.",
       "Shiny": "This has +1 Multicast.",
-      "Deadly": "Adjacent items gain 10% Crit chance for the fight.",
+      "Deadly": "The item to the right of this gains 20% Crit chance for the fight.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal 20 Damage."
     },
@@ -13100,7 +13057,6 @@ export const items = {
   },
   "Private Hot Springs": {
     "name": "Private Hot Springs",
-    "icon": "images/items/PrivateHotSprings.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -13114,7 +13070,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Burn (8/12).",
-      "Gain (8/12) Regeneration for the fight.",
+      "Gain (8/12) Regen for the fight.",
       "The first time you fall below half health each fight, Freeze ALL other items for 3 seconds.",
       "When you Freeze, Charge this 4 second(s)."
     ],
@@ -13140,7 +13096,6 @@ export const items = {
   },
   "Proboscis": {
     "name": "Proboscis",
-    "icon": "images/items/Proboscis.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -13149,19 +13104,22 @@ export const items = {
       "Damage",
       "SlowReference"
     ],
-    "cooldown": null,
+    "cooldown": 4,
     "ammo": null,
     "text": [
-      "When you Slow, deal (4/8/12/16) damage."
+      "Deal (4/8/12/16) damage.",
+      "When you Slow, Charge this 1 second."
     ],
     "enchants": {
-      "Icy": "When you Slow, Freeze 1 small item for 1 second(s).",
-      "Turbo": "When you Slow, Haste 1 item for 1 second(s).",
-      "Shielded": "When you Slow, Shield equal to this item's damage.",
-      "Restorative": "When you Slow, Heal equal to this item's damage.",
-      "Toxic": "When you Slow, Poison equal to 10% of this item's damage.",
-      "Fiery": "When you Slow, Burn equal to 10% of this item's damage.",
-      "Shiny": "This has double Damage.",
+      "Heavy": "Slow 1 item for 1 second(s).",
+      "Icy": "Freeze 1 small item for 1 second(s).",
+      "Turbo": "Haste 1 item for 1 second(s).",
+      "Shielded": "Shield equal to this item's damage.",
+      "Restorative": "Heal equal to this item's damage.",
+      "Toxic": "Poison equal to 10% of this item's damage.",
+      "Fiery": "Burn equal to 10% of this item's damage.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "This has double Damage."
     },
@@ -13171,7 +13129,6 @@ export const items = {
   },
   "Propane Tank": {
     "name": "Propane Tank",
-    "icon": "images/items/PropaneTank.avif",
     "tier": 1,
     "tags": [
       "Stelle",
@@ -13208,7 +13165,6 @@ export const items = {
   },
   "Pufferfish": {
     "name": "Pufferfish",
-    "icon": "images/items/Pufferfish.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -13218,10 +13174,10 @@ export const items = {
       "Poison",
       "HasteReference"
     ],
-    "cooldown": "(10/9/8)",
+    "cooldown": 8,
     "ammo": null,
     "text": [
-      "Poison 10.",
+      "Poison (10/20/30).",
       "When you Haste, charge this 2 second(s)."
     ],
     "enchants": {
@@ -13244,7 +13200,6 @@ export const items = {
   },
   "Pulse Rifle": {
     "name": "Pulse Rifle",
-    "icon": "images/items/PulseRifle.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -13278,7 +13233,6 @@ export const items = {
   },
   "Pyg's Gym": {
     "name": "Pyg's Gym",
-    "icon": "images/items/PygsGym.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -13289,11 +13243,11 @@ export const items = {
       "Value",
       "DamageReference"
     ],
-    "cooldown": 6,
+    "cooldown": "(12/10/8)",
     "ammo": null,
     "text": [
       "Your weapons gain Damage equal to this item's value for the fight.",
-      "When you buy a weapon, this gains (1/2/3) value and you gain (20/50/100) max health."
+      "When you buy a weapon, this gains (2/4/6) value and you gain (20/50/100) max health."
     ],
     "enchants": {
       "Golden": "This has double value.",
@@ -13316,7 +13270,6 @@ export const items = {
   },
   "Pygmalien's Dagger": {
     "name": "Pygmalien's Dagger",
-    "icon": "images/items/PygmaliensDagger.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -13353,7 +13306,6 @@ export const items = {
   },
   "Pylon": {
     "name": "Pylon",
-    "icon": "images/items/Pylon.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -13388,7 +13340,6 @@ export const items = {
   },
   "Pyrocarbon": {
     "name": "Pyrocarbon",
-    "icon": "images/items/Pyrocarbon.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -13423,7 +13374,6 @@ export const items = {
   },
   "Quicksilver": {
     "name": "Quicksilver",
-    "icon": "images/items/Quicksilver.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -13432,7 +13382,7 @@ export const items = {
     "cooldown": 3,
     "ammo": null,
     "text": [
-      "Transform into another small item you have for the fight."
+      "Transform into a (Silver/Gold/Diamond) copy of another small, non-legendary item you have for the fight."
     ],
     "enchants": {
       "Heavy": "...and Enchant the transformation with Heavy if able.",
@@ -13453,7 +13403,6 @@ export const items = {
   },
   "Quill and Ink": {
     "name": "Quill and Ink",
-    "icon": "images/items/QuillandInk.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -13466,7 +13415,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Poison (1/2/3/4).",
-      "Gain (1/2/3/4) Regeneration for the fight.",
+      "Gain (1/2/3/4) Regen for the fight.",
       "If you have no other weapons, this has +1 Multicast."
     ],
     "enchants": {
@@ -13490,7 +13439,6 @@ export const items = {
   },
   "Race Carl": {
     "name": "Race Carl",
-    "icon": "images/items/RaceCarl.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -13527,7 +13475,6 @@ export const items = {
   },
   "Railgun": {
     "name": "Railgun",
-    "icon": "images/items/Railgun.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -13562,7 +13509,6 @@ export const items = {
   },
   "Rainbow Potion": {
     "name": "Rainbow Potion",
-    "icon": "images/items/RainbowPotion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -13602,7 +13548,6 @@ export const items = {
   },
   "Ramrod": {
     "name": "Ramrod",
-    "icon": "images/items/Ramrod.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -13636,9 +13581,37 @@ export const items = {
       0
     ]
   },
+  "Rapid Injection System": {
+    "name": "Rapid Injection System",
+    "tier": 1,
+    "tags": [
+      "Mak",
+      "Medium",
+      "Tool",
+      "Poison",
+      "Regen"
+    ],
+    "cooldown": null,
+    "ammo": null,
+    "text": [
+      "When you poison yourself, Poison (4/8/12).",
+      "When you use an adjacent item, Poison yourself (4/8/12) and gain (2/4/6) Regen for the fight."
+    ],
+    "enchants": {
+      "Heavy": "When you Poison yourself, Slow 1 items for 2 second(s).",
+      "Icy": "When you Poison yourself, Freeze 1 medium or small item for 1 second(s).",
+      "Turbo": "When you Poison yourself, Haste 1 items for 2 second(s).",
+      "Shielded": "When you Poison yourself, Shield equal to 10 times this item's Poison.",
+      "Restorative": "When you Poison yourself, Heal equal to 10 times this item's Poison.",
+      "Toxic": "This has double Poison.",
+      "Fiery": "When you Poison yourself, Burn 0.",
+      "Shiny": "This has double Regen.",
+      "Deadly": "Adjacent items have +25% Crit Chance.",
+      "Obsidian": "When you Poison yourself, Deal damage equal to 10 times this item's Poison."
+    }
+  },
   "Recycling Bin": {
     "name": "Recycling Bin",
-    "icon": "images/items/RecyclingBin.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -13649,20 +13622,19 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you use a Potion, transform it into a Potion for the fight and gain (2/3/4) Regeneration for the fight."
+      "When you use a Potion, transform it into a Potion for the fight and gain (2/3/4) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "When you use a Potion, Slow 1 item for 1 second(s).",
       "Icy": "When you use a Potion, Freeze 1 medium or small item for 0.5 second(s).",
       "Turbo": "When you use a Potion, Haste 1 item for 1 second(s).",
-      "Shielded": "When you use a Potion, Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "When you use a Potion, Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "When you use a Potion, Poison equal to this item's Regeneration.",
-      "Fiery": "When you use a Potion, Burn equal to this item's Regeneration.",
-      "Shiny": "This has double Regeneration.",
+      "Shielded": "When you use a Potion, Shield equal to 10 times this item's Regen.",
+      "Restorative": "When you use a Potion, Heal equal to 10 times this item's Regen.",
+      "Toxic": "When you use a Potion, Poison equal to this item's Regen.",
+      "Fiery": "When you use a Potion, Burn equal to this item's Regen.",
+      "Shiny": "This has double Regen.",
       "Deadly": "Your Potions have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "When you use a Potion, Deal Damage equal to 10 times this item's Regeneration."
+      "Obsidian": "When you use a Potion, Deal Damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1
@@ -13670,7 +13642,6 @@ export const items = {
   },
   "Red Button": {
     "name": "Red Button",
-    "icon": "images/items/RedButton.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -13702,7 +13673,6 @@ export const items = {
   },
   "Red Gumball": {
     "name": "Red Gumball",
-    "icon": "images/items/RedGumball.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -13731,7 +13701,6 @@ export const items = {
   },
   "Red Piggles A": {
     "name": "Red Piggles A",
-    "icon": "images/items/RedPigglesA.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -13763,7 +13732,6 @@ export const items = {
   },
   "Red Piggles L": {
     "name": "Red Piggles L",
-    "icon": "images/items/RedPigglesL.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -13795,7 +13763,6 @@ export const items = {
   },
   "Red Piggles R": {
     "name": "Red Piggles R",
-    "icon": "images/items/RedPigglesR.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -13827,7 +13794,6 @@ export const items = {
   },
   "Red Piggles X": {
     "name": "Red Piggles X",
-    "icon": "images/items/RedPigglesX.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -13859,7 +13825,6 @@ export const items = {
   },
   "RED-F1R3FLY": {
     "name": "RED-F1R3FLY",
-    "icon": "images/items/REDF1R3FLY.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -13895,7 +13860,6 @@ export const items = {
   },
   "Refractor": {
     "name": "Refractor",
-    "icon": "images/items/Refractor.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -13933,7 +13897,6 @@ export const items = {
   },
   "Regal Blade": {
     "name": "Regal Blade",
-    "icon": "images/items/RegalBlade.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -13968,7 +13931,6 @@ export const items = {
   },
   "Regeneration Potion": {
     "name": "Regeneration Potion",
-    "icon": "images/items/RegenerationPotion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -13980,20 +13942,20 @@ export const items = {
     "cooldown": 5,
     "ammo": 1,
     "text": [
-      "Gain (8/16/24) Regeneration for the fight."
+      "Gain (8/16/24) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 1 second(s).",
       "Icy": "Freeze 1 small item for 1 second(s).",
       "Turbo": "Haste 1 item for 1 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "+50% Crit Chance",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       2
@@ -14001,7 +13963,6 @@ export const items = {
   },
   "Remote Control": {
     "name": "Remote Control",
-    "icon": "images/items/RemoteControl.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -14032,7 +13993,6 @@ export const items = {
   },
   "Repeater": {
     "name": "Repeater",
-    "icon": "images/items/Repeater.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -14067,7 +14027,6 @@ export const items = {
   },
   "Retort": {
     "name": "Retort",
-    "icon": "images/items/Retort.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -14079,8 +14038,8 @@ export const items = {
     "ammo": null,
     "text": [
       "Poison 6.",
-      "When you transform a Reagent, this permanently gains (+4/+6/+8/+10) Poison.",
-      "At the start of each day, get a Chunk of Lead."
+      "When you transform a Reagent, this permanently gains (+3/+5/+7/+9) Poison.",
+      "At the start of each day, spend 3 Gold to get a Chunk of Lead."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 3 second(s).",
@@ -14103,7 +14062,6 @@ export const items = {
   },
   "Revolver": {
     "name": "Revolver",
-    "icon": "images/items/Revolver.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -14141,7 +14099,6 @@ export const items = {
   },
   "Rewards Card": {
     "name": "Rewards Card",
-    "icon": "images/items/RewardsCard.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -14155,16 +14112,43 @@ export const items = {
     ],
     "enchants": {
       "Golden": "This has double value.",
-      "Shiny": "Double Value",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Shiny": "Double Value"
     },
     "priorities": [
       0
     ]
   },
+  "Riceballer": {
+    "name": "Riceballer",
+    "tier": 1,
+    "tags": [
+      "Pygmalien",
+      "Medium",
+      "Tool",
+      "Burn"
+    ],
+    "cooldown": 7,
+    "ammo": null,
+    "text": [
+      "Burn (5/10/15).",
+      "This has +1 Multicast for each item you have in play with value over 10."
+    ],
+    "enchants": {
+      "Heavy": "Slow 1 item for 2 second(s).",
+      "Icy": "Freeze 1 medium or small items for 1 second(s).",
+      "Turbo": "Haste 1 item for 2 second(s).",
+      "Shielded": "Shield equal to 10 times this item's Burn.",
+      "Restorative": "Heal equal to 10 times this item's Burn.",
+      "Toxic": "Poison equal to this item's Burn.",
+      "Fiery": "This has double Burn.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal damage equal to 10 times this item's Burn."
+    }
+  },
   "Rifle": {
     "name": "Rifle",
-    "icon": "images/items/Rifle.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -14197,9 +14181,41 @@ export const items = {
       0
     ]
   },
+  "Ring King Gauntlets": {
+    "name": "Ring King Gauntlets",
+    "tier": 0,
+    "tags": [
+      "Pygmalien",
+      "Small",
+      "Weapon",
+      "Tech",
+      "Damage",
+      "Income"
+    ],
+    "cooldown": 5,
+    "ammo": null,
+    "text": [
+      "Multicast 2",
+      "Deal damage equal to (1/2/3/4) times your Income.",
+      "While in play, you have (+1/+2/+3/+4) Income."
+    ],
+    "enchants": {
+      "Golden": "This has double Income bonus.",
+      "Heavy": "Slow 1 item for 1 second(s).",
+      "Icy": "Freeze 1 small item for 1 second(s).",
+      "Turbo": "Haste 1 item for 1 second(s).",
+      "Shielded": "Shield equal to this item's damage.",
+      "Restorative": "Heal equal to this item's Damage.",
+      "Toxic": "Poison equal to 10% of this item's damage.",
+      "Fiery": "Burn equal to 10% of this item's damage.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "This has double Damage."
+    }
+  },
   "Ritual Dagger": {
     "name": "Ritual Dagger",
-    "icon": "images/items/RitualDagger.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -14212,7 +14228,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Deal 2 damage.",
-      "Gain Regeneration for the fight equal to this item's damage."
+      "Gain Regen for the fight equal to this item's damage."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 1 second(s).",
@@ -14234,7 +14250,6 @@ export const items = {
   },
   "Rivet Gun": {
     "name": "Rivet Gun",
-    "icon": "images/items/RivetGun.avif",
     "tier": 2,
     "tags": [
       "Stelle",
@@ -14270,30 +14285,29 @@ export const items = {
   },
   "Robe": {
     "name": "Robe",
-    "icon": "images/items/Robe.avif",
-    "tier": 1,
+    "tier": 0,
     "tags": [
       "Pygmalien",
       "Medium",
       "Apparel",
       "Shield"
     ],
-    "cooldown": 6,
+    "cooldown": "(7/6/5/4)",
     "ammo": null,
     "text": [
-      "Shield 20.",
-      "Your Shield items gain (5/10/15) Shield for the fight."
+      "Shield 100.",
+      "When you use an adjacent item, charge this 1 second(s)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
       "Icy": "Freeze 1 medium or small item for 2 second(s).",
       "Turbo": "Haste 2 items for 2 second(s).",
-      "Shielded": "This has double Shield bonus.",
+      "Shielded": "This has double Shield.",
       "Restorative": "Heal equal to this item's Shield.",
       "Toxic": "Poison equal to 10% of this item's Shield.",
       "Fiery": "Burn equal to 10% of this item's Shield.",
       "Shiny": "This has +1 Multicast.",
-      "Deadly": "Your Shield items gain +10% Crit Chance for the fight.",
+      "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "Deal damage equal to this item's Shield."
     },
@@ -14304,8 +14318,7 @@ export const items = {
   },
   "Robotic Factory": {
     "name": "Robotic Factory",
-    "icon": "images/items/RoboticFactory.avif",
-    "tier": 2,
+    "tier": 3,
     "tags": [
       "Dooley",
       "Large",
@@ -14315,7 +14328,6 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "Your Friends items have (+10%/+20%) Crit Chance.",
       "Your Friends have +1 Multicast."
     ],
     "enchants": {
@@ -14327,8 +14339,7 @@ export const items = {
       "Toxic": "When you use a Friend, poison 3.",
       "Fiery": "When you use a Friend, burn 3.",
       "Shiny": "This has double Multicast bonus.",
-      "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Deadly": "Your Friends have +25% Crit Chance.",
       "Obsidian": "When you use a Friend, Deal 30 Damage."
     },
     "priorities": [
@@ -14338,7 +14349,6 @@ export const items = {
   },
   "Rocket Boots": {
     "name": "Rocket Boots",
-    "icon": "images/items/RocketBoots.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -14372,7 +14382,6 @@ export const items = {
   },
   "Rocket Launcher": {
     "name": "Rocket Launcher",
-    "icon": "images/items/RocketLauncher.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -14410,7 +14419,6 @@ export const items = {
   },
   "Rolling Pin": {
     "name": "Rolling Pin",
-    "icon": "images/items/RollingPin.avif",
     "tier": 0,
     "tags": [
       "Jules",
@@ -14446,7 +14454,6 @@ export const items = {
   },
   "Rowboat": {
     "name": "Rowboat",
-    "icon": "images/items/Rowboat.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -14480,7 +14487,6 @@ export const items = {
   },
   "Ruby": {
     "name": "Ruby",
-    "icon": "images/items/Ruby.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -14513,7 +14519,6 @@ export const items = {
   },
   "Rune Axe": {
     "name": "Rune Axe",
-    "icon": "images/items/RuneAxe.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -14548,7 +14553,6 @@ export const items = {
   },
   "Runic Blade": {
     "name": "Runic Blade",
-    "icon": "images/items/RunicBlade.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -14585,7 +14589,6 @@ export const items = {
   },
   "Runic Daggers": {
     "name": "Runic Daggers",
-    "icon": "images/items/RunicDaggers.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -14624,7 +14627,6 @@ export const items = {
   },
   "Runic Double Bow": {
     "name": "Runic Double Bow",
-    "icon": "images/items/RunicDoubleBow.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -14662,7 +14664,6 @@ export const items = {
   },
   "Runic Great Axe": {
     "name": "Runic Great Axe",
-    "icon": "images/items/RunicGreatAxe.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -14686,7 +14687,7 @@ export const items = {
       "Toxic": "Poison equal to 10% of this item's damage.",
       "Fiery": "Burn equal to 10% of this item's damage.",
       "Shiny": "This has +1 Multicast.",
-      "Deadly": "+50% Crit Chance",
+      "Deadly": "This deals double Crit damage.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "This has double Damage."
     },
@@ -14698,7 +14699,6 @@ export const items = {
   },
   "Runic Potion": {
     "name": "Runic Potion",
-    "icon": "images/items/RunicPotion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -14733,7 +14733,6 @@ export const items = {
   },
   "Safe": {
     "name": "Safe",
-    "icon": "images/items/Safe.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -14745,16 +14744,13 @@ export const items = {
     "text": [
       "When you sell this, get 3 Spare Change."
     ],
-    "enchants": {
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
-    },
+    "enchants": {},
     "priorities": [
       0
     ]
   },
   "Salamander Pup": {
     "name": "Salamander Pup",
-    "icon": "images/items/SalamanderPup.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -14788,7 +14784,6 @@ export const items = {
   },
   "Salt": {
     "name": "Salt",
-    "icon": "images/items/Salt.avif",
     "tier": 1,
     "tags": [
       "Jules",
@@ -14820,7 +14815,6 @@ export const items = {
   },
   "Sapphire": {
     "name": "Sapphire",
-    "icon": "images/items/Sapphire.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -14852,7 +14846,6 @@ export const items = {
   },
   "Sat-Comm": {
     "name": "Sat-Comm",
-    "icon": "images/items/SatComm.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -14886,7 +14879,6 @@ export const items = {
   },
   "Satchel": {
     "name": "Satchel",
-    "icon": "images/items/Satchel.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -14899,21 +14891,21 @@ export const items = {
     "ammo": null,
     "text": [
       "Reload 2 items.",
-      "When you reload, gain 2 Regeneration for the fight.",
-      "When you buy a Potion, increase this item's Regeneration by (+2/+4/+6)."
+      "When you reload, gain 2 Regen for the fight.",
+      "When you buy a Potion, increase this item's Regen by (+2/+4/+6)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
       "Icy": "Freeze 1 medium or small item for 2 second(s).",
       "Turbo": "Haste 2 items for 2 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
-      "Toxic": "Poison equal to this item's Regeneration.",
-      "Fiery": "Burn equal to this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Deadly": "Your Potions have +25% Crit Chance.",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       0,
@@ -14923,7 +14915,6 @@ export const items = {
   },
   "Sauna": {
     "name": "Sauna",
-    "icon": "images/items/Sauna.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -14937,7 +14928,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Burn (4/5/6).",
-      "When you Burn, Heal (10/20/30) and gain (1/2/3) Regeneration for the fight."
+      "When you Burn, Heal (15/30/45) and gain (2/4/6) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -14959,7 +14950,6 @@ export const items = {
   },
   "Scales": {
     "name": "Scales",
-    "icon": "images/items/Scales.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -14992,7 +14982,6 @@ export const items = {
   },
   "Schematics": {
     "name": "Schematics",
-    "icon": "images/items/Schematics.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -15024,12 +15013,10 @@ export const items = {
   },
   "Scrap": {
     "name": "Scrap",
-    "icon": "images/items/Scrap.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "ShieldReference"
     ],
     "cooldown": null,
@@ -15054,7 +15041,6 @@ export const items = {
   },
   "Scrap Metal": {
     "name": "Scrap Metal",
-    "icon": "images/items/ScrapMetal.avif",
     "tier": 2,
     "tags": [
       "Dooley",
@@ -15085,7 +15071,6 @@ export const items = {
   },
   "Scythe": {
     "name": "Scythe",
-    "icon": "images/items/Scythe.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -15117,7 +15102,6 @@ export const items = {
   },
   "Sea Shell": {
     "name": "Sea Shell",
-    "icon": "images/items/SeaShell.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -15149,7 +15133,6 @@ export const items = {
   },
   "Seadog's Saloon": {
     "name": "Seadog's Saloon",
-    "icon": "images/items/SeadogsSaloon.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -15187,7 +15170,6 @@ export const items = {
   },
   "Seashadow": {
     "name": "Seashadow",
-    "icon": "images/items/Seashadow.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -15222,7 +15204,6 @@ export const items = {
   },
   "Seaweed": {
     "name": "Seaweed",
-    "icon": "images/items/Seaweed.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -15256,7 +15237,6 @@ export const items = {
   },
   "Secret Formula": {
     "name": "Secret Formula",
-    "icon": "images/items/SecretFormula.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -15268,22 +15248,22 @@ export const items = {
     "cooldown": "(10/8)",
     "ammo": null,
     "text": [
-      "Gain (5/10) Regeneration for the fight.",
-      "The Burn item to the left of this gains + Burn equal to your Regeneration for the fight.",
-      "The Poison item to the right of this gains + Poison equal to your Regeneration for the fight."
+      "Gain (5/10) Regen for the fight.",
+      "The Burn item to the left of this gains + Burn equal to your Regen for the fight.",
+      "The Poison item to the right of this gains + Poison equal to your Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 4 second(s).",
       "Icy": "Freeze 1 medium or small item for 4 second(s).",
       "Turbo": "Haste 2 items for 4 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Regeneration.",
-      "Restorative": "Heal equal to 10 times this item's Regeneration.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
       "Toxic": "This has double Poison bonus.",
       "Fiery": "This has double Burn bonus.",
       "Shiny": "This has double Burn and Poison bonus.",
       "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       1,
@@ -15293,7 +15273,6 @@ export const items = {
   },
   "Security Camera": {
     "name": "Security Camera",
-    "icon": "images/items/SecurityCamera.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -15328,7 +15307,6 @@ export const items = {
   },
   "Sextant": {
     "name": "Sextant",
-    "icon": "images/items/Sextant.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -15354,7 +15332,6 @@ export const items = {
       "Fiery": "When you Crit, Burn 2.",
       "Shiny": "This has double Crit Chance bonus.",
       "Deadly": "Your items have +10% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you Crit, Deal 40 Damage."
     },
     "priorities": [
@@ -15364,7 +15341,6 @@ export const items = {
   },
   "Shadowed Cloak": {
     "name": "Shadowed Cloak",
-    "icon": "images/items/ShadowedCloak.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -15395,7 +15371,6 @@ export const items = {
   },
   "Shard of Obsidian": {
     "name": "Shard of Obsidian",
-    "icon": "images/items/ShardofObsidian.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -15432,7 +15407,6 @@ export const items = {
   },
   "Sharkclaws": {
     "name": "Sharkclaws",
-    "icon": "images/items/Sharkclaws.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -15445,7 +15419,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Deal (10/20/30/40) damage.",
-      "Your Weapons gain (+10/+20/+30/+40) damage for the fight."
+      "Your other Weapons gain (+10/+20/+30/+40) damage for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 1 second(s).",
@@ -15467,7 +15441,6 @@ export const items = {
   },
   "Sharkray": {
     "name": "Sharkray",
-    "icon": "images/items/Sharkray.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -15505,12 +15478,10 @@ export const items = {
   },
   "Sharpening Stone": {
     "name": "Sharpening Stone",
-    "icon": "images/items/SharpeningStone.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "DamageReference"
     ],
     "cooldown": null,
@@ -15535,7 +15506,6 @@ export const items = {
   },
   "Shipment": {
     "name": "Shipment",
-    "icon": "images/items/Shipment.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -15567,8 +15537,7 @@ export const items = {
   },
   "Shipwreck": {
     "name": "Shipwreck",
-    "icon": "images/items/Shipwreck.avif",
-    "tier": 2,
+    "tier": 3,
     "tags": [
       "Vanessa",
       "Large",
@@ -15579,7 +15548,6 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "Your Aquatic items have (+10%/+20%) Crit Chance.",
       "Your Aquatic items have +1 Multicast."
     ],
     "enchants": {
@@ -15591,8 +15559,7 @@ export const items = {
       "Toxic": "When you use an aquatic item, poison 2.",
       "Fiery": "When you use an aquatic item, burn 3.",
       "Shiny": "This has double Multicast bonus.",
-      "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Deadly": "Your Aquatic items have +25% Crit Chance.",
       "Obsidian": "When you use an Aquatic item, Deal 20 Damage."
     },
     "priorities": [
@@ -15602,7 +15569,6 @@ export const items = {
   },
   "Shoe Blade": {
     "name": "Shoe Blade",
-    "icon": "images/items/ShoeBlade.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -15637,7 +15603,6 @@ export const items = {
   },
   "Shot Glasses": {
     "name": "Shot Glasses",
-    "icon": "images/items/ShotGlasses.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -15646,7 +15611,7 @@ export const items = {
       "Haste",
       "Slow"
     ],
-    "cooldown": 3,
+    "cooldown": 4,
     "ammo": "(2/3/4)",
     "text": [
       "Haste your items for 1 second(s).",
@@ -15672,7 +15637,6 @@ export const items = {
   },
   "Shovel": {
     "name": "Shovel",
-    "icon": "images/items/Shovel.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -15707,7 +15671,6 @@ export const items = {
   },
   "Show Globe": {
     "name": "Show Globe",
-    "icon": "images/items/ShowGlobe.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -15719,8 +15682,8 @@ export const items = {
     "ammo": null,
     "text": [
       "Burn 3.",
-      "Gain 3 Regeneration for the fight.",
-      "When you use a potion, this gains (+1/+2/+3) Burn and (+1/+2/+3) Regeneration for the fight."
+      "Gain 3 Regen for the fight.",
+      "When you use a potion, this gains (+3/+6/+9) Burn and (+3/+6/+9) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 3 second(s).",
@@ -15741,9 +15704,38 @@ export const items = {
       0
     ]
   },
+  "Showcase": {
+    "name": "Showcase",
+    "tier": 0,
+    "tags": [
+      "Pygmalien",
+      "Medium",
+      "Property",
+      "DamageReference",
+      "ShieldReference"
+    ],
+    "cooldown": 5,
+    "ammo": null,
+    "text": [
+      "If you have 3 or more Weapons, they gain (+20/+30/+40/+50) Damage for the fight.",
+      "If you have 3 or more Shield items, they gain (+20/+30/+40/+50) Shield for the fight."
+    ],
+    "enchants": {
+      "Heavy": "Slow 2 item for 2 second(s).",
+      "Icy": "Freeze 1 medium or small item for 2 second(s).",
+      "Turbo": "Haste 2 item for 2 second(s).",
+      "Shielded": "Shield 50.",
+      "Restorative": "Heal 75.",
+      "Toxic": "Poison 5.",
+      "Fiery": "Burn 5.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "Your Weapons and Shield items have +25% Crit Chance.",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal 50 Damage."
+    }
+  },
   "Shrinking Potion": {
     "name": "Shrinking Potion",
-    "icon": "images/items/ShrinkingPotion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -15773,7 +15765,6 @@ export const items = {
   },
   "Sifting Pan": {
     "name": "Sifting Pan",
-    "icon": "images/items/SiftingPan.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -15785,8 +15776,8 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "At the start of each day, get a Small Reagent.",
-      "When you sell a Reagent, permanently gain (1/2/3) Regeneration."
+      "At the start of each day, get a Catalyst.",
+      "When you sell Catalyst, gain (1/2/3) Regen."
     ],
     "enchants": {},
     "priorities": [
@@ -15796,7 +15787,6 @@ export const items = {
   },
   "Signet Ring": {
     "name": "Signet Ring",
-    "icon": "images/items/SignetRing.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -15813,8 +15803,7 @@ export const items = {
     ],
     "enchants": {
       "Golden": "This has double income bonus.",
-      "Shiny": "Double Health Max",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Shiny": "Double Health Max"
     },
     "priorities": [
       1,
@@ -15823,7 +15812,6 @@ export const items = {
   },
   "Silencer": {
     "name": "Silencer",
-    "icon": "images/items/Silencer.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -15847,7 +15835,6 @@ export const items = {
       "Fiery": "When you use the weapon to the left of this, burn 2.",
       "Shiny": "This has double bonus damage and reduces cooldown by an additional 25%.",
       "Deadly": "The Weapon to the left of this has +50% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "This has double damage bonus."
     },
     "priorities": [
@@ -15857,7 +15844,6 @@ export const items = {
   },
   "Silk Scarf": {
     "name": "Silk Scarf",
-    "icon": "images/items/SilkScarf.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -15869,7 +15855,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Shield (10/20/40/80).",
-      "When you sell another non-weapon item, this gains Shield (4/8/12/16)."
+      "When you sell another non-weapon item, this gains Shield (6/12/18/24)."
     ],
     "enchants": {
       "Golden": "Your non-weapon items have +1 value.",
@@ -15892,7 +15878,6 @@ export const items = {
   },
   "Singularity": {
     "name": "Singularity",
-    "icon": "images/items/Singularity.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -15922,7 +15907,6 @@ export const items = {
   },
   "Sirens": {
     "name": "Sirens",
-    "icon": "images/items/Sirens.avif",
     "tier": 1,
     "tags": [
       "Stelle",
@@ -15958,7 +15942,6 @@ export const items = {
   },
   "Skillet": {
     "name": "Skillet",
-    "icon": "images/items/Skillet.avif",
     "tier": 1,
     "tags": [
       "Jules",
@@ -15992,7 +15975,6 @@ export const items = {
   },
   "Skyscraper": {
     "name": "Skyscraper",
-    "icon": "images/items/Skyscraper.avif",
     "tier": 3,
     "tags": [
       "Pygmalien",
@@ -16031,7 +16013,6 @@ export const items = {
   },
   "Sleeping Potion": {
     "name": "Sleeping Potion",
-    "icon": "images/items/SleepingPotion.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -16062,7 +16043,6 @@ export const items = {
   },
   "Slingshot": {
     "name": "Slingshot",
-    "icon": "images/items/Slingshot.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -16099,7 +16079,6 @@ export const items = {
   },
   "Slumbering Primordial": {
     "name": "Slumbering Primordial",
-    "icon": "images/items/SlumberingPrimordial.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -16139,7 +16118,6 @@ export const items = {
   },
   "Smelling Salts": {
     "name": "Smelling Salts",
-    "icon": "images/items/SmellingSalts.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -16151,19 +16129,19 @@ export const items = {
     "ammo": null,
     "text": [
       "Slow 1 item(s) for (1/2/3/4) second(s).",
-      "When you Slow, Haste the item to the left of this for (1/2/3/4) second(s)."
+      "When this or an adjacent item Slows, Haste the item to the left of this for (1/2/3/4) second(s)."
     ],
     "enchants": {
       "Heavy": "This has double Slow duration.",
-      "Icy": "When you Slow, Freeze 1 small item for 0.5 second(s).",
+      "Icy": "When this or an adjacent item Slows, Freeze 1 small item for 0.5 second(s).",
       "Turbo": "This has double Haste duration.",
-      "Shielded": "When you Slow, Shield 10.",
-      "Restorative": "When you Slow, Heal 15.",
-      "Toxic": "When you Slow, Poison 1.",
-      "Fiery": "When you Slow, Burn 1.",
+      "Shielded": "When this or an adjacent item Slows, Shield 10.",
+      "Restorative": "When this or an adjacent item Slows, Heal 15.",
+      "Toxic": "When this or an adjacent item Slows, Poison 1.",
+      "Fiery": "When this or an adjacent item Slows, Burn 1.",
       "Shiny": "This has +1 Multicast.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "When you Slow, Deal 10 Damage."
+      "Obsidian": "When this or an adjacent item Slows, Deal 10 Damage."
     },
     "priorities": [
       1,
@@ -16172,7 +16150,6 @@ export const items = {
   },
   "Sniper Rifle": {
     "name": "Sniper Rifle",
-    "icon": "images/items/SniperRifle.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -16206,7 +16183,6 @@ export const items = {
   },
   "Snow Globe": {
     "name": "Snow Globe",
-    "icon": "images/items/SnowGlobe.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -16241,12 +16217,10 @@ export const items = {
   },
   "Snowflake": {
     "name": "Snowflake",
-    "icon": "images/items/Snowflake.avif",
     "tier": 3,
     "tags": [
       "Common",
-      "Small",
-      "Loot"
+      "Small"
     ],
     "cooldown": null,
     "ammo": null,
@@ -16270,7 +16244,6 @@ export const items = {
   },
   "Snowmobile": {
     "name": "Snowmobile",
-    "icon": "images/items/Snowmobile.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -16309,7 +16282,6 @@ export const items = {
   },
   "Solar Farm": {
     "name": "Solar Farm",
-    "icon": "images/items/SolarFarm.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -16324,21 +16296,21 @@ export const items = {
     "ammo": null,
     "text": [
       "Haste your other items for (1/2/3) second(s).",
-      "Gain (6/9/12) Regeneration for the fight.",
-      "When you Burn, charge this for 2 seconds."
+      "Gain (6/9/12) Regen for the fight.",
+      "When you Burn, charge this 2 seconds."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 3 second(s).",
       "Icy": "Freeze 1 item for 2 second(s).",
       "Turbo": "This has double Haste duration.",
-      "Shielded": "Shield 50.",
-      "Restorative": "Heal 70.",
-      "Toxic": "Poison 3.",
-      "Fiery": "Burn 6.",
+      "Shielded": "Shield equal to 10 times this item's Regen.",
+      "Restorative": "Heal equal to 10 times this item's Regen.",
+      "Toxic": "Poison equal to this item's Regen.",
+      "Fiery": "Burn equal to this item's Regen.",
       "Shiny": "This has +1 Multicast.",
       "Deadly": "Your items gain 10% Crit Chance for the fight.",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal 50 Damage."
+      "Obsidian": "Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       2,
@@ -16348,7 +16320,6 @@ export const items = {
   },
   "Soldering Gun": {
     "name": "Soldering Gun",
-    "icon": "images/items/SolderingGun.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -16384,7 +16355,6 @@ export const items = {
   },
   "Soul of the District": {
     "name": "Soul of the District",
-    "icon": "images/items/SouloftheDistrict.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -16419,7 +16389,6 @@ export const items = {
   },
   "Soul Ring": {
     "name": "Soul Ring",
-    "icon": "images/items/SoulRing.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -16431,8 +16400,8 @@ export const items = {
     "cooldown": 10,
     "ammo": null,
     "text": [
-      "Poison equal to your Regeneration.",
-      "You have (+10/+20) Regeneration."
+      "Poison equal to your Regen.",
+      "You have (+10/+20) Regen."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -16454,7 +16423,6 @@ export const items = {
   },
   "Spacescraper": {
     "name": "Spacescraper",
-    "icon": "images/items/Spacescraper.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -16490,7 +16458,6 @@ export const items = {
   },
   "Spare Change": {
     "name": "Spare Change",
-    "icon": "images/items/SpareChange.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -16507,9 +16474,38 @@ export const items = {
       0
     ]
   },
+  "Speedrunner": {
+    "name": "Speedrunner",
+    "tier": 0,
+    "tags": [
+      "Pygmalien",
+      "Small",
+      "Toy",
+      "Tech",
+      "Charge"
+    ],
+    "cooldown": 6,
+    "ammo": null,
+    "text": [
+      "Charge 1 non-Toy item(s) (1/2/3/4) second(s).",
+      "When you use another Toy, charge this 1 second."
+    ],
+    "enchants": {
+      "Heavy": "Slow 1 item for 2 second(s).",
+      "Icy": "Freeze 1 small item for 1 second(s).",
+      "Turbo": "Haste 1 item for 2 second(s).",
+      "Shielded": "Shield 10.",
+      "Restorative": "Heal 15.",
+      "Toxic": "Poison 2.",
+      "Fiery": "Burn 2.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "Your non-Toy items have +25% Crit Chance.",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal 10 Damage."
+    }
+  },
   "Spices": {
     "name": "Spices",
-    "icon": "images/items/Spices.avif",
     "tier": 3,
     "tags": [
       "Pygmalien",
@@ -16541,7 +16537,6 @@ export const items = {
   },
   "Spider Mace": {
     "name": "Spider Mace",
-    "icon": "images/items/SpiderMace.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -16576,7 +16571,6 @@ export const items = {
   },
   "Spiked Buckler": {
     "name": "Spiked Buckler",
-    "icon": "images/items/SpikedBuckler.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -16613,7 +16607,6 @@ export const items = {
   },
   "Spiky Shield": {
     "name": "Spiky Shield",
-    "icon": "images/items/SpikyShield.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -16648,7 +16641,6 @@ export const items = {
   },
   "Spyglass": {
     "name": "Spyglass",
-    "icon": "images/items/Spyglass.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -16673,7 +16665,6 @@ export const items = {
       "Fiery": "When you crit with an adjacent item, burn 3.",
       "Shiny": "This has double Crit Chance bonus.",
       "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you Crit with an adjacent item, Deal 20 Damage."
     },
     "priorities": [
@@ -16683,7 +16674,6 @@ export const items = {
   },
   "Staff of the Moose": {
     "name": "Staff of the Moose",
-    "icon": "images/items/StaffoftheMoose.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -16697,8 +16687,8 @@ export const items = {
     "text": [
       "Multicast 2",
       "Deal 200 damage.",
-      "The first time you fall below half Health each fight, you take no damage for (1/1.5/2) second(s) and gain (25/50/75) Regeneration for the fight.",
-      "Your Weapons have + Damage equal to your Regeneration."
+      "The first time you fall below half Health each fight, you take no damage for (1/1.5/2) second(s) and gain (25/50/75) Regen for the fight.",
+      "Your Weapons have + Damage equal to your Regen."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 6 second(s).",
@@ -16722,7 +16712,6 @@ export const items = {
   },
   "Stained Glass Window": {
     "name": "Stained Glass Window",
-    "icon": "images/items/StainedGlassWindow.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -16739,8 +16728,7 @@ export const items = {
     ],
     "enchants": {
       "Golden": "This has double value bonus.",
-      "Shiny": "Double Value",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Shiny": "Double Value"
     },
     "priorities": [
       2,
@@ -16750,7 +16738,6 @@ export const items = {
   },
   "Star Chart": {
     "name": "Star Chart",
-    "icon": "images/items/StarChart.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -16775,7 +16762,6 @@ export const items = {
       "Fiery": "The first time you fall below half health each fight, burn 18.",
       "Shiny": "This has double Crit Chance bonus and cooldown reduction.",
       "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "The first time you fall below half health each fight, Deal 120 damage."
     },
     "priorities": [
@@ -16785,7 +16771,6 @@ export const items = {
   },
   "Steam Ladle": {
     "name": "Steam Ladle",
-    "icon": "images/items/SteamLadle.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -16820,7 +16805,6 @@ export const items = {
   },
   "Stinger": {
     "name": "Stinger",
-    "icon": "images/items/Stinger.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -16857,7 +16841,6 @@ export const items = {
   },
   "Stopwatch": {
     "name": "Stopwatch",
-    "icon": "images/items/Stopwatch.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -16889,7 +16872,6 @@ export const items = {
   },
   "Strength Potion": {
     "name": "Strength Potion",
-    "icon": "images/items/StrengthPotion.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -16922,7 +16904,6 @@ export const items = {
   },
   "Submarine": {
     "name": "Submarine",
-    "icon": "images/items/Submarine.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -16938,7 +16919,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Deal (50/75/100) damage.",
-      "Gain Shield equal to this item's damage."
+      "Shield equal to this item's damage."
     ],
     "enchants": {
       "Heavy": "Slow 3 items for 1 second(s).",
@@ -16960,7 +16941,6 @@ export const items = {
   },
   "Submersible": {
     "name": "Submersible",
-    "icon": "images/items/Submersible.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -17000,7 +16980,6 @@ export const items = {
   },
   "Subscraper": {
     "name": "Subscraper",
-    "icon": "images/items/Subscraper.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -17037,7 +17016,6 @@ export const items = {
   },
   "Succulents": {
     "name": "Succulents",
-    "icon": "images/items/Succulents.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -17070,7 +17048,6 @@ export const items = {
   },
   "Sulphur": {
     "name": "Sulphur",
-    "icon": "images/items/Sulphur.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -17104,7 +17081,6 @@ export const items = {
   },
   "Sunderer": {
     "name": "Sunderer",
-    "icon": "images/items/Sunderer.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -17138,7 +17114,6 @@ export const items = {
   },
   "Sunlight Spear": {
     "name": "Sunlight Spear",
-    "icon": "images/items/SunlightSpear.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -17149,12 +17124,12 @@ export const items = {
       "Burn",
       "Damage"
     ],
-    "cooldown": 11,
+    "cooldown": "(12/11/10)",
     "ammo": null,
     "text": [
-      "Deal damage equal to the Regeneration plus the Burn on both players.",
-      "Burn equal to your Regeneration.",
-      "You have (+4/+8/+12) Regeneration."
+      "Deal damage equal to the Regen plus the Burn on both players.",
+      "Burn equal to your Regen.",
+      "You have (+4/+8/+12) Regen."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 4 second(s).",
@@ -17177,7 +17152,6 @@ export const items = {
   },
   "Super Syrup": {
     "name": "Super Syrup",
-    "icon": "images/items/SuperSyrup.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -17200,7 +17174,6 @@ export const items = {
   },
   "Swash Buckle": {
     "name": "Swash Buckle",
-    "icon": "images/items/SwashBuckle.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -17219,8 +17192,7 @@ export const items = {
     ],
     "enchants": {
       "Shiny": "This has double damage, shield and heal bonus.",
-      "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed."
+      "Deadly": "This has double Crit Chance bonus."
     },
     "priorities": [
       0,
@@ -17229,7 +17201,6 @@ export const items = {
   },
   "Switchblade": {
     "name": "Switchblade",
-    "icon": "images/items/Switchblade.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -17263,7 +17234,6 @@ export const items = {
   },
   "Sword Cane": {
     "name": "Sword Cane",
-    "icon": "images/items/SwordCane.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -17278,7 +17248,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Deal (10/15/20/25) damage.",
-      "If this is adjacent to a Regeneration item, gain (2/4/6/8) Regeneration for the fight. If this is adjacent to a Burn item, Burn (2/4/6/8). If this is adjacent to a Poison item, Poison (2/4/6/8)."
+      "If this is adjacent to a Regen item, gain (2/4/6/8) Regen for the fight. If this is adjacent to a Burn item, Burn (2/4/6/8). If this is adjacent to a Poison item, Poison (2/4/6/8)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -17300,7 +17270,6 @@ export const items = {
   },
   "Tazidian Dagger": {
     "name": "Tazidian Dagger",
-    "icon": "images/items/TazidianDagger.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -17335,7 +17304,6 @@ export const items = {
   },
   "Tea Set": {
     "name": "Tea Set",
-    "icon": "images/items/TeaSet.avif",
     "tier": 2,
     "tags": [
       "Pygmalien",
@@ -17347,7 +17315,8 @@ export const items = {
     "ammo": null,
     "text": [
       "Heal equal to (5%/10%) of your Max Health.",
-      "Permanently gain (5/10) Max Health."
+      "Permanently gain (10/20) Max Health.",
+      "Gain (10/20) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 4 second(s).",
@@ -17369,7 +17338,6 @@ export const items = {
   },
   "Teddy": {
     "name": "Teddy",
-    "icon": "images/items/Teddy.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -17410,7 +17378,6 @@ export const items = {
   },
   "Temporary Shelter": {
     "name": "Temporary Shelter",
-    "icon": "images/items/TemporaryShelter.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -17444,7 +17411,6 @@ export const items = {
   },
   "Tesla Coil": {
     "name": "Tesla Coil",
-    "icon": "images/items/TeslaCoil.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -17477,9 +17443,40 @@ export const items = {
       0
     ]
   },
+  "Test Subject Alpha": {
+    "name": "Test Subject Alpha",
+    "tier": 1,
+    "tags": [
+      "Mak",
+      "Large",
+      "Weapon",
+      "Friend",
+      "Damage",
+      "Poison"
+    ],
+    "cooldown": "(10/8/6)",
+    "ammo": null,
+    "text": [
+      "Deal 50 damage.",
+      "When you use an adjacent item, Poison both players (10/20/30).",
+      "When you Poison, this gains +Damage for the fight equal to the amount Poisoned."
+    ],
+    "enchants": {
+      "Heavy": "Slow 3 items for 3 second(s).",
+      "Icy": "Freeze 1 item for 4 second(s).",
+      "Turbo": "Haste 3 items for 3 second(s).",
+      "Shielded": "Shield equal to this item's Damage.",
+      "Restorative": "Heal equal to this item's Damage.",
+      "Toxic": "This has double Poison.",
+      "Fiery": "Burn equal to 10% of this item's damage.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "This has double Damage."
+    }
+  },
   "Textiles": {
     "name": "Textiles",
-    "icon": "images/items/Textiles.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -17490,8 +17487,8 @@ export const items = {
     "cooldown": 5,
     "ammo": null,
     "text": [
-      "Shield (10/20/40/80).",
-      "Heal equal to your Shield."
+      "Heal equal to your Shield.",
+      "When you Over-heal, Shield (20/30/40/50)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -17513,7 +17510,6 @@ export const items = {
   },
   "The Boulder": {
     "name": "The Boulder",
-    "icon": "images/items/TheBoulder.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -17546,8 +17542,7 @@ export const items = {
   },
   "The Core": {
     "name": "The Core",
-    "icon": "images/items/TheCore.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Medium",
@@ -17555,13 +17550,12 @@ export const items = {
       "Tech",
       "Weapon",
       "Damage",
-      "Charge",
-      "Unsellable"
+      "Charge"
     ],
-    "cooldown": 6,
+    "cooldown": "(6/5/4)",
     "ammo": null,
     "text": [
-      "Deal (30/45/60/75) damage.",
+      "Deal 50 damage.",
       "Charge all items to the right of this 1 second(s).",
       "When you use any item to the left of this, Charge this 1 second(s)."
     ],
@@ -17586,7 +17580,6 @@ export const items = {
   },
   "The Eclipse": {
     "name": "The Eclipse",
-    "icon": "images/items/TheEclipse.avif",
     "tier": 4,
     "tags": [
       "Common",
@@ -17624,7 +17617,6 @@ export const items = {
   },
   "The Tome of Yyahan": {
     "name": "The Tome of Yyahan",
-    "icon": "images/items/TheTomeofYyahan.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -17635,7 +17627,7 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you transform a Reagent, permanently gain (5/10/15) Regeneration."
+      "When you transform a Reagent, permanently gain (5/10/15) Regen."
     ],
     "enchants": {
       "Heavy": "The first time you fall below half health each fight, Slow 3 items for 4 second(s).",
@@ -17645,9 +17637,8 @@ export const items = {
       "Restorative": "The first time you fall below half health each fight, Heal 180.",
       "Toxic": "The first time you fall below half health each fight, poison 12.",
       "Fiery": "The first time you fall below half health each fight, burn 18.",
-      "Shiny": "This has double Regeneration.",
-      "Deadly": "Your Regeneration items have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Shiny": "This has double Regen.",
+      "Deadly": "Your Regen items have +25% Crit Chance.",
       "Obsidian": "The first time you fall below half health each fight, Deal 120 damage."
     },
     "priorities": [
@@ -17656,7 +17647,6 @@ export const items = {
   },
   "Thermal Lance": {
     "name": "Thermal Lance",
-    "icon": "images/items/ThermalLance.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -17691,7 +17681,6 @@ export const items = {
   },
   "Thieves Guild Medallion": {
     "name": "Thieves Guild Medallion",
-    "icon": "images/items/ThievesGuildMedallion.avif",
     "tier": 3,
     "tags": [
       "Common",
@@ -17709,7 +17698,6 @@ export const items = {
   },
   "Throwing Knives": {
     "name": "Throwing Knives",
-    "icon": "images/items/ThrowingKnives.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -17745,7 +17733,6 @@ export const items = {
   },
   "Thrown Net": {
     "name": "Thrown Net",
-    "icon": "images/items/ThrownNet.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -17777,33 +17764,29 @@ export const items = {
   },
   "Thrusters": {
     "name": "Thrusters",
-    "icon": "images/items/Thrusters.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Small",
       "Tech",
-      "Burn",
       "Cooldown"
     ],
-    "cooldown": 6,
+    "cooldown": null,
     "ammo": null,
     "text": [
-      "Burn both players (2/3/4/5).",
-      "Adjacent items have their cooldowns reduced by (6%/9%/12%/15%)."
+      "The item to the left of this is a Vehicle and has its cooldown reduced by (5%/10%/15%)."
     ],
     "enchants": {
-      "Heavy": "Slow 1 item for 2 second(s).",
-      "Icy": "Freeze 1 small item for 1 second(s).",
-      "Turbo": "Haste 1 item for 2 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Burn.",
-      "Restorative": "Heal equal to 10 times this item's Burn.",
-      "Toxic": "Poison equal to this item's Burn.",
-      "Fiery": "This has double Burn.",
-      "Shiny": "This has +1 Multicast.",
-      "Deadly": "+50% Crit Chance",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal damage equal to 10 times this item's Burn."
+      "Heavy": "The first time you fall below half health each fight, Slow 3 items for 2 second(s).",
+      "Icy": "The first time you fall below half health each fight, Freeze 2 items for 2 second(s).",
+      "Turbo": "The first time you fall below half health each fight, Haste 3 items for 2 second(s).",
+      "Shielded": "The first time you fall below half health each fight, Shield 60.",
+      "Restorative": "The first time you fall below half health each fight, Heal 90.",
+      "Toxic": "The first time you fall below half health each fight, poison 6.",
+      "Fiery": "The first time you fall below half health each fight, burn 6.",
+      "Shiny": "This has double cooldown reduction.",
+      "Deadly": "Your Vehicles have +50% Crit Chance.",
+      "Obsidian": "The first time you fall below half health each fight, Deal 60 damage."
     },
     "priorities": [
       1,
@@ -17812,7 +17795,6 @@ export const items = {
   },
   "Thurible": {
     "name": "Thurible",
-    "icon": "images/items/Thurible.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -17826,7 +17808,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Burn (3/5/7/9).",
-      "Gain (1/2/3/4) Regeneration for the fight."
+      "Gain (1/2/3/4) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -17848,7 +17830,6 @@ export const items = {
   },
   "Tiny Cutlass": {
     "name": "Tiny Cutlass",
-    "icon": "images/items/TinyCutlass.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -17885,7 +17866,6 @@ export const items = {
   },
   "Tommoo Gun": {
     "name": "Tommoo Gun",
-    "icon": "images/items/TommooGun.avif",
     "tier": 3,
     "tags": [
       "Common",
@@ -17918,7 +17898,6 @@ export const items = {
   },
   "Toolbox": {
     "name": "Toolbox",
-    "icon": "images/items/Toolbox.avif",
     "tier": 0,
     "tags": [
       "Stelle",
@@ -17953,7 +17932,6 @@ export const items = {
   },
   "Torpedo": {
     "name": "Torpedo",
-    "icon": "images/items/Torpedo.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -17990,9 +17968,42 @@ export const items = {
       0
     ]
   },
+  "Tortuga": {
+    "name": "Tortuga",
+    "tier": 1,
+    "tags": [
+      "Vanessa",
+      "Large",
+      "Aquatic",
+      "Friend",
+      "Vehicle",
+      "Weapon",
+      "Damage",
+      "Haste"
+    ],
+    "cooldown": "(12/11/10)",
+    "ammo": null,
+    "text": [
+      "Deal (300/600/900) damage.",
+      "Haste your other items 1 second(s).",
+      "When you use another Friend, charge this 2 second(s)."
+    ],
+    "enchants": {
+      "Heavy": "Slow 1 item for 2 second(s).",
+      "Icy": "Freeze 1 item for 1 second(s).",
+      "Turbo": "This has double Haste duration.",
+      "Shielded": "Shield equal to this item's damage.",
+      "Restorative": "Heal equal to this item's Damage.",
+      "Toxic": "Poison equal to 10% of this item's Damage.",
+      "Fiery": "Burn equal to 10% of this item's Damage.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "This has double Damage."
+    }
+  },
   "Tourist Chariot": {
     "name": "Tourist Chariot",
-    "icon": "images/items/TouristChariot.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -18027,7 +18038,6 @@ export const items = {
   },
   "Trained Spider": {
     "name": "Trained Spider",
-    "icon": "images/items/TrainedSpider.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -18061,7 +18071,6 @@ export const items = {
   },
   "Trebuchet": {
     "name": "Trebuchet",
-    "icon": "images/items/Trebuchet.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -18099,7 +18108,6 @@ export const items = {
   },
   "Tripwire": {
     "name": "Tripwire",
-    "icon": "images/items/Tripwire.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -18120,7 +18128,7 @@ export const items = {
       "Toxic": "When your enemy uses an item, poison 2.",
       "Fiery": "When your enemy uses an item, Burn 4.",
       "Shiny": "This has double Slow duration.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Deadly": "When your enemy uses an item, your items gain 5% Crit Chance for the fight.",
       "Obsidian": "When your enemy uses an item, Deal 1 Damage."
     },
     "priorities": [
@@ -18129,7 +18137,6 @@ export const items = {
   },
   "Tropical Island": {
     "name": "Tropical Island",
-    "icon": "images/items/TropicalIsland.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -18142,21 +18149,20 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you Slow, gain (5/10) Regeneration for the fight.",
+      "When you Slow, gain (5/10) Regen for the fight.",
       "At the start of each hour, get a Coconut or Citrus."
     ],
     "enchants": {
       "Heavy": "At the start of each fight, Slow 2 items for 4 second(s).",
       "Icy": "When you slow, freeze 1 small item for 1 second(s).",
       "Turbo": "When you slow, haste 1 item for 1 second(s).",
-      "Restorative": "When you slow, Heal equal to 10 times this item's Regeneration.",
-      "Shielded": "When you slow, Shield equal to 10 times this item's Regeneration.",
-      "Toxic": "When you slow, Poison equal to this item's Regeneration.",
-      "Fiery": "When you slow, Burn equal to this item's Regeneration.",
-      "Shiny": "This has double Regeneration.",
+      "Restorative": "When you slow, Heal equal to 10 times this item's Regen.",
+      "Shielded": "When you slow, Shield equal to 10 times this item's Regen.",
+      "Toxic": "When you slow, Poison equal to this item's Regen.",
+      "Fiery": "When you slow, Burn equal to this item's Regen.",
+      "Shiny": "This has double Regen.",
       "Deadly": "When you Slow, your items gain +5% Crit Chance for the fight.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "When you Slow, Deal damage equal to 10 times this item's Regeneration."
+      "Obsidian": "When you Slow, Deal damage equal to 10 times this item's Regen."
     },
     "priorities": [
       0,
@@ -18165,13 +18171,11 @@ export const items = {
   },
   "Truffles": {
     "name": "Truffles",
-    "icon": "images/items/Truffles.avif",
     "tier": 0,
     "tags": [
       "Common",
       "Small",
       "Food",
-      "Loot",
       "Value",
       "EconomyReference"
     ],
@@ -18198,7 +18202,6 @@ export const items = {
   },
   "Turtle Shell": {
     "name": "Turtle Shell",
-    "icon": "images/items/TurtleShell.avif",
     "tier": 2,
     "tags": [
       "Vanessa",
@@ -18234,7 +18237,6 @@ export const items = {
   },
   "Tusked Helm": {
     "name": "Tusked Helm",
-    "icon": "images/items/TuskedHelm.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -18272,12 +18274,10 @@ export const items = {
   },
   "Upgrade Hammer": {
     "name": "Upgrade Hammer",
-    "icon": "images/items/UpgradeHammer.avif",
     "tier": 1,
     "tags": [
       "Common",
-      "Small",
-      "Loot"
+      "Small"
     ],
     "cooldown": null,
     "ammo": null,
@@ -18301,7 +18301,6 @@ export const items = {
   },
   "Uwashiwali Bird": {
     "name": "Uwashiwali Bird",
-    "icon": "images/items/UwashiwaliBird.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -18312,7 +18311,7 @@ export const items = {
     "cooldown": 5,
     "ammo": null,
     "text": [
-      "Heal (10/20/40/80).",
+      "Heal (20/30/40/50).",
       "This has +1 Multicast for each Property you have."
     ],
     "enchants": {
@@ -18335,7 +18334,6 @@ export const items = {
   },
   "Uzi": {
     "name": "Uzi",
-    "icon": "images/items/Uzi.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -18368,7 +18366,6 @@ export const items = {
   },
   "Vanessa's Amulet": {
     "name": "Vanessa's Amulet",
-    "icon": "images/items/VanessasAmulet.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -18391,7 +18388,6 @@ export const items = {
       "Fiery": "When you Crit, burn 2.",
       "Shiny": "This has double Crit Chance bonus.",
       "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you Crit, Deal 10 Damage."
     },
     "priorities": [
@@ -18400,7 +18396,6 @@ export const items = {
   },
   "Vat of Acid": {
     "name": "Vat of Acid",
-    "icon": "images/items/VatofAcid.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -18436,7 +18431,6 @@ export const items = {
   },
   "Vending Machine": {
     "name": "Vending Machine",
-    "icon": "images/items/VendingMachine.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -18465,7 +18459,6 @@ export const items = {
   },
   "Venom": {
     "name": "Venom",
-    "icon": "images/items/Venom.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -18486,7 +18479,6 @@ export const items = {
       "Toxic": "This has double Poison.",
       "Fiery": "When you use the weapon to the left of this, Burn equal to this item's Poison.",
       "Deadly": "The Weapon to the left has +50% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "When you use the weapon to the left of this, Deal damage equal to 10 times this item's Poison."
     },
     "priorities": [
@@ -18495,7 +18487,6 @@ export const items = {
   },
   "Venomander": {
     "name": "Venomander",
-    "icon": "images/items/Venomander.avif",
     "tier": 0,
     "tags": [
       "Mak",
@@ -18504,11 +18495,11 @@ export const items = {
       "Poison",
       "Regen"
     ],
-    "cooldown": "(6/6/5/5)",
+    "cooldown": 6,
     "ammo": null,
     "text": [
       "Poison (1/2/3/4).",
-      "Gain (1/2/3/4) Regeneration for the fight."
+      "Gain (1/2/3/4) Regen for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -18528,9 +18519,37 @@ export const items = {
       0
     ]
   },
+  "Venomous Dose": {
+    "name": "Venomous Dose",
+    "tier": 0,
+    "tags": [
+      "Mak",
+      "Small",
+      "Poison",
+      "Regen"
+    ],
+    "cooldown": 4,
+    "ammo": null,
+    "text": [
+      "Poison both players (2/4/6/8).",
+      "Gain Regen for the fight equal to this item's Poison."
+    ],
+    "enchants": {
+      "Heavy": "Slow 1 item for 1 second(s).",
+      "Icy": "Freeze 1 small item for 1 second(s).",
+      "Turbo": "Haste 1 item for 1 second(s).",
+      "Shielded": "Shield equal to 10 times this item's Poison.",
+      "Restorative": "Heal equal to 10 times this item's Poison.",
+      "Toxic": "This has double Poison.",
+      "Fiery": "Burn equal to this item's Poison.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "+50% Crit Chance",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "Deal damage equal to 10 times this item's Poison."
+    }
+  },
   "Vial Launcher": {
     "name": "Vial Launcher",
-    "icon": "images/items/VialLauncher.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -18555,7 +18574,6 @@ export const items = {
       "Fiery": "When you use a Potion, Burn equal to 10% of this item's damage.",
       "Shiny": "This has double Damage.",
       "Deadly": "Your Potions have +25% Crit Chance.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "This has double Damage."
     },
     "priorities": [
@@ -18565,12 +18583,10 @@ export const items = {
   },
   "Vial of Blood": {
     "name": "Vial of Blood",
-    "icon": "images/items/VialofBlood.avif",
     "tier": 1,
     "tags": [
       "Common",
       "Small",
-      "Loot",
       "Experience"
     ],
     "cooldown": null,
@@ -18587,7 +18603,6 @@ export const items = {
   },
   "Vineyard": {
     "name": "Vineyard",
-    "icon": "images/items/Vineyard.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -18602,7 +18617,8 @@ export const items = {
     "text": [
       "Heal 200.",
       "Your Heal items have +Heal equal to this item's value.",
-      "When you sell 10 items, give this (+5/+10/+15) value."
+      "You have +Regen equal to this item's value.",
+      "When you sell 10 items, give this (+5/+10/+15) value and get a Truffle."
     ],
     "enchants": {
       "Heavy": "Slow 3 items for 3 second(s).",
@@ -18625,7 +18641,6 @@ export const items = {
   },
   "VIP Pass": {
     "name": "VIP Pass",
-    "icon": "images/items/VIPPass.avif",
     "tier": 1,
     "tags": [
       "Pygmalien",
@@ -18661,7 +18676,6 @@ export const items = {
   },
   "Viper Cane": {
     "name": "Viper Cane",
-    "icon": "images/items/ViperCane.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -18677,7 +18691,7 @@ export const items = {
     "text": [
       "Deal 25 damage.",
       "A Poison item gains + Poison equal to (15%/25%) of this item's damage for the fight.",
-      "A Regeneration item gains + Regeneration equal to (15%/25%) of this item's damage for the fight."
+      "A Regen item gains + Regen equal to (15%/25%) of this item's damage for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -18700,33 +18714,31 @@ export const items = {
   },
   "Virus": {
     "name": "Virus",
-    "icon": "images/items/Virus.avif",
-    "tier": 1,
+    "tier": 0,
     "tags": [
       "Dooley",
       "Small",
       "Tech",
       "Poison"
     ],
-    "cooldown": 12,
+    "cooldown": "(9/8/7/6)",
     "ammo": null,
     "text": [
-      "Poison (1/2/3).",
-      "Destroy another small item on each player's board for the fight.",
-      "When you destroy an item, this gains (5/10/15) Poison for the fight."
+      "Poison yourself (1/2/3/4) for each Virus on your board.",
+      "Transform another non-legendary small item on each player's board into Virus for the rest of the fight."
     ],
     "enchants": {
-      "Heavy": "Slow 1 item for 4 second(s).",
-      "Icy": "Freeze 1 small item for 2 second(s).",
-      "Turbo": "Haste 1 item for 4 second(s).",
-      "Shielded": "Shield equal to 10 times this item's Poison.",
-      "Restorative": "Heal equal to 10 times this item's Poison.",
+      "Heavy": "Slow 1 of your items for 4 second(s).",
+      "Icy": "Freeze 1 of your small items for 2 second(s).",
+      "Turbo": "Haste 1 enemy item(s) for 4 second(s).",
+      "Shielded": "Shield your opponent equal to 10 times this item's Poison.",
+      "Restorative": "Heal your opponent equal to 10 times this item's Poison.",
       "Toxic": "This has double Poison.",
-      "Fiery": "Burn equal to this item's Poison.",
+      "Fiery": "Burn yourself equal to this item's Poison.",
       "Shiny": "This has +1 Multicast.",
       "Deadly": "+50% Crit Chance",
       "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
-      "Obsidian": "Deal damage equal to 10 times this item's Poison."
+      "Obsidian": "Deal damage to yourself equal to 10 times this item's Poison."
     },
     "priorities": [
       1,
@@ -18736,7 +18748,6 @@ export const items = {
   },
   "Vitality Potion": {
     "name": "Vitality Potion",
-    "icon": "images/items/VitalityPotion.avif",
     "tier": 2,
     "tags": [
       "Mak",
@@ -18756,7 +18767,7 @@ export const items = {
       "Icy": "Freeze 1 small item for 3 second(s).",
       "Turbo": "Haste 1 item for 4 second(s).",
       "Shielded": "Shield equal to half of this item's Heal.",
-      "Restorative": "Gain 8 Regeneration for the fight.",
+      "Restorative": "Gain 8 Regen for the fight.",
       "Toxic": "Poison equal to 5% of this item's Heal.",
       "Fiery": "Burn equal to 5% of this item's Heal.",
       "Shiny": "This has double Ammo.",
@@ -18769,7 +18780,6 @@ export const items = {
   },
   "Void Ray": {
     "name": "Void Ray",
-    "icon": "images/items/VoidRay.avif",
     "tier": 2,
     "tags": [
       "Common",
@@ -18806,7 +18816,6 @@ export const items = {
   },
   "Void Shield": {
     "name": "Void Shield",
-    "icon": "images/items/VoidShield.avif",
     "tier": 3,
     "tags": [
       "Common",
@@ -18840,7 +18849,6 @@ export const items = {
   },
   "Volcanic Vents": {
     "name": "Volcanic Vents",
-    "icon": "images/items/VolcanicVents.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -18852,7 +18860,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Multicast 3",
-      "Burn (1/2/3/4)."
+      "Burn (3/6/9/12)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 2 second(s).",
@@ -18874,7 +18882,6 @@ export const items = {
   },
   "Wallace": {
     "name": "Wallace",
-    "icon": "images/items/Wallace.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -18908,7 +18915,6 @@ export const items = {
   },
   "Walter Cooler": {
     "name": "Walter Cooler",
-    "icon": "images/items/WalterCooler.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -18941,7 +18947,6 @@ export const items = {
   },
   "Wand": {
     "name": "Wand",
-    "icon": "images/items/Wand.avif",
     "tier": 2,
     "tags": [
       "Common",
@@ -18972,7 +18977,6 @@ export const items = {
   },
   "Wanted Poster": {
     "name": "Wanted Poster",
-    "icon": "images/items/WantedPoster.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -18983,7 +18987,7 @@ export const items = {
     "cooldown": null,
     "ammo": null,
     "text": [
-      "When you win a fight against a player, gain 1 XP. If you had Wanted Poster in play, gain 1 additional XP.",
+      "When you win a fight against a Hero, gain 1 XP. If you had Wanted Poster in play, gain 1 additional XP.",
       "Your items have (10%/20%/30%) Crit Chance."
     ],
     "enchants": {
@@ -18996,7 +19000,6 @@ export const items = {
       "Fiery": "The first time you fall below half health each fight, burn 18.",
       "Shiny": "This has double Experience bonus.",
       "Deadly": "This has double Crit Chance bonus.",
-      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
       "Obsidian": "The first time you fall below half health each fight, Deal 120 damage."
     },
     "priorities": [
@@ -19006,7 +19009,6 @@ export const items = {
   },
   "Water Wheel": {
     "name": "Water Wheel",
-    "icon": "images/items/WaterWheel.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -19041,7 +19043,6 @@ export const items = {
   },
   "Weakpoint Detector": {
     "name": "Weakpoint Detector",
-    "icon": "images/items/WeakpointDetector.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -19077,8 +19078,7 @@ export const items = {
   },
   "Weaponized Core": {
     "name": "Weaponized Core",
-    "icon": "images/items/WeaponizedCore.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Medium",
@@ -19086,14 +19086,13 @@ export const items = {
       "Tech",
       "Weapon",
       "Damage",
-      "Charge",
-      "Unsellable"
+      "Charge"
     ],
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Deal (20/30/40/50) damage.",
-      "Weapons to the right of this gain (+10/+15/+20/+25) damage for the fight.",
+      "Deal 20 damage.",
+      "This and weapons to the right of this gain (+20/+30/+40) damage for the fight.",
       "When you use any item to the left of this, Charge this 1 second(s)."
     ],
     "enchants": {
@@ -19117,7 +19116,6 @@ export const items = {
   },
   "Weaselpede": {
     "name": "Weaselpede",
-    "icon": "images/items/Weaselpede.avif",
     "tier": 1,
     "tags": [
       "Mak",
@@ -19152,7 +19150,6 @@ export const items = {
   },
   "Weather Glass": {
     "name": "Weather Glass",
-    "icon": "images/items/WeatherGlass.avif",
     "tier": 1,
     "tags": [
       "Vanessa",
@@ -19191,7 +19188,6 @@ export const items = {
   },
   "Weather Machine": {
     "name": "Weather Machine",
-    "icon": "images/items/WeatherMachine.avif",
     "tier": 2,
     "tags": [
       "Stelle",
@@ -19231,7 +19227,6 @@ export const items = {
   },
   "Weights": {
     "name": "Weights",
-    "icon": "images/items/Weights.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -19266,19 +19261,19 @@ export const items = {
   },
   "Welding Helmet": {
     "name": "Welding Helmet",
-    "icon": "images/items/WeldingHelmet.avif",
     "tier": 0,
     "tags": [
       "Dooley",
       "Medium",
+      "Apparel",
       "Shield",
       "Burn"
     ],
     "cooldown": 4,
     "ammo": null,
     "text": [
-      "Shield (10/15/20/25).",
-      "Burn (1/2/3/5)."
+      "Shield (10/20/30/40).",
+      "Burn (2/4/6/8)."
     ],
     "enchants": {
       "Heavy": "Slow 2 items for 1 second(s).",
@@ -19300,7 +19295,6 @@ export const items = {
   },
   "Welding Torch": {
     "name": "Welding Torch",
-    "icon": "images/items/WeldingTorch.avif",
     "tier": 0,
     "tags": [
       "Dooley",
@@ -19333,9 +19327,37 @@ export const items = {
       0
     ]
   },
+  "Wild Quillback": {
+    "name": "Wild Quillback",
+    "tier": 1,
+    "tags": [
+      "Mak",
+      "Medium",
+      "Friend",
+      "Poison",
+      "Regen"
+    ],
+    "cooldown": null,
+    "ammo": null,
+    "text": [
+      "When a player uses a Weapon, Poison that player (3/4/5).",
+      "When you use a non-Weapon item, gain (3/4/5) Regen for the fight."
+    ],
+    "enchants": {
+      "Heavy": "When a player uses a Weapon, Slow 1 items for 1 second(s).",
+      "Icy": "When a player uses a Weapon, Freeze 1 small item for 1 second(s).",
+      "Turbo": "When a player uses a non-Weapon item, Haste 1 items for 1 second(s).",
+      "Shielded": "When you use a non-Weapon item, Shield equal to 10 times this item's Poison.",
+      "Restorative": "When you use a non-Weapon item, Heal equal to 10 times this item's Poison.",
+      "Toxic": "This has double Poison.",
+      "Fiery": "When a player uses a Weapon, Burn equal to this item's Poison.",
+      "Shiny": "This has double Poison.",
+      "Deadly": "Adjacent items have +25% Crit Chance.",
+      "Obsidian": "When a player uses a Weapon, deal damage equal to 5 times this item's Poison."
+    }
+  },
   "Windmill": {
     "name": "Windmill",
-    "icon": "images/items/Windmill.avif",
     "tier": 3,
     "tags": [
       "Pygmalien",
@@ -19369,7 +19391,6 @@ export const items = {
   },
   "Wrench": {
     "name": "Wrench",
-    "icon": "images/items/Wrench.avif",
     "tier": 2,
     "tags": [
       "Stelle",
@@ -19403,9 +19424,40 @@ export const items = {
       1
     ]
   },
+  "Wrist Warrior": {
+    "name": "Wrist Warrior",
+    "tier": 0,
+    "tags": [
+      "Pygmalien",
+      "Small",
+      "Weapon",
+      "Tool",
+      "Apparel",
+      "Damage",
+      "ShieldReference"
+    ],
+    "cooldown": 5,
+    "ammo": null,
+    "text": [
+      "Adjacent items gain (+5/+10/+15/+20) Shield for the fight.",
+      "When the item to the left of this Shields, deal (5/10/15/20) damage."
+    ],
+    "enchants": {
+      "Heavy": "When the item to the left of this Shields, Slow 1 items for 1 second(s).",
+      "Icy": "Freeze 1 small item for 2 second(s).",
+      "Turbo": "When the item to the left of this Shields, Haste 1 item for 1 second(s).",
+      "Shielded": "When the item to the left of this Shields, Shield equal to this item's damage.",
+      "Restorative": "When the item to the left of this Shields, Heal equal to this item's Damage.",
+      "Toxic": "When the item to the left of this Shields, Poison equal to 10% of this item's damage.",
+      "Fiery": "When the item to the left of this Shields, Burn equal to 10% of this item's damage.",
+      "Shiny": "This has +1 Multicast.",
+      "Deadly": "The Shield item to the left of this has +50% Crit Chance.",
+      "Radiant": "This cannot be Frozen, Slowed or Destroyed.",
+      "Obsidian": "This has double Damage."
+    }
+  },
   "Yellow Gumball": {
     "name": "Yellow Gumball",
-    "icon": "images/items/YellowGumball.avif",
     "tier": 0,
     "tags": [
       "Common",
@@ -19434,7 +19486,6 @@ export const items = {
   },
   "Yellow Piggles A": {
     "name": "Yellow Piggles A",
-    "icon": "images/items/YellowPigglesA.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -19466,7 +19517,6 @@ export const items = {
   },
   "Yellow Piggles L": {
     "name": "Yellow Piggles L",
-    "icon": "images/items/YellowPigglesL.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -19498,7 +19548,6 @@ export const items = {
   },
   "Yellow Piggles R": {
     "name": "Yellow Piggles R",
-    "icon": "images/items/YellowPigglesR.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -19530,7 +19579,6 @@ export const items = {
   },
   "Yellow Piggles X": {
     "name": "Yellow Piggles X",
-    "icon": "images/items/YellowPigglesX.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -19562,7 +19610,6 @@ export const items = {
   },
   "Yeti Crab": {
     "name": "Yeti Crab",
-    "icon": "images/items/YetiCrab.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -19576,7 +19623,7 @@ export const items = {
     "ammo": null,
     "text": [
       "Freeze 1 item(s) for 1 second(s).",
-      "When you freeze, adjacent Poison items gain (+1/+2/+3/+4) Poison for the fight."
+      "When you freeze, adjacent Poison items gain (+2/+4/+6/+8) Poison for the fight."
     ],
     "enchants": {
       "Heavy": "Slow 1 item for 2 second(s).",
@@ -19598,8 +19645,7 @@ export const items = {
   },
   "YLW-M4NT1S": {
     "name": "YLW-M4NT1S",
-    "icon": "images/items/YLWM4NT1S.avif",
-    "tier": 0,
+    "tier": 1,
     "tags": [
       "Dooley",
       "Small",
@@ -19610,7 +19656,7 @@ export const items = {
     "cooldown": 6,
     "ammo": null,
     "text": [
-      "Haste (2/3/4/5) item(s) for 1 second(s).",
+      "Haste (2/3/4) item(s) for 1 second(s).",
       "When an adjacent item Burns, charge this 1 second(s)."
     ],
     "enchants": {
@@ -19633,7 +19679,6 @@ export const items = {
   },
   "Yo-Yo": {
     "name": "Yo-Yo",
-    "icon": "images/items/YoYo.avif",
     "tier": 0,
     "tags": [
       "Pygmalien",
@@ -19668,7 +19713,6 @@ export const items = {
   },
   "Z-Shield": {
     "name": "Z-Shield",
-    "icon": "images/items/ZShield.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -19707,7 +19751,6 @@ export const items = {
   },
   "Z-Sword": {
     "name": "Z-Sword",
-    "icon": "images/items/ZSword.avif",
     "tier": 1,
     "tags": [
       "Dooley",
@@ -19721,7 +19764,7 @@ export const items = {
     "text": [
       "Deal (75/100/125) damage.",
       "Burn (12/16/20).",
-      "Adjacent items have their cooldown reduced by (10%/20%/20%).",
+      "Adjacent items have their cooldown reduced by (10%/15%/20%).",
       "This has +1 Multicast if you have a Large item."
     ],
     "enchants": {
@@ -19746,7 +19789,6 @@ export const items = {
   },
   "Zoarcid": {
     "name": "Zoarcid",
-    "icon": "images/items/Zoarcid.avif",
     "tier": 0,
     "tags": [
       "Vanessa",
@@ -19758,7 +19800,7 @@ export const items = {
       "Haste",
       "BurnReference"
     ],
-    "cooldown": 7,
+    "cooldown": 6,
     "ammo": null,
     "text": [
       "Deal (20/30/40/50) damage.",
