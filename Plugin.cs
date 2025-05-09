@@ -242,6 +242,13 @@ public class Plugin : BaseUnityPlugin
         {
             name = "_b_backpack"
         });
+        if(runInfo.OppStash != null && runInfo.OppStash.Count > 0)
+        {
+            result.Add(new 
+            {
+                name = "_b_tb"
+            });
+        }
 
         // Helper function to create card object with conditional attributes
         object CreateCardObject(RunInfo.CardInfo card, string board)
@@ -311,6 +318,13 @@ public class Plugin : BaseUnityPlugin
             foreach (var card in runInfo.OppCards)
             {
                 result.Add(CreateCardObject(card, "t"));
+            }
+        }
+        if(runInfo.OppStash != null)
+        {
+            foreach (var card in runInfo.OppStash)
+            {
+                result.Add(CreateCardObject(card, "tb"));
             }
         }
         if(runInfo.Stash != null)
