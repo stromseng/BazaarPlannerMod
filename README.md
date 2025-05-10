@@ -2,7 +2,7 @@
 You don't need to clone this repo, simply download the latest version zip file from
 https://github.com/oceanseth/BazaarPlannerMod/releases
 then run the Installer.exe file or follow Manual instructions in the text file it contains.
-- [Install on Linux](linux guide.md)
+- [Install on Linux](README-Linux.md)
 
 If you want to build it yourself, clone the repo and run `dotnet publish -c Release` in the root folder.
 Then, simply run the BazaarPlannerMod/bin/Release/net8.0-windows/BazaarPlannerModInstaller.exe
