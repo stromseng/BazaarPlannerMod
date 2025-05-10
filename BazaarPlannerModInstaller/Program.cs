@@ -92,7 +92,7 @@ namespace BazaarPlannerModInstaller
                     if (latestVersion != CURRENT_VERSION)
                     {
                         DialogResult result = MessageBox.Show(
-                            $"A newer version ({latestVersion}) is available. Please download the latest version from GitHub.\n\nWould you like to open the releases page?",
+                            $"You are running version {CURRENT_VERSION} of the BazaarPlannerModInstaller. A newer version ({latestVersion}) is available. Please download the latest version from GitHub.\n\nWould you like to open the releases page?",
                             "Update Available",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Information);
