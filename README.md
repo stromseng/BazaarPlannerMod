@@ -1,3 +1,9 @@
+# What does this mod do?
+1. As board state changes in game, mod sends data to the database the website reads from, using your authentication token in config file.
+2. Enables a 'streamer mode' feature so within the game you will never see your bazaar username on screen; In the games, tracked runs, and data on the site, it will use the display name in the config file.
+3. When running the mod, you can click 'follow' on the website to cause changes made in game to automatically be seen on the website.
+4. Previous runs can be seen on the site in the 'runs' tab, and reloaded to replay and test against your friends' runs and to see what boards have been the strongest in the 'builds' tab.
+
 # Installing the Mod
 You don't need to clone this repo, simply download the latest version zip file from
 https://github.com/oceanseth/BazaarPlannerMod/releases

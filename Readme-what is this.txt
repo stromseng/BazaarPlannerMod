@@ -1,19 +1,30 @@
 ========== What is this? =============
-BazaarPlannerMod will make it easy to export your game data to BazaarPlanner, instantly changing your board on the site while you change it in game. Along with tracking your runs and making it easy to look back and load previous battles to replay, or to see how your boards stack up against the top ones submitted. 
+BazaarPlannerMod will export game data to the database used by BazaarPlanner, 
+clicking "follow" will instantly change your board on the site when you change it in game.
+Along with tracking your runs and making it easy to look back and load previous battles to replay,
+ or to see how your boards stack up against the top ones submitted. 
 
-While Reynad isn't currently supporting our tool, we hope that he might change his mind, and that this feature won't be received negatively by their team. Don't talk about your usage of this tool in the official discord, or you may get banned (some people posting simply "have you heard of bazaarplanner" have been timed out or banned within 10 seconds.)
+While Reynad isn't currently supporting our tool, we hope that he might change his mind, 
+and that this feature won't be received negatively by their team. 
+Don't talk about your usage of this tool in the official discord, or you may get banned 
+(some people posting simply "have you heard of bazaarplanner" have been timed out or banned within 10 seconds.)
 
-Small request - lets stay positive in regards to feedback (and not disparage the tempo storm staff in any way), that would be great! They have made a fun game, and we want them to support tools and a community that make playing the game even more fun. 
+Small request - lets stay positive in regards to feedback (and not disparage the tempo storm staff in any way),
+that would be great! They have made a fun game, and we want them to support tools and a community
+that make playing the game even more fun. 
 
 Thanks again!
 
+Oh! Also, it enables a 'streamer mode' feature so within the game you will never see your bazaar username on screen; 
+In the games, tracked runs, and data on the site, it will use the display name in the config file.
 
-========== How to Install ============
+
+========== How to Install on Windows ============
 Simply extract all the files to a directory and run BazaarPlannerModInstaller.exe
 Follow instructions to get the BazaarPlanner.config file from the website; you can install once it's detected in the same directory.
-(if for some reason you want to install on linux, see the linux guide in the repo, credits to @yggraszill !)
+(a linux installation guide is in the github repo, credits to @yggraszill !)
 
-========== Manual install ============
+========== Manual install ====================================
 Without running the .exe - if you don't trust it not to have been tampered with.
 Always good to do this when possible, we don't publish with viruses/malware/spyware, but your friend giving this to you might give you a keylogger along with it! If you are going to run an exe make sure its the one linked directly from our site.
 ==============================================================
