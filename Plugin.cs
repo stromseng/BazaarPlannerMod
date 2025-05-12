@@ -299,7 +299,16 @@ public class Plugin : BaseUnityPlugin
                 cardDict["hasteFinal"] = card.Attributes[ECardAttributeType.HasteAmount];
             if(card.Attributes?.ContainsKey(ECardAttributeType.FreezeAmount) == true)
                 cardDict["freezeFinal"] = card.Attributes[ECardAttributeType.FreezeAmount];
-                
+            if(card.Attributes?.ContainsKey(ECardAttributeType.Custom_0) == true)
+                cardDict["Custom_0"] = card.Attributes[ECardAttributeType.Custom_0];
+            if(card.Attributes?.ContainsKey(ECardAttributeType.Custom_1) == true)
+                cardDict["Custom_1"] = card.Attributes[ECardAttributeType.Custom_1];
+            if(card.Attributes?.ContainsKey(ECardAttributeType.Custom_2) == true)
+                cardDict["Custom_2"] = card.Attributes[ECardAttributeType.Custom_2];
+            if(card.Attributes?.ContainsKey(ECardAttributeType.Custom_3) == true)
+                cardDict["Custom_3"] = card.Attributes[ECardAttributeType.Custom_3];
+
+
             return cardDict;
         }
 
