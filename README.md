@@ -33,5 +33,5 @@ Make sure the latest version number has been set in the csproj file and the Baza
 Run dotnet publish -c Release
 copy the Readme-what is this.txt file to the publish folder
 copy the BepInEx_win_x64_5.4.23.2.zip file to the publish folder
-zip the files of that folder into the zip file
+zip the files of that folder into the zip file named BazaarPlannerModInstaller-v{version}.zip
 tag the branch with the release version and add the zip file to the release assets

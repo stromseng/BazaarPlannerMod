@@ -44,7 +44,6 @@ public class Plugin : BaseUnityPlugin
     private static string _firebaseUrl = "https://bazaarplanner-default-rtdb.firebaseio.com/";
     private static Dictionary<string, List<string>> _baseItemTags;
     private const string GithubApiUrl = "https://api.github.com/repos/oceanseth/BazaarPlannerMod/releases/latest";
-    private static string InstallerPath => Path.Combine(Path.GetTempPath(), "BazaarPlannerModInstaller.zip");
 
     private static async Task SaveCombat()
     {        
@@ -774,6 +773,10 @@ public class Plugin : BaseUnityPlugin
             
             string batchContent = @$"
 @echo off
+echo Starting update process... >> %temp%\bp_update.log
+
+echo Temp directory path: {tempDir} >> %temp%\bp_update.log
+echo Download URL: {downloadUrl} >> %temp%\bp_update.log
 
 set /p result=<nul
 for /f %%i in ('powershell -command ""Add-Type -AssemblyName System.Windows.Forms; $result = [System.Windows.Forms.MessageBox]::Show('New version {latestVersion} of BazaarPlanner available. You are on version {MyPluginInfo.PLUGIN_VERSION}. Update now?', 'BazaarPlanner Update', 'YesNo', 'Question'); $result""') do set result=%%i
@@ -786,10 +789,23 @@ if ""%result%""==""No"" (
 )
 
 echo Creating temp directory... >> %temp%\bp_update.log
-mkdir ""{tempDir}"" 2>nul
+if exist ""{tempDir}"" (
+    echo Temp directory already exists >> %temp%\bp_update.log
+) else (
+    mkdir ""{tempDir}"" 2>> %temp%\bp_update.log
+    if errorlevel 1 (
+        echo Failed to create temp directory >> %temp%\bp_update.log
+        exit /b 1
+    )
+)
 
-echo Downloading update... >> %temp%\bp_update.log
-powershell -command ""(New-Object System.Net.WebClient).DownloadFile('{downloadUrl}', '{tempDir}\installer.zip')""
+echo Starting download... >> %temp%\bp_update.log
+powershell -command ""$ProgressPreference = 'SilentlyContinue'; (New-Object System.Net.WebClient).DownloadFile('{downloadUrl}', '{tempDir}\installer.zip')"" >> %temp%\bp_update.log 2>&1
+
+if not exist ""{tempDir}\installer.zip"" (
+    echo Download failed - installer.zip not found >> %temp%\bp_update.log
+    exit /b 1
+)
 
 :wait
 echo Waiting for TheBazaar to close... >> %temp%\bp_update.log
@@ -799,20 +815,24 @@ if not ERRORLEVEL 1 (
     goto wait
 )
 
-echo Extracting update... >> %temp%\bp_update.log
-powershell -command ""Expand-Archive -Path '{tempDir}\installer.zip' -DestinationPath '{tempDir}' -Force""
+echo Starting extraction... >> %temp%\bp_update.log
+powershell -command ""$ProgressPreference = 'SilentlyContinue'; Expand-Archive -Path '{tempDir}\installer.zip' -DestinationPath '{tempDir}' -Force"" >> %temp%\bp_update.log 2>&1
+
+if not exist ""{tempDir}\BazaarPlannerMod.dll"" (
+    echo Extraction failed - BazaarPlannerMod.dll not found >> %temp%\bp_update.log
+    exit /b 1
+)
 
 echo Cleaning up old files... >> %temp%\bp_update.log
-del /F ""{currentDllPath}\BazaarPlannerMod*.dll"" 2>nul
-
+del /F ""{currentDllPath}"" 2>> %temp%\bp_update.log
 
 echo Installing update... >> %temp%\bp_update.log
 set ""random_name=%random%%random%.dll""
-copy /Y ""{tempDir}\BazaarPlannerMod.dll"" ""{currentDllPath}\%random_name%""
+copy /Y ""{tempDir}\BazaarPlannerMod.dll"" ""{Path.GetDirectoryName(currentDllPath)}\%random_name%"" 2>> %temp%\bp_update.log
 
 echo Cleaning up... >> %temp%\bp_update.log
 timeout /t 2 /nobreak
-rmdir /S /Q ""{tempDir}""
+rmdir /S /Q ""{tempDir}"" 2>> %temp%\bp_update.log
 
 powershell -command ""Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('BazaarPlanner auto-update successful, you are now on version {latestVersion}, please relaunch game', 'BazaarPlanner Update')""
 
