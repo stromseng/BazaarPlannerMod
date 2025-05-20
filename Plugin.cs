@@ -61,7 +61,6 @@ public class Plugin : BaseUnityPlugin
             { "losses", runInfo.Losses },
             { "day", runInfo.Day },
             { "t", timestamp },
-            {runInfo.PlayMode ?"ranked":"",runInfo.PlayMode?"1":null},
             { "hero", runInfo.Hero },
             { "lastEncounter", _encounterId.ToString() },
             { $"encounters/{_encounterId}", new
@@ -72,6 +71,12 @@ public class Plugin : BaseUnityPlugin
                 v = _lastVictoryCondition==EVictoryCondition.Win ? 1 : 0
             }}
         };
+
+        // Add ranked field only if PlayMode is true
+        if (runInfo.PlayMode)
+        {
+            data["ranked"] = "1";
+        }
 
         await SaveToFirebase($"users/{uid}/runs/{runId}", data);
         _encounterId++;
