@@ -20,6 +20,7 @@ using System.Threading;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.Web;
 namespace BazaarPlannerMod;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
@@ -46,7 +47,7 @@ public class Plugin : BaseUnityPlugin
     private const string GithubApiUrl = "https://api.github.com/repos/oceanseth/BazaarPlannerMod/releases/latest";
 
     private static async Task SaveCombat()
-    {        
+    {
         string uid = UidConfig.Value;
         RunInfo runInfo = getRunInfo();
         string json = CreateBazaarPlannerJson(runInfo);
@@ -79,35 +80,35 @@ public class Plugin : BaseUnityPlugin
 
         await SaveToFirebase($"users/{uid}/runs/{runId}", data);
         _encounterId++;
-       // await SaveToFirebase($"users/{uid}/currentRun/id",runId);       
+        // await SaveToFirebase($"users/{uid}/currentRun/id",runId);       
     }
 
     private static async Task SaveToFirebase(string url, object data)
-    {        
-        try 
+    {
+        try
         {
             var token = await GetValidToken();
-            
+
             if (string.IsNullOrEmpty(UidConfig.Value) || string.IsNullOrEmpty(token))
             {
                 Console.WriteLine("Cannot save to BazaarPlanner: Missing UID or token");
                 return;
             }
-            
+
             using (var httpClient = new HttpClient())
             {
                 var jsonData = JsonConvert.SerializeObject(data);
                 Console.WriteLine($"Attempting to save to {url} with data: {jsonData}");
-                
+
                 var request = new HttpRequestMessage
                 {
                     Method = new HttpMethod("PATCH"),
                     RequestUri = new Uri($"{_firebaseUrl}{url}.json?auth={token}"),
                     Content = new StringContent(jsonData, Encoding.UTF8, "application/json")
                 };
-                
+
                 var response = await httpClient.SendAsync(request);
-                
+
                 var responseContent = await response.Content.ReadAsStringAsync();
                 if (response.IsSuccessStatusCode)
                 {
@@ -125,7 +126,8 @@ public class Plugin : BaseUnityPlugin
             Console.WriteLine($"Error in SaveToFirebase: {ex.Message}");
         }
     }
-     private static RunInfo getRunInfo() {
+    private static RunInfo getRunInfo()
+    {
         return new RunInfo
         {
             Wins = Data.Run.Victories,
@@ -148,7 +150,7 @@ public class Plugin : BaseUnityPlugin
             Name = Data.Profile?.Username,
             OppHealth = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.HealthMax),
             OppRegen = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.HealthRegen),
-            OppName = Data.Run.Opponent?.Hero==EHero.Common ? "PvE":Data.SimPvpOpponent?.Name,
+            OppName = Data.Run.Opponent?.Hero == EHero.Common ? "PvE" : Data.SimPvpOpponent?.Name,
             OppHero = Data.Run.Opponent?.Hero.ToString(),
             OppShield = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.Shield),
             OppGold = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.Gold),
@@ -156,22 +158,22 @@ public class Plugin : BaseUnityPlugin
             OppLevel = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.Level),
             OppPrestige = Data.Run.Opponent?.GetAttributeValue(EPlayerAttributeType.Prestige),
             RunId = _runId,
-            PlayMode = Data.SelectedPlayMode==EPlayMode.Ranked
+            PlayMode = Data.SelectedPlayMode == EPlayMode.Ranked
         };
     }
     private static string GetHashedRunId(string runId, string displayName)
-{
-    using (var hmac = new System.Security.Cryptography.HMACSHA256(System.Text.Encoding.UTF8.GetBytes(displayName)))
     {
-        byte[] hashBytes = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(runId));
-        // Convert to base64 and make URL-safe
-        return Convert.ToBase64String(hashBytes)
-            .Replace('+', '-')
-            .Replace('/', '_')
-            .Replace("=", "")
-            .Substring(0, 20); // Truncate to reasonable length
+        using (var hmac = new System.Security.Cryptography.HMACSHA256(System.Text.Encoding.UTF8.GetBytes(displayName)))
+        {
+            byte[] hashBytes = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(runId));
+            // Convert to base64 and make URL-safe
+            return Convert.ToBase64String(hashBytes)
+                .Replace('+', '-')
+                .Replace('/', '_')
+                .Replace("=", "")
+                .Substring(0, 20); // Truncate to reasonable length
+        }
     }
-}
 
     private static List<Card> GetItemsAsCards(IPlayerInventory container)
     {
@@ -221,7 +223,8 @@ public class Plugin : BaseUnityPlugin
             }).ToList(),
         });
 
-        if (runInfo.OppCards != null && runInfo.OppCards.Count > 0) {
+        if (runInfo.OppCards != null && runInfo.OppCards.Count > 0)
+        {
             result.Add(new
             {
                 name = "_b_t",
@@ -242,13 +245,13 @@ public class Plugin : BaseUnityPlugin
                 }).ToList()
             });
         }
-        result.Add(new 
+        result.Add(new
         {
             name = "_b_backpack"
         });
-        if(runInfo.OppStash != null && runInfo.OppStash.Count > 0)
+        if (runInfo.OppStash != null && runInfo.OppStash.Count > 0)
         {
-            result.Add(new 
+            result.Add(new
             {
                 name = "_b_tb"
             });
@@ -264,25 +267,25 @@ public class Plugin : BaseUnityPlugin
                 ["board"] = board,
                 ["tier"] = card.Tier
             };
-           
+
             // Only include tags if they differ from base item
             if (card.Tags != null && card.Tags.Count > 0 && HasNewTags(card.Name, card.Tags.Select(t => t.ToString()).ToList()))
             {
                 cardDict["tags"] = card.Tags.Select(t => t.ToString()).ToList();
             }
-            
+
             if (card.Attributes?.ContainsKey(ECardAttributeType.SellPrice) == true)
                 cardDict["valueFinal"] = card.Attributes[ECardAttributeType.SellPrice];
-            
+
             if (card.Attributes?.ContainsKey(ECardAttributeType.HealAmount) == true)
                 cardDict["healFinal"] = card.Attributes[ECardAttributeType.HealAmount];
-            
+
             if (card.Attributes?.ContainsKey(ECardAttributeType.CooldownMax) == true)
                 cardDict["cooldownFinal"] = card.Attributes[ECardAttributeType.CooldownMax];
-            
-            if (card.Attributes?.ContainsKey(ECardAttributeType.CritChance) == true && card.Attributes[ECardAttributeType.CritChance]>0)
+
+            if (card.Attributes?.ContainsKey(ECardAttributeType.CritChance) == true && card.Attributes[ECardAttributeType.CritChance] > 0)
                 cardDict["critFinal"] = card.Attributes[ECardAttributeType.CritChance];
-            
+
             if (card.Attributes?.ContainsKey(ECardAttributeType.BurnApplyAmount) == true)
                 cardDict["burnFinal"] = card.Attributes[ECardAttributeType.BurnApplyAmount];
             if (card.Attributes?.ContainsKey(ECardAttributeType.ShieldApplyAmount) == true)
@@ -291,25 +294,25 @@ public class Plugin : BaseUnityPlugin
                 cardDict["poisonFinal"] = card.Attributes[ECardAttributeType.PoisonApplyAmount];
             if (card.Attributes?.ContainsKey(ECardAttributeType.DamageAmount) == true)
                 cardDict["damageFinal"] = card.Attributes[ECardAttributeType.DamageAmount];
-            if (card.Attributes?.ContainsKey(ECardAttributeType.Lifesteal) == true && card.Attributes[ECardAttributeType.Lifesteal]>0)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.Lifesteal) == true && card.Attributes[ECardAttributeType.Lifesteal] > 0)
                 cardDict["lifestealFinal"] = card.Attributes[ECardAttributeType.Lifesteal];
             if (card.Attributes?.ContainsKey(ECardAttributeType.RegenApplyAmount) == true)
                 cardDict["regenFinal"] = card.Attributes[ECardAttributeType.RegenApplyAmount];
-            if (card.Attributes?.ContainsKey(ECardAttributeType.AmmoMax) == true && card.Attributes[ECardAttributeType.AmmoMax]>0)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.AmmoMax) == true && card.Attributes[ECardAttributeType.AmmoMax] > 0)
                 cardDict["ammoFinal"] = card.Attributes[ECardAttributeType.AmmoMax];
-            if(card.Attributes?.ContainsKey(ECardAttributeType.SlowAmount) == true)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.SlowAmount) == true)
                 cardDict["slowFinal"] = card.Attributes[ECardAttributeType.SlowAmount];
-            if(card.Attributes?.ContainsKey(ECardAttributeType.HasteAmount) == true)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.HasteAmount) == true)
                 cardDict["hasteFinal"] = card.Attributes[ECardAttributeType.HasteAmount];
-            if(card.Attributes?.ContainsKey(ECardAttributeType.FreezeAmount) == true)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.FreezeAmount) == true)
                 cardDict["freezeFinal"] = card.Attributes[ECardAttributeType.FreezeAmount];
-            if(card.Attributes?.ContainsKey(ECardAttributeType.Custom_0) == true)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.Custom_0) == true)
                 cardDict["Custom_0"] = card.Attributes[ECardAttributeType.Custom_0];
-            if(card.Attributes?.ContainsKey(ECardAttributeType.Custom_1) == true)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.Custom_1) == true)
                 cardDict["Custom_1"] = card.Attributes[ECardAttributeType.Custom_1];
-            if(card.Attributes?.ContainsKey(ECardAttributeType.Custom_2) == true)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.Custom_2) == true)
                 cardDict["Custom_2"] = card.Attributes[ECardAttributeType.Custom_2];
-            if(card.Attributes?.ContainsKey(ECardAttributeType.Custom_3) == true)
+            if (card.Attributes?.ContainsKey(ECardAttributeType.Custom_3) == true)
                 cardDict["Custom_3"] = card.Attributes[ECardAttributeType.Custom_3];
 
 
@@ -333,14 +336,14 @@ public class Plugin : BaseUnityPlugin
                 result.Add(CreateCardObject(card, "t"));
             }
         }
-        if(runInfo.OppStash != null)
+        if (runInfo.OppStash != null)
         {
             foreach (var card in runInfo.OppStash)
             {
                 result.Add(CreateCardObject(card, "tb"));
             }
         }
-        if(runInfo.Stash != null)
+        if (runInfo.Stash != null)
         {
             foreach (var card in runInfo.Stash)
             {
@@ -350,14 +353,125 @@ public class Plugin : BaseUnityPlugin
 
         return JsonConvert.SerializeObject(result);
     }
+    private static string CreateSimulatorStoreJson(RunInfo runInfo)
+    {
+        // Convert player data to PlayerConfig format
+        var playerConfig = new
+        {
+            type = "player",
+            health = runInfo.Health,
+            healthRegen = runInfo.Regen,
+            income = runInfo.Income,
+            gold = runInfo.Gold,
+            cards = runInfo.Cards?.Select(card => (object)new
+            {
+                cardId = card.TemplateId.ToString(),
+                tier = card.Tier.ToString(),
+                enchantment = !string.IsNullOrEmpty(card.Enchant) && card.Enchant != "None" ? card.Enchant : (object)null,
+                attributeOverrides = card.Attributes?.Count > 0 ?
+                    card.Attributes.ToDictionary(
+                        kvp => kvp.Key.ToString(),
+                        kvp => kvp.Value
+                    ) : null
+            }).ToList() ?? new List<object>(),
+            skills = runInfo.Skills?.Select(skill => (object)new
+            {
+                cardId = skill.TemplateId.ToString(),
+                tier = skill.Tier.ToString()
+            }).ToList() ?? new List<object>(),
+            stash = runInfo.Stash?.Select(card => (object)new
+            {
+                cardId = card.TemplateId.ToString(),
+                tier = card.Tier.ToString(),
+                enchantment = !string.IsNullOrEmpty(card.Enchant) && card.Enchant != "None" ? card.Enchant : (object)null,
+                attributeOverrides = card.Attributes?.Count > 0 ?
+                    card.Attributes.ToDictionary(
+                        kvp => kvp.Key.ToString(),
+                        kvp => kvp.Value
+                    ) : null
+            }).ToList() ?? new List<object>()
+        };
+
+        // Convert opponent data to PlayerConfig format if available, otherwise create empty enemy
+        object enemyConfig;
+        object selectedMonster;
+        if (runInfo.OppCards != null && runInfo.OppCards.Count > 0)
+        {
+            enemyConfig = new
+            {
+                type = "player",
+                health = runInfo.OppHealth,
+                healthRegen = runInfo.OppRegen,
+                income = runInfo.OppIncome,
+                gold = runInfo.OppGold,
+                cards = runInfo.OppCards?.Select(card => (object)new
+                {
+                    cardId = card.TemplateId.ToString(),
+                    tier = card.Tier.ToString(),
+                    enchantment = !string.IsNullOrEmpty(card.Enchant) && card.Enchant != "None" ? card.Enchant : (object)null,
+                    attributeOverrides = card.Attributes?.Count > 0 ?
+                        card.Attributes.ToDictionary(
+                            kvp => kvp.Key.ToString(),
+                            kvp => kvp.Value
+                        ) : null
+                }).ToList() ?? new List<object>(),
+                skills = runInfo.OppSkills?.Select(skill => (object)new
+                {
+                    cardId = skill.TemplateId.ToString(),
+                    tier = skill.Tier.ToString()
+                }).ToList() ?? new List<object>(),
+                stash = runInfo.OppStash?.Select(card => (object)new
+                {
+                    cardId = card.TemplateId.ToString(),
+                    tier = card.Tier.ToString(),
+                    enchantment = !string.IsNullOrEmpty(card.Enchant) && card.Enchant != "None" ? card.Enchant : (object)null,
+                    attributeOverrides = card.Attributes?.Count > 0 ?
+                        card.Attributes.ToDictionary(
+                            kvp => kvp.Key.ToString(),
+                            kvp => kvp.Value
+                        ) : null
+                }).ToList() ?? new List<object>()
+            };
+            selectedMonster = "custom";
+        }
+        else
+        {
+            // Create empty enemy config when no opponent data
+            enemyConfig = new
+            {
+                type = "player",
+                health = 400,
+                healthRegen = 0,
+                income = 0,
+                gold = 0,
+                cards = new List<object>(),
+                skills = new List<object>(),
+                stash = new List<object>()
+            };
+            selectedMonster = "custom";
+        }        // Create the simulator store format expected by bazaar-engine
+        var simulatorStore = new
+        {
+            state = new
+            {
+                playerConfig = playerConfig,
+                enemyConfig = enemyConfig,
+                selectedMonster = selectedMonster
+            },
+            version = 0
+        };
+
+        // Serialize to JSON and escape internal quotes with backslashes
+        string json = JsonConvert.SerializeObject(simulatorStore);
+        string escapedJson = json.Replace("\"", "\\\"");
+        return "\"" + escapedJson + "\"";
+    }
 
     static void OpenInBazaarPlanner(string compressedData)
     {
         try
         {
-    
             string url = $"https://www.bazaarplanner.com/#{compressedData}";
-            
             Application.OpenURL(url);
         }
         catch (Exception ex)
@@ -365,15 +479,28 @@ public class Plugin : BaseUnityPlugin
             Console.WriteLine($"Error opening BazaarPlanner: {ex.Message}");
         }
     }
-    
+    static void OpenInBazaarEngine(string jsonData)
+    {
+        try
+        {
+            string encodedData = System.Web.HttpUtility.UrlEncode(jsonData);
+            string url = $"https://bazaar-engine.vercel.app/#simulator={encodedData}";
+            Application.OpenURL(url);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error opening Bazaar Engine: {ex.Message}");
+        }
+    }
+
     protected virtual void Awake()
     {
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
         _harmony.PatchAll();
-        
+
         // Add version check on startup
         CheckForUpdates();
-        
+
         // Load config
         BPConfig = new ConfigFile(Path.Combine(Paths.ConfigPath, "BazaarPlanner.cfg"), true);
         try
@@ -384,7 +511,7 @@ public class Plugin : BaseUnityPlugin
             TokenConfig = BPConfig.Bind("Authentication", "Token", "", "Firebase ID Token");
             RefreshTokenConfig = BPConfig.Bind("Authentication", "RefreshToken", "", "Firebase Refresh Token");
             DisplayNameConfig = BPConfig.Bind("Authentication", "DisplayName", "", "Display Name");
-            
+
             Console.WriteLine("Configurations initialized successfully");
         }
         catch (Exception ex)
@@ -405,21 +532,21 @@ public class Plugin : BaseUnityPlugin
             using (var reader = new StreamReader(stream))
             {
                 string content = reader.ReadToEnd();
-                
+
                 // Remove the "export const items = " part and any trailing semicolon
                 content = content.Replace("export const items =", "")
                                 .Trim()
                                 .TrimEnd(';');
-                
+
                 // Deserialize to dynamic to easily access the nested structure
                 var items = JObject.Parse(content);
-                
+
                 // Create a simplified dictionary with just the tags
                 _baseItemTags = items.Properties().ToDictionary(
                     prop => prop.Name,
                     prop => prop.Value["tags"].Select(t => t.ToString()).ToList()
                 );
-                
+
                 Logger.LogInfo($"Loaded tags for {_baseItemTags.Count} base items");
             }
         }
@@ -447,28 +574,30 @@ public class Plugin : BaseUnityPlugin
         List<RunInfo.CardInfo> cardInfos = new List<RunInfo.CardInfo>();
         foreach (var card in cards)
         {
-                cardInfos.Add(new RunInfo.CardInfo
-                {
-                    TemplateId = card.TemplateId,
-                    Tier = card.Tier,
-                    Left = card.LeftSocketId,
-                    Instance = card.GetInstanceId(),
-                    Attributes = card.Attributes,
-                    Tags = card.Tags,
-                    Name = card.Template?.InternalName,
-                    Enchant = card.GetEnchantment().ToString()                    
-                });
+            cardInfos.Add(new RunInfo.CardInfo
+            {
+                TemplateId = card.TemplateId,
+                Tier = card.Tier,
+                Left = card.LeftSocketId,
+                Instance = card.GetInstanceId(),
+                Attributes = card.Attributes,
+                Tags = card.Tags,
+                Name = card.Template?.InternalName,
+                Enchant = card.GetEnchantment().ToString()
+            });
         }
         return cardInfos;
     }
-
     [HarmonyPatch(typeof(BoardManager), "Update")]
     class Update
     {
         [HarmonyPrefix]
         static void Prefix()
         {
-            if (!Input.GetKeyDown(KeyCode.B))
+            bool bKeyPressed = Input.GetKeyDown(KeyCode.B);
+            bool shiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+            if (!bKeyPressed)
             {
                 return;
             }
@@ -481,9 +610,20 @@ public class Plugin : BaseUnityPlugin
             _lastSentTime = DateTime.Now;
 
             RunInfo runInfo = getRunInfo();
-            string json = CreateBazaarPlannerJson(runInfo);
-            string compressed = LZString.CompressToEncodedURIComponent(json);
-            Task.Run(() => OpenInBazaarPlanner(compressed));
+
+            if (shiftPressed)
+            {
+                // Shift+B: Open in new bazaar-engine simulator
+                string simulatorJson = CreateSimulatorStoreJson(runInfo);
+                Task.Run(() => OpenInBazaarEngine(simulatorJson));
+            }
+            else
+            {
+                // B: Open in original bazaar planner (backward compatibility)
+                string json = CreateBazaarPlannerJson(runInfo);
+                string compressed = LZString.CompressToEncodedURIComponent(json);
+                Task.Run(() => OpenInBazaarPlanner(compressed));
+            }
         }
     }
 
@@ -531,8 +671,8 @@ public class Plugin : BaseUnityPlugin
 
     private static async Task<string> GetValidToken()
     {
-        try 
-        {           
+        try
+        {
             DateTime tokenExpiry;
             if (!DateTime.TryParse(TokenExpiryConfig.Value, out tokenExpiry))
             {
@@ -542,7 +682,7 @@ public class Plugin : BaseUnityPlugin
             //Console.WriteLine($"Current token expires: {tokenExpiry}");
             if (DateTime.Now < tokenExpiry && !string.IsNullOrEmpty(TokenConfig.Value))
             {
-              //  Console.WriteLine("Using existing valid token");
+                //  Console.WriteLine("Using existing valid token");
                 return TokenConfig.Value;
             }
 
@@ -560,14 +700,14 @@ public class Plugin : BaseUnityPlugin
                     { "grant_type", "refresh_token" },
                     { "refresh_token", RefreshTokenConfig.Value }
                 });
-              //  Console.WriteLine("Content: " + content + " and " + FirebaseApiKey);
+                //  Console.WriteLine("Content: " + content + " and " + FirebaseApiKey);
 
                 var response = await client.PostAsync(
                     $"https://securetoken.googleapis.com/v1/token?key={FirebaseApiKey}",
                     content
                 );
 
-//                Console.WriteLine($"Token refresh response status: {response.StatusCode}");
+                //                Console.WriteLine($"Token refresh response status: {response.StatusCode}");
                 if (!response.IsSuccessStatusCode)
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
@@ -585,7 +725,9 @@ public class Plugin : BaseUnityPlugin
                     TokenExpiryConfig.Value = DateTime.Now.AddHours(1).ToString();
 
                     return TokenConfig.Value;
-                } else {
+                }
+                else
+                {
                     Console.WriteLine("Failed to refresh token: " + response.ReasonPhrase);
                 }
             }
@@ -596,7 +738,7 @@ public class Plugin : BaseUnityPlugin
             return null;
         }
         return null;
-    }    
+    }
 
     private static string _lastMessageId = "";
 
@@ -606,9 +748,9 @@ public class Plugin : BaseUnityPlugin
         [HarmonyPrefix]
         static void Prefix(NetMessageCombatSim message, CancellationTokenSource cancellationToken)
         {
-            if(_lastMessageId == message.MessageId) return;
+            if (_lastMessageId == message.MessageId) return;
             _lastMessageId = message.MessageId;
-            if(UidConfig.Value == null || UidConfig.Value == "") return;
+            if (UidConfig.Value == null || UidConfig.Value == "") return;
             _lastVictoryCondition = message.Data.Winner == ECombatantId.Player ? EVictoryCondition.Win : EVictoryCondition.Lose;
             Task.Run(() => SaveCombat());
         }
@@ -642,18 +784,18 @@ public class Plugin : BaseUnityPlugin
     public static class UpdatePlayerInterceptPatch
     {
         [HarmonyPrefix]
-        static bool Prefix(HeroBannerController __instance, ref string userName, ref int nameId, 
+        static bool Prefix(HeroBannerController __instance, ref string userName, ref int nameId,
             ref string titlePrefix, ref string titleSuffix, TheBazaar.ProfileData.ISeasonRank currentSeasonRank, int? leaderboardPosition)
         {
             // Check if this is for our player
-            if(userName != Data.Profile?.Username) return true; // Let original method run unmodified
-            if(UidConfig.Value == null || UidConfig.Value == "") return true;
+            if (userName != Data.Profile?.Username) return true; // Let original method run unmodified
+            if (UidConfig.Value == null || UidConfig.Value == "") return true;
 
             // Modify the parameters
             userName = DisplayNameConfig.Value;
             nameId = 0;
             // You can modify other parameters here as needed
-            
+
             // Return true to let the original method run with our modified parameters
             // Return false if you want to skip the original method entirely
             return true;
@@ -664,32 +806,34 @@ public class Plugin : BaseUnityPlugin
     public static class SetHeroNamePatch
     {
         [HarmonyPrefix]
-        static bool Prefix(ref string newName, ref int usernameId) {
-            if(newName != Data.Profile?.Username) return true;
-            if(UidConfig.Value == null || UidConfig.Value == "") return true;
-            
+        static bool Prefix(ref string newName, ref int usernameId)
+        {
+            if (newName != Data.Profile?.Username) return true;
+            if (UidConfig.Value == null || UidConfig.Value == "") return true;
+
             newName = DisplayNameConfig.Value;
             usernameId = 0;
             return true;
         }
     }
-    
+
 
     [HarmonyPatch(typeof(BoardManager), "UpdateBoard")]
-    public static class UpdateBoardPatch 
+    public static class UpdateBoardPatch
     {
         [HarmonyPostfix]
         static void Postfix()
-        {            
+        {
             //Data.Profile.Username = DisplayNameConfig.Value;
-            if(UidConfig.Value == null || UidConfig.Value == "") return;
+            if (UidConfig.Value == null || UidConfig.Value == "") return;
             RunInfo runInfo = getRunInfo();
             string json = CreateBazaarPlannerJson(runInfo);
-            if(json == _lastBoardState) return;
+            if (json == _lastBoardState) return;
 
             _lastBoardState = json;
             string compressed = LZString.CompressToEncodedURIComponent(json);
-            var saveData = new {
+            var saveData = new
+            {
                 id = runInfo.RunId,
                 d = compressed
             };
@@ -704,15 +848,17 @@ public class Plugin : BaseUnityPlugin
                 // Cancel pending update and schedule new one
                 _updateCancellationToken.Cancel();
                 _updateCancellationToken = new CancellationTokenSource();
-                
+
                 Task.Delay(1000, _updateCancellationToken.Token)
-                    .ContinueWith(t => {
-                        if (!t.IsCanceled) {
+                    .ContinueWith(t =>
+                    {
+                        if (!t.IsCanceled)
+                        {
                             Task.Run(() => SaveToFirebase($"users/{UidConfig.Value}/currentrun", compressed));
                             _updateCancellationToken = null;
                         }
                     }, TaskContinuationOptions.OnlyOnRanToCompletion);
-            }            
+            }
         }
     }
 
@@ -725,26 +871,28 @@ public class Plugin : BaseUnityPlugin
             {
                 // Add required headers for GitHub API
                 client.DefaultRequestHeaders.Add("User-Agent", "BazaarPlannerMod");
-                
+
                 var response = await client.GetStringAsync(GithubApiUrl);
                 Logger.LogInfo("Got reponse from github: " + response);
                 var releaseInfo = JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
-                
+
                 string latestVersion = releaseInfo["tag_name"].ToString().TrimStart('v');
                 string currentVersion = MyPluginInfo.PLUGIN_VERSION;
-                
+
                 if (IsNewerVersion(latestVersion, currentVersion))
-                {                    
+                {
                     // Get the installer download URL
                     var assets = ((JArray)releaseInfo["assets"]);
                     var installerAsset = assets.FirstOrDefault(a => ((JObject)a)["name"].ToString().Contains("Installer"));
-                    
+
                     if (installerAsset != null)
                     {
                         string downloadUrl = ((JObject)installerAsset)["browser_download_url"].ToString();
                         await DownloadAndStartInstaller(downloadUrl, latestVersion);
                     }
-                } else {
+                }
+                else
+                {
                     Logger.LogInfo("No updates available, you are on version " + currentVersion + " and latest version is " + latestVersion);
                 }
             }
@@ -770,7 +918,7 @@ public class Plugin : BaseUnityPlugin
             string batchPath = Path.Combine(Path.GetTempPath(), "UpdateBazaarPlanner.bat");
             string currentDllPath = Assembly.GetExecutingAssembly().Location;
             string tempDir = Path.Combine(Path.GetTempPath(), "BazaarPlannerUpdate");
-            
+
             string batchContent = @$"
 @echo off
 echo Starting update process... >> %temp%\bp_update.log
@@ -842,11 +990,12 @@ del ""%~f0""
 
             // Start the batch file and wait for it to complete
             var process = Process.Start(batchPath);
-            await Task.Run(() => {
+            await Task.Run(() =>
+            {
                 process.WaitForExit();
                 return process.ExitCode;
             });
-          
+
         }
         catch (Exception ex)
         {

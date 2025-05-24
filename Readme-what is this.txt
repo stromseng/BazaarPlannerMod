@@ -35,7 +35,9 @@ By default this is C:\Program Files\Tempo Launcher - Beta\The Bazaar game_64\baz
 
 3. copy BazaarPlannerMod.dll to C:\Program Files\Tempo Launcher - Beta\The Bazaar game_64\bazaarwinprodlatest\BepInEx\plugins
 
-Starting the game will now create files and allow you to press 'b' to load your board into bazaarplanner.
+Starting the game will now create files and allow you to:
+- Press 'B' to load your board into bazaarplanner.com
+- Press 'Shift+B' to load your board into bazaar-engine.vercel.app
 BUT! There's more. If you want to follow and track your runs, you'll need to continue.
 
 4. Go to bazaarplanner.com and click the gear icon in the top right, login if needed, and click Export BazaarPlanner.config
